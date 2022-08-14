@@ -1,6 +1,6 @@
 function AppTitle({ titleText } : {titleText: string}):JSX.Element{
     return(
-        <h2>{titleText}</h2>
+        <h2 className="appTitle">{titleText}</h2>
     );  
 }
 
