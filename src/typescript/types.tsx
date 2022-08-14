@@ -1,3 +1,5 @@
+import Table from "../classes/Table";
+
 export type LayoutProps = HeaderProps;
 
 
@@ -26,3 +28,29 @@ export type ColorModeSwitchProps = { handleColorModeChange: HeaderProps['handleC
 export type SortByProps = { tableSortCriteria: HeaderProps['tableSortCriteria']; handleTableSortCriteriaChnage: HeaderProps['handleTableSortCriteriaChange'] };
 
 export type SearchProps = { tableSearchTerm: HeaderProps['tableSearchTerm']; handleTableSearch: HeaderProps["handleTableSearch"]; }
+
+
+//-------------------------User_class-------------------------------//
+
+
+
+
+//--------------------------Table_class----------------------------//
+
+
+
+//-------------Color_class----------------------------//
+
+export type RGBValue = {
+    r: number;
+    g: number;
+    b: number;
+}
+
+export type HSLValue = {
+    
+}
+
+export type ConvertedColorValue = RGBValue | HSLValue;
+
+//export type ColorEditParams = { oldColorName: string, name: string, rgbValue: RGBValue};
