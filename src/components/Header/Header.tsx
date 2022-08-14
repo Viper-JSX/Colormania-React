@@ -1,14 +1,11 @@
+import { HeaderProps } from "../../typescript/types";
 import AppTitle from "./App_title";
 
-type HeaderProps = {
-    handleColorModeChange?: () => void;
-};
 
-
-function Header({ handleColorModeChange } : HeaderProps):JSX.Element{
+function Header({ appTitle, handleColorModeChange } : HeaderProps):JSX.Element{
     return(
         <header>
-            <AppTitle titleText="Color Picker by Yura Shtefanko" />
+            <AppTitle titleText={appTitle || "Color Picker by Yura Shtefanko"} />
         </header>
     );
 }
