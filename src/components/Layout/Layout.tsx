@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Router } from "react-router";
 import { stringToUrl } from "../../api/string_to_url";
 import Color from "../../classes/Color";
 import TableClass from "../../classes/Table";
@@ -9,6 +9,7 @@ import Header from "../Header/Header";
 import HomePage from "../Home_page/Home_page";
 import Table from "../Tables/Table";
 import Tables from "../Tables/Tables";
+import UserProfile from "../User/User_profile";
 
 const tables:TableClass[] = [
     new TableClass("tablename", new Date()), 
@@ -25,7 +26,7 @@ function Layout({ appTitle, handleColorModeChange, handleTableSortCriteriaChange
         <div id="layout">
             <Header />
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
+                    <Route index element={<HomePage />} />
                     <Route path="/tables" element={<Tables tables={tables} />} />
                     {
                         tables.map((table) =>
@@ -33,7 +34,8 @@ function Layout({ appTitle, handleColorModeChange, handleTableSortCriteriaChange
                         )            
                     }
 
-                    <Route path="/user" />
+                    <Route path="/user" element={<UserProfile />} />
+                    <Route path="*" element={<b>Page not found</b>} />
                 </Routes>
 
             <Footer />
