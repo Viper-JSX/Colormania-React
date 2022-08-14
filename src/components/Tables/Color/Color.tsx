@@ -13,8 +13,7 @@ const StyledColor = styled.div<StyledColorProps>`
     aspect-ratio: 1/1;
     background-color: rgb(${(props) => props?.colorRgbValue.r }, ${(props) => props?.colorRgbValue.g}, ${(props) => props?.colorRgbValue.b} );
     border: 2px solid black;
-    transition: 0.2s;
-
+    
     &:hover > .colorInfoLabel{
         opacity: 1;
     }
