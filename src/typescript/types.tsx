@@ -15,8 +15,8 @@ export type HeaderProps = {
 };
 
 export type FilterToolsProps = {
-    tableSearchTerm: HeaderProps['tableSearchTerm'];
-    tableSortCriteria: HeaderProps['tableSortCriteria'];
+    tableSearchTerm?: HeaderProps['tableSearchTerm'];
+    tableSortCriteria?: HeaderProps['tableSortCriteria'];
 
     handleColorModeChange: HeaderProps['handleColorModeChange'];
     handleTableSortCriteriaChange: HeaderProps['handleTableSortCriteriaChange'];
@@ -25,9 +25,9 @@ export type FilterToolsProps = {
 
 export type ColorModeSwitchProps = { handleColorModeChange: HeaderProps['handleColorModeChange']; }
 
-export type SortByProps = { tableSortCriteria: HeaderProps['tableSortCriteria']; handleTableSortCriteriaChnage: HeaderProps['handleTableSortCriteriaChange'] };
+export type SortByProps = { tableSortCriteria?: HeaderProps['tableSortCriteria']; handleTableSortCriteriaChnage: HeaderProps['handleTableSortCriteriaChange'] };
 
-export type SearchProps = { tableSearchTerm: HeaderProps['tableSearchTerm']; handleTableSearch: HeaderProps["handleTableSearch"]; }
+export type SearchProps = { tableSearchTerm?: HeaderProps['tableSearchTerm']; handleTableSearch: HeaderProps["handleTableSearch"]; }
 
 
 //-------------------------User_class-------------------------------//
