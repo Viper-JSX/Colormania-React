@@ -48,7 +48,9 @@ export type RGBValue = {
 }
 
 export type HSLValue = {
-    
+    h: number;
+    s: number;
+    l: number;
 }
 
 export type ConvertedColorValue = RGBValue | HSLValue;

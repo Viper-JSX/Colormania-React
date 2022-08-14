@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+import { stringToUrl } from "../../api/string_to_url";
 import TableClass from "../../classes/Table";
 import Table from "./Table";
 
@@ -7,7 +9,7 @@ function Tables({ tables } : {tables: TableClass[]}):JSX.Element{
             <b>Tables</b>
 
             {
-                tables.map((table) => <Table table={table} key={`${table.name}_table`} /> )
+                tables.map((table) => <NavLink to={stringToUrl(table.name)}>{table.name}</NavLink> )
             }
         </div>
     );
