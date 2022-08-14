@@ -32,6 +32,7 @@ function ColorValueInfo({ colorValue } : {colorValue: ConvertedColorValue}):JSX.
             </div>
         );
     }
+    return (<></>);
 
 };
 
