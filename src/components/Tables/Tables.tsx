@@ -7,7 +7,7 @@ function Tables({ tables } : {tables: TableClass[]}):JSX.Element{
             <b>Tables</b>
 
             {
-                tables.map((table) => <Table table={table} /> )
+                tables.map((table) => <Table table={table} key={`${table.name}_table`} /> )
             }
         </div>
     );

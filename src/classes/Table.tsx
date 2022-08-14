@@ -9,6 +9,7 @@ class Table{
     constructor(name: string, creationDate: Date){
         this.name = name;
         this.date = creationDate;
+        
     }
 
     edit( oldTableName?: string, newTableName?: string ):void{
