@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import thunk from 'redux-thunk'
-import { rootReducer } from './reducers'
+import { rootReducer, tablesFilter } from './reducers'
 
-const store = configureStore({ reducer: rootReducer, middleware: [thunk]})
+console.log(rootReducer)
+export const store = configureStore({ reducer: rootReducer, middleware: [thunk]})

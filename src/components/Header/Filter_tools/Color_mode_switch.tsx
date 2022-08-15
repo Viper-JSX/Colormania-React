@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
 import { ColorModeSwitchProps } from "../../../typescript/types";
 
 function ColorModeSwitch({ handleColorModeChange } : ColorModeSwitchProps):JSX.Element{
+    const colorMode = useSelector((state : any) => state.tablesFilter.colorMode);
+
     return(
-        <select className="colorModeSwitch">
+        <select className="colorModeSwitch" value={colorMode}>
             <optgroup>
                 <option value="rgb">RGB</option>
                 <option value="hsl">HSL</option>

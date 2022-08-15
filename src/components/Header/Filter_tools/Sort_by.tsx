@@ -1,8 +1,12 @@
+import { useSelector } from "react-redux";
+
 import { SortByProps } from "../../../typescript/types";
 
 function SortBy({ tableSortCriteria, handleTableSortCriteriaChnage } : SortByProps):JSX.Element{
+    const sortBy = useSelector((state : any) => state.tablesFilter.sortBy);
+
     return(
-        <select>
+        <select value={sortBy}>
             <optgroup>
                 <option value="date">Name</option>
                 <option value="name">Date</option>
