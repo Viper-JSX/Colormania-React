@@ -8,6 +8,7 @@ import UserClass from "../classes/User";
 const defaultTable = new TableClass("Initial table", new Date());
 
 function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: "", filteredTables: [defaultTable]}, action: ActionType):TableFilterState{
+    console.log(state)
     return state;
 }
 
