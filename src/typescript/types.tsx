@@ -7,28 +7,28 @@ export type LayoutProps = HeaderProps;
 //-----------------Header-----------------
 export type HeaderProps = {
     appTitle?: string;
-    tableSearchTerm?: string;
-    tableSortCriteria?: string;
+    tablesSearchTerm?: string;
+    tablesSortCriteria?: string;
 
     handleColorModeChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-    handleTableSortCriteriaChange?: () => void;
-    handleTableSearch?: () => void;
+    handleTablesSortCriteriaChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    handleTablesSearch?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export type FilterToolsProps = {
-    tableSearchTerm?: HeaderProps['tableSearchTerm'];
-    tableSortCriteria?: HeaderProps['tableSortCriteria'];
+    tablesSearchTerm?: HeaderProps['tablesSearchTerm'];
+    tablesSortCriteria?: HeaderProps['tablesSortCriteria'];
 
     handleColorModeChange: HeaderProps['handleColorModeChange'];
-    handleTableSortCriteriaChange: HeaderProps['handleTableSortCriteriaChange'];
-    handleTableSearch: HeaderProps['handleTableSearch'];
+    handleTablesSortCriteriaChange: HeaderProps['handleTablesSortCriteriaChange'];
+    handleTablesSearch: HeaderProps['handleTablesSearch'];
 };
 
 export type ColorModeSwitchProps = { handleColorModeChange: HeaderProps['handleColorModeChange']; }
 
-export type SortByProps = { tableSortCriteria?: HeaderProps['tableSortCriteria']; handleTableSortCriteriaChnage: HeaderProps['handleTableSortCriteriaChange'] };
+export type SortByProps = { tablesSortCriteria?: HeaderProps['tablesSortCriteria']; handleTablesSortCriteriaChnage: HeaderProps['handleTablesSortCriteriaChange'] };
 
-export type SearchProps = { tableSearchTerm?: HeaderProps['tableSearchTerm']; handleTableSearch: HeaderProps["handleTableSearch"]; }
+export type SearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; handleTablesSearch: HeaderProps["handleTablesSearch"]; }
 
 
 //-------------------------User_class-------------------------------//
@@ -76,4 +76,4 @@ export type TableFilterState = {
 }
 
 export type ChangeColorModePayload = "rgb" | "hsl";
-export type ChangeTablesSortTermPayload = "name" | "date";
+export type ChangeTablessortCriteriaPayload = "name" | "date";

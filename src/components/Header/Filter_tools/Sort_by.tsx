@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { SortByProps } from "../../../typescript/types";
 
-function SortBy({ tableSortCriteria, handleTableSortCriteriaChnage } : SortByProps):JSX.Element{
+function SortBy({ tablesSortCriteria, handleTablesSortCriteriaChnage } : SortByProps):JSX.Element{
     const sortBy = useSelector((state : any) => state.tablesFilter.sortBy);
 
     return(

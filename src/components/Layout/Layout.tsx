@@ -21,7 +21,7 @@ tables[0].addColor(new Color("dark", new Date(), { r: 10, g: 10, b: 10 }))
 
 tables.map((table) => console.log(stringToUrl(table.name)));
 
-function Layout({ appTitle, handleColorModeChange, handleTableSortCriteriaChange, handleTableSearch } : LayoutProps):JSX.Element{
+function Layout({ appTitle, handleColorModeChange, handleTablesSortCriteriaChange, handleTablesSearch } : LayoutProps):JSX.Element{
     return(
         <div id="layout">
             <Header handleColorModeChange={handleColorModeChange} />
