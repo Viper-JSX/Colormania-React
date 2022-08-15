@@ -5,7 +5,7 @@ function Search({ tablesSearchTerm, handleTablesSearch } : SearchProps):JSX.Elem
     const searchTerm = useSelector((state : any) => state.tablesFilter.searchTerm);
 
     return(
-        <input type="text" value={searchTerm} />
+        <input type="text" value={tablesSearchTerm} onChange={handleTablesSearch} />
     );
 }
 

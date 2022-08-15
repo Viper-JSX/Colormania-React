@@ -24,7 +24,11 @@ tables.map((table) => console.log(stringToUrl(table.name)));
 function Layout({ appTitle, handleColorModeChange, handleTablesSortCriteriaChange, handleTablesSearch } : LayoutProps):JSX.Element{
     return(
         <div id="layout">
-            <Header handleColorModeChange={handleColorModeChange} />
+            <Header 
+                handleColorModeChange={handleColorModeChange}
+                handleTablesSortCriteriaChange={handleTablesSortCriteriaChange}
+                handleTablesSearch={handleTablesSearch}
+            />
                 <Routes>
                     <Route index element={<HomePage />} />
                     <Route path="/tables" element={<Tables tables={tables} />} />

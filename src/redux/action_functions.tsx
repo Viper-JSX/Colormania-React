@@ -1,5 +1,5 @@
 import { ActionType, ChangeColorModePayload, ChangeTablessortCriteriaPayload } from "../typescript/types";
-import { CHANGE_COLOR_MODE, CHANGE_TABLES_SEARCH_TERM, CHANGE_TABLES_SORT_FILTER, RUN_TABLES_FILTER } from "./action_types";
+import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, RUN_TABLES_FILTER } from "./action_types";
 
 //export function changeColorMode(payload: ChangeColorModePayload):ActionType{
 //    return({ type: CHANGE_COLOR_MODE, payload: payload })
@@ -10,7 +10,7 @@ import { CHANGE_COLOR_MODE, CHANGE_TABLES_SEARCH_TERM, CHANGE_TABLES_SORT_FILTER
 //}
 //
 //export function changeTablesSearchTerm(payload: string){
-//    return { type: CHANGE_TABLES_SEARCH_TERM, payload: payload };
+//    return { type: RUN_TABLES_SEARCH, payload: payload };
 //}
 //
 //export function runTablesFilter():ActionType{

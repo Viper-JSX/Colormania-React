@@ -6,7 +6,7 @@ function SortBy({ tablesSortCriteria, handleTablesSortCriteriaChnage } : SortByP
     const sortBy = useSelector((state : any) => state.tablesFilter.sortBy);
 
     return(
-        <select value={sortBy}>
+        <select value={tablesSortCriteria} onChange={handleTablesSortCriteriaChnage}>
             <optgroup>
                 <option value="date">Name</option>
                 <option value="name">Date</option>

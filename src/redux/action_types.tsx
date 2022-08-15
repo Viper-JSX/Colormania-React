@@ -1,6 +1,6 @@
 export const CHANGE_COLOR_MODE: string = "CHANGE_COLOR_MODE";
-export const CHANGE_TABLES_SORT_FILTER: string = "CHANGE_TABLES_SORT_FILTER";
-export const CHANGE_TABLES_SEARCH_TERM: string = "CHANGE_TABLES_SEARCH_TERM";
+export const CHANGE_TABLES_SORT_CRITERIA: string = "CHANGE_TABLES_SORT_CRITERIA";
+export const RUN_TABLES_SEARCH: string = "RUN_TABLES_SEARCH";
 export const RUN_TABLES_FILTER: string = "RUN_TABLES_FILTER";
 
 //export const : string

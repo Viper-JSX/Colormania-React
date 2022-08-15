@@ -16,7 +16,7 @@ function App() {
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
         if(event.target.value === "name" || event.target.value === "date"){
-        dispatch(chnageTablessortCriteria(event.target.value));
+            dispatch(chnageTablessortCriteria(event.target.value));
         }
     }
 
@@ -31,6 +31,7 @@ function App() {
             <Layout
                 handleColorModeChange={handleColorModeChange}
                 handleTablesSortCriteriaChange={handleTablesSortCriteriaChnage}
+                handleTablesSearch={handleTablesSearch}
             />
         </div>
     );
