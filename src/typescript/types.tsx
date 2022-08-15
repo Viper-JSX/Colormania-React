@@ -1,6 +1,7 @@
 import React from "react";
 import TableClass from "../classes/Table";
 
+
 export type LayoutProps = HeaderProps;
 
 
@@ -68,12 +69,13 @@ export type ActionType = {
     payload?: any;
 }
 
+export type ChangeColorModePayload = { colorMode: "rgb" | "hsl", tablesToFilter: TableClass[] };
+export type ChangeTablesSortCriteriaPayload = { sortCriteria: "name" | "date", tablesToFilter: TableClass[] };
+export type ChangeTablesSearcTermhPayload = { searchTerm: string, tablesToFilter: TableClass[] };
+
 export type TableFilterState = {
     colorMode: "rgb" | "hsl";
     sortBy: "name" | "date";
     searchTerm: string;
     filteredTables: TableClass[];
 }
-
-export type ChangeColorModePayload = "rgb" | "hsl";
-export type ChangeTablessortCriteriaPayload = "name" | "date";

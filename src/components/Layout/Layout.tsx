@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Routes, Route, Router } from "react-router";
 import { stringToUrl } from "../../api/string_to_url";
 import Color from "../../classes/Color";
@@ -11,17 +12,9 @@ import Table from "../Tables/Table";
 import Tables from "../Tables/Tables";
 import UserProfile from "../User/User_profile";
 
-const tables:TableClass[] = [
-    new TableClass("tablename", new Date()), 
-    new TableClass("maleNa da xla", new Date()), 
-    new TableClass("somebody stupid", new Date()) 
-];
-
-tables[0].addColor(new Color("dark", new Date(), { r: 10, g: 10, b: 10 }))
-
-tables.map((table) => console.log(stringToUrl(table.name)));
-
 function Layout({ appTitle, handleColorModeChange, handleTablesSortCriteriaChange, handleTablesSearch } : LayoutProps):JSX.Element{
+    const tablesToRender = useSelector((state: any) => state.tablesFilter.filteredTables);
+    
     return(
         <div id="layout">
             <Header 
@@ -31,9 +24,9 @@ function Layout({ appTitle, handleColorModeChange, handleTablesSortCriteriaChang
             />
                 <Routes>
                     <Route index element={<HomePage />} />
-                    <Route path="/tables" element={<Tables tables={tables} />} />
+                    <Route path="/tables" element={<Tables tables={tablesToRender} />} />
                     {
-                        tables.map((table) =>
+                        tablesToRender.map((table:TableClass) =>
                             <Route path={`/tables/${stringToUrl(table.name)}`} element={<Table table={table} />}  key={`${table.name}_table`}/>
                         )            
                     }

@@ -1,3 +1,4 @@
+import initialColorTables from "../various_things/initial_color_tables";
 import Table from "./Table";
 
 class User{
@@ -7,11 +8,11 @@ class User{
     authorized: boolean; //If user has account then login and password are set, if user is in guest mode, then login and password are set to "";
     tables: Table[];
     
-    constructor(nickname: string, login: string, password: string, tables: Table[]){
+    constructor(nickname: string, login: string, password: string){
         this.nickname = nickname;
         this.login = login;
         this.password = password;
-        this.tables = tables;
+        this.tables = initialColorTables;
         this.authorized = login && password ? true : false
     }
 

@@ -2,26 +2,27 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import Layout from './components/Layout/Layout';
-import { changeTablesSearchTerm, chnageColorMode, chnageTablessortCriteria } from './redux/thunks';
-import { ChangeColorModePayload, ChangeTablessortCriteriaPayload } from './typescript/types';
+import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria } from './redux/thunks';
+import { ChangeColorModePayload, ChangeTablesSortCriteriaPayload } from './typescript/types';
 
 function App() {
     const dispatch = useDispatch();
-    
+    const tablesToFilter = useSelector((state: any) => state.user.tables)
+
     function handleColorModeChange(event : (React.ChangeEvent<HTMLSelectElement> )){
         if(event.target.value === "rgb" || event.target.value === "hsl"){
-            dispatch(chnageColorMode(event.target.value));
+            dispatch(chnageColorMode({ colorMode: event.target.value, tablesToFilter }));
         }
     }
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
         if(event.target.value === "name" || event.target.value === "date"){
-            dispatch(chnageTablessortCriteria(event.target.value));
+            dispatch(changeTablesSortCriteria({ sortCriteria: event.target.value, tablesToFilter }));
         }
     }
 
     function handleTablesSearch(event: React.ChangeEvent<HTMLInputElement>){
-        dispatch(changeTablesSearchTerm(event.target.value))
+        dispatch(changeTablesSearchTerm({ searchTerm: event.target.value, tablesToFilter }))
     }
 
     console.log(useSelector((state) => state));

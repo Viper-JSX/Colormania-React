@@ -1,4 +1,4 @@
-import { ActionType, ChangeColorModePayload, ChangeTablessortCriteriaPayload } from "../typescript/types";
+import { ActionType, ChangeColorModePayload, ChangeTablesSortCriteriaPayload } from "../typescript/types";
 import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, RUN_TABLES_FILTER } from "./action_types";
 
 //export function changeColorMode(payload: ChangeColorModePayload):ActionType{
