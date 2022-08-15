@@ -1,4 +1,4 @@
-import Table from "../classes/Table";
+import TableClass from "../classes/Table";
 
 export type LayoutProps = HeaderProps;
 
@@ -56,3 +56,20 @@ export type HSLValue = {
 export type ConvertedColorValue = RGBValue | HSLValue;
 
 //export type ColorEditParams = { oldColorName: string, name: string, rgbValue: RGBValue};
+
+
+
+
+
+//--------------------Redux--------------------------//
+export type ActionType = {
+    type: string;
+    payload: any;
+}
+
+export type TableFilterState = {
+    colorMode: "rgb" | "hsl";
+    sortBy: "name" | "date";
+    searchTerm: string;
+    filteredTables: TableClass[];
+}
