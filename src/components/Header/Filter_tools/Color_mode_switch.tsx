@@ -5,7 +5,7 @@ function ColorModeSwitch({ handleColorModeChange } : ColorModeSwitchProps):JSX.E
     const colorMode = useSelector((state : any) => state.tablesFilter.colorMode);
 
     return(
-        <select className="colorModeSwitch" value={colorMode}>
+        <select className="colorModeSwitch" value={colorMode} onChange={handleColorModeChange}>
             <optgroup>
                 <option value="rgb">RGB</option>
                 <option value="hsl">HSL</option>

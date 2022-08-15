@@ -1,3 +1,4 @@
+import React from "react";
 import TableClass from "../classes/Table";
 
 export type LayoutProps = HeaderProps;
@@ -9,7 +10,7 @@ export type HeaderProps = {
     tableSearchTerm?: string;
     tableSortCriteria?: string;
 
-    handleColorModeChange?: () => void;
+    handleColorModeChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     handleTableSortCriteriaChange?: () => void;
     handleTableSearch?: () => void;
 };
@@ -73,3 +74,6 @@ export type TableFilterState = {
     searchTerm: string;
     filteredTables: TableClass[];
 }
+
+export type ChangeColorModePayload = "rgb" | "hsl";
+export type ChangeTablesSortTermPayload = "name" | "date";

@@ -1,13 +1,33 @@
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import Layout from './components/Layout/Layout';
-import { changeColorMode } from './redux/action_functions';
+import { chnageColorMode } from './redux/thunks';
 
 function App() {
-    console.log(changeColorMode("rgb"))
+    const dispatch = useDispatch();
+    
+    function handleColorModeChange(event : React.ChangeEvent<HTMLSelectElement>){
+        if(event.target.value === "rgb" || event.target.value === "hsl"){
+            dispatch(chnageColorMode(event.target.value));
+        }
+    }
+
+    function handleTablesSortTermChnage(){
+
+    }
+
+    function handleTablesSearch(){
+
+    }
+
+    console.log(useSelector((state) => state));
 
     return (
         <div className="App">
-            <Layout />
+            <Layout
+                handleColorModeChange={handleColorModeChange}
+            />
         </div>
     );
 }
