@@ -64,7 +64,7 @@ export type ConvertedColorValue = RGBValue | HSLValue;
 //--------------------Redux--------------------------//
 export type ActionType = {
     type: string;
-    payload: any;
+    payload?: any;
 }
 
 export type TableFilterState = {
