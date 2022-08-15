@@ -4,6 +4,7 @@ class User{
     nickname: string;
     login: string;
     password: string;
+    authorized: boolean; //If user has account then login and password are set, if user is in guest mode, then login and password are set to "";
     tables: Table[];
     
     constructor(nickname: string, login: string, password: string, tables: Table[]){
@@ -11,6 +12,7 @@ class User{
         this.login = login;
         this.password = password;
         this.tables = tables;
+        this.authorized = login && password ? true : false
     }
 
     createTable(tableName: string):void{
