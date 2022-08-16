@@ -8,10 +8,18 @@ import TableClass from './classes/Table';
 import Layout from './components/Layout/Layout';
 import { getItemFromLocalStorage } from './api/get_item_from_locale_storage';
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
+import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
 
 function App() {
     const dispatch = useDispatch();
     const tablesToFilter:TableClass[] = useSelector((state: any) => state.user.tables)
+    const user = useSelector((state: any) => state.user);
+
+    useEffect(() => {
+        if(!getGuestUserFromLocaleStorage() && !user.authorized){
+            addItemToLocaleStorage("guest_user", user);
+        }
+    }, [])
 
     function handleColorModeChange(event : (React.ChangeEvent<HTMLSelectElement> )){
         if(event.target.value === "rgb" || event.target.value === "hsl"){
