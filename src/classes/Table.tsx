@@ -10,7 +10,6 @@ class Table{
     constructor(name: string){
         this.name = name;
         this.date = new Date();
-        
     }
 
     edit( newTableName: string ):void{

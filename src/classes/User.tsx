@@ -41,7 +41,7 @@ class User{
         }
     }
 
-    editColor(tableName: string, oldColorName: string, color: ColorClass){
+    editColorInsideTable(tableName: string, oldColorName: string, color: ColorClass){
         for(let i = 0; i < this.tables.length; i++){
             if(this.tables[i].name === tableName){
                 this.tables[i].editColor(oldColorName, color);
@@ -50,7 +50,7 @@ class User{
         } 
     }
 
-    deleteColor(tableName: string, colorName: string){
+    deleteColorFromTable(tableName: string, colorName: string){
         for(let i = 0; i < this.tables.length; i++){
             if(this.tables[i].name === tableName){
                 this.tables[i].deleteColor((colorName));
