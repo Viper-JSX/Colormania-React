@@ -79,3 +79,7 @@ export type TableFilterState = {
     searchTerm: string;
     filteredTables: TableClass[];
 }
+
+//User//
+export type UserLogin = { login: string, password: string };
+export type UserRegister =  { nickname: string } & UserLogin;
