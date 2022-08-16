@@ -45,7 +45,7 @@ export function editTable(payload: EditTablePayload):any{
 
 export function deleteTable(payload: DeleteTablePayload):any{
     return function (dispatch: any):void{
-        dispatch({ type: DELETE_TABLE });
+        dispatch({ type: DELETE_TABLE, payload });
         dispatch({ type: RUN_TABLES_FILTER, payload });
     }
 }

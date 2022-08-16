@@ -2,13 +2,15 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import Color from './classes/Color';
+import TableClass from './classes/Table';
 import Layout from './components/Layout/Layout';
-import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable } from './redux/thunks';
+import { DELETE_TABLE } from './redux/action_types';
+import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable } from './redux/thunks';
 import { ChangeColorModePayload, ChangeTablesSortCriteriaPayload } from './typescript/types';
 
 function App() {
     const dispatch = useDispatch();
-    const tablesToFilter = useSelector((state: any) => state.user.tables)
+    const tablesToFilter:TableClass[] = useSelector((state: any) => state.user.tables)
 
     function handleColorModeChange(event : (React.ChangeEvent<HTMLSelectElement> )){
         if(event.target.value === "rgb" || event.target.value === "hsl"){
@@ -25,12 +27,11 @@ function App() {
     function handleTablesSearch(event: React.ChangeEvent<HTMLInputElement>){
         dispatch(changeTablesSearchTerm({ searchTerm: event.target.value, tablesToFilter }))
     }
-    //dispatch(editColorInsideTable({tableName: "sss", oldColorName: "old color", color: new Color("Only darkness", { r: 10, g: 10, b: 10 }), tablesToFilter }));
+
 
     document.body.onclick = function(){
-        
-    dispatch(createTable({tableName: "Welcome table1", tablesToFilter}));
-    dispatch(createTable({tableName: "Some new table 12345", tablesToFilter}));
+        //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewsz", tablesToFilter }));
+        //dispatch(deleteTable({ tableName: "Welcome table", tablesToFilter }))
     }
 
     return (

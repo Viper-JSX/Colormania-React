@@ -4,7 +4,7 @@ import { ActionType, TableFilterState } from "../typescript/types";
 
 import TableClass from "../classes/Table";
 import UserClass from "../classes/User";
-import { CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_FILTER, RUN_TABLES_SEARCH } from "./action_types";
+import { CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, DELETE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_FILTER, RUN_TABLES_SEARCH } from "./action_types";
 import initialColorTables from "../various_things/initial_color_tables";
 
 function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: "", filteredTables: initialColorTables}, action: ActionType):TableFilterState{
@@ -29,7 +29,6 @@ function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name"
 }
 
 function user(state: UserClass = new UserClass("stranger", "", ""), action: ActionType ):UserClass{
-    //console.log("User: ",action, state);
     switch(action.type){
         case LOGIN:{
             return state;
@@ -44,16 +43,50 @@ function user(state: UserClass = new UserClass("stranger", "", ""), action: Acti
         }
 
         case CREATE_TABLE: {
+            let tableAlreadyExists = false;
+
             for(let i = 0; i < state.tables.length; i++){
-                if(state.tables[i].name.toLocaleLowerCase() === action.payload.tableName.toLowerCase()){ //Table already exists
-                    return state;
+                if(state.tables[i].name.toLowerCase() === action.payload.tableName.toLowerCase()){ //Table already exists
+                    tableAlreadyExists = true;
+                    break;
                 }
             }
             
-            state.createTable(action.payload.tableName);
+            if(!tableAlreadyExists){
+                state.createTable(action.payload.tableName);
+            }
+
             return state;
         }
         
+        case EDIT_TABLE:{
+            let tableAlreadyExists = false;
+
+            for(let i = 0; i < state.tables.length; i++){
+                if(state.tables[i].name.toLowerCase() === action.payload.tableName.toLowerCase() && state.tables[i].name !== action.payload.oldTableName ){
+                    tableAlreadyExists = true;
+                    console.log("already exists");
+                    break;
+                }
+            }
+            
+            if(!tableAlreadyExists){
+                for(let i = 0; i < state.tables.length; i++){
+                    if(state.tables[i].name.toLowerCase() === action.payload.oldTableName.toLowerCase()){
+                        state.tables[i].edit(action.payload.tableName);
+                    }
+                }
+            }
+
+            return state;
+        }
+
+        case DELETE_TABLE:{
+            state.deleteTable(action.payload.tableName);
+    
+            return state;
+        }
+
         default: {
             return state;
         }
