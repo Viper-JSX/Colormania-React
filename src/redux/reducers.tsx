@@ -4,7 +4,7 @@ import { ActionType, TableFilterState } from "../typescript/types";
 
 import TableClass from "../classes/Table";
 import UserClass from "../classes/User";
-import { CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, DELETE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_FILTER, RUN_TABLES_SEARCH } from "./action_types";
+import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, DELETE_COLOR_FROM_TABLE, DELETE_TABLE, EDIT_COLOR_INSIDE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_FILTER, RUN_TABLES_SEARCH } from "./action_types";
 import initialColorTables from "../various_things/initial_color_tables";
 
 function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: "", filteredTables: initialColorTables}, action: ActionType):TableFilterState{
@@ -84,6 +84,35 @@ function user(state: UserClass = new UserClass("stranger", "", ""), action: Acti
         case DELETE_TABLE:{
             state.deleteTable(action.payload.tableName);
     
+            return state;
+        }
+
+        case ADD_COLOR_TO_TABLE:{
+            let colorAlreadyExistsInsideCurrentTable = false;
+
+            for(let i = 0; i < state.tables.length; i++){
+                if(state.tables[i].name.toLowerCase() === action.payload.tableName.toLowerCase()){
+                    for(let j = 0; j < state.tables[i].colors.length; j++){
+                        if(state.tables[i].colors[j].name.toLocaleLowerCase() === action.payload.color.name.toLowerCase()){
+                            colorAlreadyExistsInsideCurrentTable = true;
+                            console.log("Color already exists")
+                        }
+                    }
+                }
+            }
+
+            if(!colorAlreadyExistsInsideCurrentTable){
+                state.addColorToTable(action.payload.tableName, action.payload.color);
+            }
+
+            return state;
+        }
+
+        case EDIT_COLOR_INSIDE_TABLE:{
+            return state;
+        }
+
+        case DELETE_COLOR_FROM_TABLE:{
             return state;
         }
 
