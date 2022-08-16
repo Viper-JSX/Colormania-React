@@ -96,8 +96,10 @@ function user(state: UserClass = new UserClass("stranger", "", ""), action: Acti
                         if(state.tables[i].colors[j].name.toLocaleLowerCase() === action.payload.color.name.toLowerCase()){
                             colorAlreadyExistsInsideCurrentTable = true;
                             console.log("Color already exists")
+                            break;
                         }
                     }
+                    break;
                 }
             }
 
@@ -109,6 +111,25 @@ function user(state: UserClass = new UserClass("stranger", "", ""), action: Acti
         }
 
         case EDIT_COLOR_INSIDE_TABLE:{
+            let colorAlreayExistsInsideCurrentTable = false;
+
+            for(let i = 0; i < state.tables.length; i++){
+                if(state.tables[i].name.toLowerCase() === action.payload.tableName.toLowerCase()){
+                    for(let j = 0; j < state.tables[i].colors.length; j++){
+                        if(state.tables[i].colors[j].name.toLocaleLowerCase() === action.payload.color.name.toLowerCase() && state.tables[i].colors[j].name.toLocaleLowerCase() !== action.payload.oldColorName.toLowerCase()){
+                            colorAlreayExistsInsideCurrentTable = true;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+           
+            if(!colorAlreayExistsInsideCurrentTable){
+                console.log("Edit color");
+                state.editColorInsideTable(action.payload.tableName, action.payload.oldColorName, action.payload.color);
+            }
+
             return state;
         }
 

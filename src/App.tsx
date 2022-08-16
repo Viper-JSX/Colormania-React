@@ -32,7 +32,9 @@ function App() {
     document.body.onclick = function(){
         //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewsz", tablesToFilter }));
         //dispatch(deleteTable({ tableName: "Welcome table", tablesToFilter }))
-        dispatch(addColorToTable({ tableName: "Welcome table", color: new Color("Bereza", { r: 40, g: 20, b: 30}), tablesToFilter }))
+        //dispatch(addColorToTable({ tableName: "Welcome table", color: new Color("Bereza", { r: 40, g: 20, b: 30}), tablesToFilter }))
+        const newColor = new Color("Pin", {r: 50, g: 50, b: 50});
+        dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor, tablesToFilter }));
     }
 
     return (
