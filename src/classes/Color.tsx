@@ -14,7 +14,8 @@ class Color{
     }
 
     edit(color: Color):void{
-        
+        this.name = color.name;
+        this.rgbValue = color.rgbValue;
     }
 }
 
