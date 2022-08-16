@@ -29,6 +29,10 @@ function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name"
 }
 
 function user(state: UserClass = new UserClass("stranger", "", ""), action: ActionType ):UserClass{
+    switch(action.type){
+        //case 
+    }
+
     return state;
 }
 

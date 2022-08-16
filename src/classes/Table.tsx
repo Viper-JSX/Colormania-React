@@ -1,27 +1,32 @@
+import { ThemeConsumer } from "styled-components";
 import { RGBValue } from "../typescript/types";
-import Color from "./Color";
+import ColorClass from "./Color";
 
 class Table{
     name: string;
     date: Date;
-    colors: Color[] = []
+    colors: ColorClass[] = []
 
-    constructor(name: string, creationDate: Date){
+    constructor(name: string){
         this.name = name;
-        this.date = creationDate;
+        this.date = new Date();
         
     }
 
-    edit( oldTableName?: string, newTableName?: string ):void{
-        
+    edit( newTableName: string ):void{
+        this.name = newTableName;
     }
 
-    addColor(color: Color):void{
+    addColor(color: ColorClass):void{
         this.colors.push(color);
     }
 
-    editColor(oldColorName: string, colorName: string, rgbValue: RGBValue):void{
-
+    editColor(oldColorName: string, color: ColorClass):void{
+        for(let i = 0; i < this.colors.length; i++){
+            if(this.colors[i].name === oldColorName){
+                this.colors[i].edit(color);
+            }
+        }
     }
 
     deleteColor(colorName: string):void{

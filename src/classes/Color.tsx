@@ -6,14 +6,14 @@ class Color{
     rgbValue: RGBValue;
     currentConvertedValue:  ConvertedColorValue;
 
-    constructor(name: string, creationDate: Date, rgbValue: RGBValue){
+    constructor(name: string, rgbValue: RGBValue){
         this.name = name;
-        this.creationDate = creationDate;
+        this.creationDate = new Date();
         this.rgbValue = rgbValue;
         this.currentConvertedValue = rgbValue;
     }
 
-    edit(name: string, rgbValue : RGBValue):void{
+    edit(color: Color):void{
         
     }
 }
