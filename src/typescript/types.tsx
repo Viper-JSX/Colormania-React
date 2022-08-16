@@ -1,4 +1,5 @@
 import React from "react";
+import ColorClass from "../classes/Color";
 import TableClass from "../classes/Table";
 
 
@@ -88,3 +89,7 @@ export type UserRegister =  { nickname: string } & UserLogin;
 export type CreateTablePayload = { tableName: string, tablesToFilter: TableClass[] }; //tablesToEdit must be passed each time to run filter on new list of tables so that filtered tables are up to date
 export type EditTablePayload = { oldTableName: string, tableName: string, tablesToFilter: TableClass[] }; //The same ^
 export type DeleteTablePayload =  CreateTablePayload;
+
+export type AddColorToTablePayload = { tableName: string, color: ColorClass, tablesToFilter: TableClass[]};
+export type EditColorInsideTablePayload = { tableName: string, oldColorName: string, color: ColorClass, tablesToFilter: TableClass[]};
+export type DeleteColorFromTablePayload = { tableName: string, colorName: string};
