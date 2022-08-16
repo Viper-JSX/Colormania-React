@@ -14,6 +14,10 @@ const StyledColor = styled.div<StyledColorProps>`
     background-color: rgb(${(props) => props?.colorRgbValue.r }, ${(props) => props?.colorRgbValue.g}, ${(props) => props?.colorRgbValue.b} );
     border: 2px solid black;
     
+    //&:hover{
+    //    border-width: 0px;
+    //}
+
     &:hover > .colorInfoLabel{
         opacity: 1;
     }

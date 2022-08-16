@@ -1,12 +1,13 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-import Color from './classes/Color';
+import React, { useEffect } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable } from './redux/thunks';
+
 import TableClass from './classes/Table';
 import Layout from './components/Layout/Layout';
-import { DELETE_TABLE } from './redux/action_types';
-import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable } from './redux/thunks';
-import { ChangeColorModePayload, ChangeTablesSortCriteriaPayload } from './typescript/types';
+import { getItemFromLocalStorage } from './api/get_item_from_locale_storage';
+import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 
 function App() {
     const dispatch = useDispatch();
