@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
+import Color from './classes/Color';
 import Layout from './components/Layout/Layout';
-import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable } from './redux/thunks';
+import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable } from './redux/thunks';
 import { ChangeColorModePayload, ChangeTablesSortCriteriaPayload } from './typescript/types';
 
 function App() {
@@ -24,9 +25,13 @@ function App() {
     function handleTablesSearch(event: React.ChangeEvent<HTMLInputElement>){
         dispatch(changeTablesSearchTerm({ searchTerm: event.target.value, tablesToFilter }))
     }
+    //dispatch(editColorInsideTable({tableName: "sss", oldColorName: "old color", color: new Color("Only darkness", { r: 10, g: 10, b: 10 }), tablesToFilter }));
 
-    //console.log(useSelector((state) => state));
-    //dispatch(createTable({tableName: "SOsi", tablesToFilter}))
+    document.body.onclick = function(){
+        
+    dispatch(createTable({tableName: "Welcome table1", tablesToFilter}));
+    dispatch(createTable({tableName: "Some new table 12345", tablesToFilter}));
+    }
 
     return (
         <div className="App">
