@@ -5,7 +5,7 @@ import Color from './classes/Color';
 import TableClass from './classes/Table';
 import Layout from './components/Layout/Layout';
 import { DELETE_TABLE } from './redux/action_types';
-import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable } from './redux/thunks';
+import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable } from './redux/thunks';
 import { ChangeColorModePayload, ChangeTablesSortCriteriaPayload } from './typescript/types';
 
 function App() {
@@ -33,8 +33,9 @@ function App() {
         //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewsz", tablesToFilter }));
         //dispatch(deleteTable({ tableName: "Welcome table", tablesToFilter }))
         //dispatch(addColorToTable({ tableName: "Welcome table", color: new Color("Bereza", { r: 40, g: 20, b: 30}), tablesToFilter }))
-        const newColor = new Color("Pin", {r: 50, g: 50, b: 50});
-        dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor, tablesToFilter }));
+        //const newColor = new Color("Pin", {r: 50, g: 50, b: 50});
+        //dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor, tablesToFilter }));
+        dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark", tablesToFilter }));
     }
 
     return (

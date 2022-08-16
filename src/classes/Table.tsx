@@ -21,9 +21,8 @@ class Table{
     }
 
     editColor(oldColorName: string, color: ColorClass):void{
-        console.log("EEDDDDD", /*oldColorName*/ color);
         for(let i = 0; i < this.colors.length; i++){
-            if(this.colors[i].name.toLowerCase() === oldColorName/*.toLowerCase()*/){
+            if(this.colors[i].name.toLowerCase() === oldColorName.toLowerCase()){
                 this.colors[i].edit(color);
                 console.log("EDIIIIITITITING")
             }

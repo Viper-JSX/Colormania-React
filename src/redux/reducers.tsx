@@ -134,6 +134,8 @@ function user(state: UserClass = new UserClass("stranger", "", ""), action: Acti
         }
 
         case DELETE_COLOR_FROM_TABLE:{
+            state.deleteColorFromTable(action.payload.tableName, action.payload.colorName);
+
             return state;
         }
 

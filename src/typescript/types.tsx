@@ -92,4 +92,4 @@ export type DeleteTablePayload =  CreateTablePayload;
 
 export type AddColorToTablePayload = { tableName: string, color: ColorClass, tablesToFilter: TableClass[]};
 export type EditColorInsideTablePayload = { tableName: string, oldColorName: string, color: ColorClass, tablesToFilter: TableClass[]};
-export type DeleteColorFromTablePayload = { tableName: string, colorName: string};
+export type DeleteColorFromTablePayload = { tableName: string, colorName: string, tablesToFilter: TableClass[]};
