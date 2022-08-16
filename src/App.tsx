@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import Layout from './components/Layout/Layout';
-import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria } from './redux/thunks';
+import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable } from './redux/thunks';
 import { ChangeColorModePayload, ChangeTablesSortCriteriaPayload } from './typescript/types';
 
 function App() {
@@ -25,7 +25,8 @@ function App() {
         dispatch(changeTablesSearchTerm({ searchTerm: event.target.value, tablesToFilter }))
     }
 
-    console.log(useSelector((state) => state));
+    //console.log(useSelector((state) => state));
+    //dispatch(createTable({tableName: "SOsi", tablesToFilter}))
 
     return (
         <div className="App">

@@ -1,5 +1,7 @@
-import { ChangeColorModePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload } from "../typescript/types";
-import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, RUN_TABLES_FILTER } from "./action_types";
+import { ChangeColorModePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteTablePayload, EditTablePayload } from "../typescript/types";
+import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, RUN_TABLES_FILTER, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE } from "./action_types";
+
+//-------------------------Tables filter---------------------------//
 
 export function chnageColorMode (payload: ChangeColorModePayload):any{
     return function(dispath : any): void{
@@ -23,3 +25,27 @@ export function changeTablesSearchTerm (payload: ChangeTablesSearcTermhPayload):
     }
 }
 
+
+
+//-------------------------User-----------------------------//
+
+export function createTable(payload: CreateTablePayload):any{
+    return function (dispatch: any):void{
+        dispatch({ type: CREATE_TABLE, payload });
+        dispatch({ type: RUN_TABLES_FILTER, payload });
+    }
+}
+
+export function editTable(payload: EditTablePayload):any{
+    return function (dispatch: any):void{
+        dispatch({ type: EDIT_TABLE, payload });
+        dispatch({ type: RUN_TABLES_FILTER, payload });
+    }
+}
+
+export function deleteTable(payload: DeleteTablePayload):any{
+    return function (dispatch: any):void{
+        dispatch({ type: DELETE_TABLE });
+        dispatch({ type: RUN_TABLES_FILTER, payload });
+    }
+}

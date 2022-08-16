@@ -64,6 +64,7 @@ export type ConvertedColorValue = RGBValue | HSLValue;
 
 
 //--------------------Redux--------------------------//
+//Tables filter//
 export type ActionType = {
     type: string;
     payload?: any;
@@ -83,3 +84,7 @@ export type TableFilterState = {
 //User//
 export type UserLogin = { login: string, password: string };
 export type UserRegister =  { nickname: string } & UserLogin;
+
+export type CreateTablePayload = { tableName: string, tablesToFilter: TableClass[] }; //tablesToEdit must be passed each time to run filter on new list of tables so that filtered tables are up to date
+export type EditTablePayload = { oldTableName: string, tableName: string, tablesToFilter: TableClass[] }; //The same ^
+export type DeleteTablePayload =  CreateTablePayload;
