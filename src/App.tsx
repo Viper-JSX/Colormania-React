@@ -33,28 +33,28 @@ function App() {
 
     function handleColorModeChange(event : (React.ChangeEvent<HTMLSelectElement> )){
         if(event.target.value === "rgb" || event.target.value === "hsl"){
-            dispatch(chnageColorMode({ colorMode: event.target.value, tablesToFilter }));
+            dispatch(chnageColorMode({ colorMode: event.target.value }));
         }
     }
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
         if(event.target.value === "name" || event.target.value === "date"){
-            dispatch(changeTablesSortCriteria({ sortCriteria: event.target.value, tablesToFilter }));
+            dispatch(changeTablesSortCriteria({ sortCriteria: event.target.value }));
         }
     }
 
     function handleTablesSearch(event: React.ChangeEvent<HTMLInputElement>){
-        dispatch(changeTablesSearchTerm({ searchTerm: event.target.value, tablesToFilter }))
+        dispatch(changeTablesSearchTerm({ searchTerm: event.target.value }))
     }
 
 
     document.body.onclick = function(){
-        //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewsz", tablesToFilter }));
-        dispatch(deleteTable({ tableName: "Welcome table", tablesToFilter }))
-        //dispatch(addColorToTable({ tableName: "Welcome table", color: new Color("Bereza", { r: 40, g: 20, b: 30}), tablesToFilter }))
+        //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewsz" }));
+        //dispatch(deleteTable({ tableName: "Welcome table" }))
+        //dispatch(addColorToTable({ tableName: "Welcome table", color: new Color("Bereza", { r: 40, g: 20, b: 30}) }))
         //const newColor = new Color("Pin", {r: 50, g: 50, b: 50});
-        //dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor, tablesToFilter }));
-        //dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark", tablesToFilter }));
+        //dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor }));
+        dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark" }));
         console.log("Click")
         //dispatch(login({ login: "pivasik", password: "pivasik" }))
     }

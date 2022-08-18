@@ -9,7 +9,7 @@ import initialColorTables from "../various_things/initial_color_tables";
 import { users } from "../various_things/users";
 import User from "../classes/User";
 
-function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: "", filteredTables: initialColorTables}, action: ActionType):TableFilterState{
+function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: ""}, action: ActionType):TableFilterState{
     switch(action.type){
         case CHANGE_COLOR_MODE:{
             return {...state, colorMode: action.payload.colorMode};
@@ -19,10 +19,6 @@ function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name"
         }
         case RUN_TABLES_SEARCH:{
             return { ...state, searchTerm: action.payload.searchTerm };
-        }
-        case RUN_TABLES_FILTER:{
-            console.log(action)
-            return { ...state, filteredTables: action.payload.tablesToFilter.filter((table: TableClass) => table.name.indexOf(state.searchTerm) >= 0) };
         }
         default:{
             return state;

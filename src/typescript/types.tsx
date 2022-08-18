@@ -72,15 +72,14 @@ export type ActionType = {
     payload?: any;
 }
 
-export type ChangeColorModePayload = { colorMode: "rgb" | "hsl", tablesToFilter: TableClass[] };
-export type ChangeTablesSortCriteriaPayload = { sortCriteria: "name" | "date", tablesToFilter: TableClass[] };
-export type ChangeTablesSearcTermhPayload = { searchTerm: string, tablesToFilter: TableClass[] };
+export type ChangeColorModePayload = { colorMode: "rgb" | "hsl" };
+export type ChangeTablesSortCriteriaPayload = { sortCriteria: "name" | "date" };
+export type ChangeTablesSearcTermhPayload = { searchTerm: string };
 
 export type TableFilterState = {
     colorMode: "rgb" | "hsl";
     sortBy: "name" | "date";
     searchTerm: string;
-    filteredTables: TableClass[];
 }
 
 //User//
@@ -89,10 +88,10 @@ export type UserState = { user: UserClass, forceUpdate: any };
 export type UserLoginPayload = { login: string, password: string, /*tablesToFilter: TableClass[]*/ };
 export type UserRegisterPayload =  { nickname: string } & UserLoginPayload;
 
-export type CreateTablePayload = { tableName: string, tablesToFilter: TableClass[] }; //tablesToEdit must be passed each time to run filter on new list of tables so that filtered tables are up to date
-export type EditTablePayload = { oldTableName: string, tableName: string, tablesToFilter: TableClass[] }; //The same ^
+export type CreateTablePayload = { tableName: string }; //tablesToEdit must be passed each time to run filter on new list of tables so that filtered tables are up to date
+export type EditTablePayload = { oldTableName: string, tableName: string }; //The same ^
 export type DeleteTablePayload =  CreateTablePayload;
 
-export type AddColorToTablePayload = { tableName: string, color: ColorClass, tablesToFilter: TableClass[]};
-export type EditColorInsideTablePayload = { tableName: string, oldColorName: string, color: ColorClass, tablesToFilter: TableClass[]};
-export type DeleteColorFromTablePayload = { tableName: string, colorName: string, tablesToFilter: TableClass[]};
+export type AddColorToTablePayload = { tableName: string, color: ColorClass};
+export type EditColorInsideTablePayload = { tableName: string, oldColorName: string, color: ColorClass};
+export type DeleteColorFromTablePayload = { tableName: string, colorName: string};

@@ -49,21 +49,18 @@ export function register():any{
 export function createTable(payload: CreateTablePayload):any{
     return function (dispatch: any):void{
         dispatch({ type: CREATE_TABLE, payload });
-        dispatch({ type: RUN_TABLES_FILTER, payload });
     }
 }
 
 export function editTable(payload: EditTablePayload):any{
     return function (dispatch: any):void{
         dispatch({ type: EDIT_TABLE, payload });
-        dispatch({ type: RUN_TABLES_FILTER, payload });
     }
 }
 
 export function deleteTable(payload: DeleteTablePayload):any{
     return function (dispatch: any):void{
         dispatch({ type: DELETE_TABLE, payload });
-        dispatch({ type: RUN_TABLES_FILTER, payload });
     }
 }
 
@@ -71,20 +68,17 @@ export function deleteTable(payload: DeleteTablePayload):any{
 export function addColorToTable(payload: AddColorToTablePayload):any{
     return function(dispatch: any){
         dispatch({ type: ADD_COLOR_TO_TABLE, payload });
-        dispatch({ type: RUN_TABLES_FILTER, payload });
     }
 }
 
 export function editColorInsideTable(payload: EditColorInsideTablePayload):any{
     return function(dispatch: any){
         dispatch({ type: EDIT_COLOR_INSIDE_TABLE, payload });
-        dispatch({ type: RUN_TABLES_FILTER, payload });
     }
 }
 
 export function deleteColorFromTable(payload: DeleteColorFromTablePayload):any{
     return function(dispatch: any){
         dispatch({ type: DELETE_COLOR_FROM_TABLE, payload });
-        dispatch({ type: RUN_TABLES_FILTER, payload });
     }
 }
