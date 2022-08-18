@@ -13,13 +13,9 @@ import Layout from './components/Layout/Layout';
 
 function App() {
     const dispatch = useDispatch();
-    const tablesToFilter:TableClass[] = useSelector((state: any) => state.user.user.tables)
     const user = useSelector((state: any) => state.user);
-
-    //const [ tablesToRender, setTablesToRender ] = useState<TableClass[]>([]);
     const tablesToRender = useSelector((state: any) => state.user.user.tables)
-    //useSelector((state:any) => setTablesToRender(state.user.tables));
-    console.log(tablesToRender)
+
 
     useEffect(() => {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
@@ -54,7 +50,7 @@ function App() {
         //dispatch(addColorToTable({ tableName: "Welcome table", color: new Color("Bereza", { r: 40, g: 20, b: 30}) }))
         //const newColor = new Color("Pin", {r: 50, g: 50, b: 50});
         //dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor }));
-        dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark" }));
+        //dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark" }));
         console.log("Click")
         //dispatch(login({ login: "pivasik", password: "pivasik" }))
     }

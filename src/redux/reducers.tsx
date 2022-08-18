@@ -1,13 +1,10 @@
-import { Action, combineReducers } from "redux";
+import { combineReducers } from "redux";
 
 import { ActionType, TableFilterState, UserState } from "../typescript/types";
 
-import TableClass from "../classes/Table";
 import UserClass from "../classes/User";
-import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, DELETE_COLOR_FROM_TABLE, DELETE_TABLE, EDIT_COLOR_INSIDE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_FILTER, RUN_TABLES_SEARCH } from "./action_types";
-import initialColorTables from "../various_things/initial_color_tables";
+import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, DELETE_COLOR_FROM_TABLE, DELETE_TABLE, EDIT_COLOR_INSIDE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_SEARCH } from "./action_types";
 import { users } from "../various_things/users";
-import User from "../classes/User";
 
 function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: ""}, action: ActionType):TableFilterState{
     switch(action.type){

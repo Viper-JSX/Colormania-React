@@ -1,6 +1,6 @@
 import UserClass from "../classes/User";
 import { ActionType, ChangeColorModePayload, ChangeTablesSortCriteriaPayload } from "../typescript/types";
-import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, RUN_TABLES_FILTER, REGISTER, LOGIN, LOGOUT } from "./action_types";
+import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, REGISTER, LOGIN, LOGOUT } from "./action_types";
 
 //export function login(payload: UserLogin){ //You may need to create a thunk, to dispatch RUN_TABLES_FILTER, cause old guest tables may remain untill first filter change
 //    return { type: LOGIN, payload: payload};

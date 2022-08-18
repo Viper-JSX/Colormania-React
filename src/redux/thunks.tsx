@@ -1,19 +1,19 @@
 import { AddColorToTablePayload, ChangeColorModePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteColorFromTablePayload, DeleteTablePayload, EditColorInsideTablePayload, EditTablePayload, UserLoginPayload } from "../typescript/types";
-import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, RUN_TABLES_FILTER, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE, ADD_COLOR_TO_TABLE, EDIT_COLOR_INSIDE_TABLE, DELETE_COLOR_FROM_TABLE, LOGIN } from "./action_types";
+import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE, ADD_COLOR_TO_TABLE, EDIT_COLOR_INSIDE_TABLE, DELETE_COLOR_FROM_TABLE, LOGIN } from "./action_types";
 
 //-------------------------Tables filter---------------------------//
 
 export function chnageColorMode (payload: ChangeColorModePayload):any{
     return function(dispath : any): void{
         dispath({ type: CHANGE_COLOR_MODE, payload });
-        dispath({ type: RUN_TABLES_FILTER, payload });
+        //dispath({ type: RUN_TABLES_FILTER, payload });
     }
 }
 
 export function changeTablesSortCriteria (payload: ChangeTablesSortCriteriaPayload):any{
     return function(dispath : any): void{
         dispath({ type: CHANGE_TABLES_SORT_CRITERIA, payload });
-        dispath({ type: RUN_TABLES_FILTER, payload });
+        //dispath({ type: RUN_TABLES_FILTER, payload });
     }
 }
 
@@ -21,7 +21,7 @@ export function changeTablesSortCriteria (payload: ChangeTablesSortCriteriaPaylo
 export function changeTablesSearchTerm (payload: ChangeTablesSearcTermhPayload):any{
     return function(dispath : any): void{
         dispath({ type: RUN_TABLES_SEARCH, payload });
-        dispath({ type: RUN_TABLES_FILTER, payload });
+        //dispath({ type: RUN_TABLES_FILTER, payload });
     }
 }
 
