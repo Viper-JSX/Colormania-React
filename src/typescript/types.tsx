@@ -1,9 +1,10 @@
 import React from "react";
 import ColorClass from "../classes/Color";
 import TableClass from "../classes/Table";
+import UserClass from "../classes/User";
 
 
-export type LayoutProps = HeaderProps;
+export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps;
 
 
 //-----------------Header-----------------
@@ -83,8 +84,10 @@ export type TableFilterState = {
 }
 
 //User//
-export type UserLogin = { login: string, password: string };
-export type UserRegister =  { nickname: string } & UserLogin;
+export type UserState = { user: UserClass, forceUpdate: any };
+
+export type UserLoginPayload = { login: string, password: string, /*tablesToFilter: TableClass[]*/ };
+export type UserRegisterPayload =  { nickname: string } & UserLoginPayload;
 
 export type CreateTablePayload = { tableName: string, tablesToFilter: TableClass[] }; //tablesToEdit must be passed each time to run filter on new list of tables so that filtered tables are up to date
 export type EditTablePayload = { oldTableName: string, tableName: string, tablesToFilter: TableClass[] }; //The same ^

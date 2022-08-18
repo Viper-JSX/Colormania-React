@@ -12,8 +12,8 @@ import Table from "../Tables/Table";
 import Tables from "../Tables/Tables";
 import UserProfile from "../User/User_profile";
 
-function Layout({ appTitle, handleColorModeChange, handleTablesSortCriteriaChange, handleTablesSearch } : LayoutProps):JSX.Element{
-    const tablesToRender = useSelector((state: any) => state.tablesFilter.filteredTables);
+function Layout({ appTitle, tablesToRender, handleColorModeChange, handleTablesSortCriteriaChange, handleTablesSearch } : LayoutProps):JSX.Element{
+    //const tablesToRender = useSelector((state: any) => state.tablesFilter.filteredTables);
     
     return(
         <div id="layout">

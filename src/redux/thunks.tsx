@@ -1,5 +1,5 @@
-import { AddColorToTablePayload, ChangeColorModePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteColorFromTablePayload, DeleteTablePayload, EditColorInsideTablePayload, EditTablePayload } from "../typescript/types";
-import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, RUN_TABLES_FILTER, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE, ADD_COLOR_TO_TABLE, EDIT_COLOR_INSIDE_TABLE, DELETE_COLOR_FROM_TABLE } from "./action_types";
+import { AddColorToTablePayload, ChangeColorModePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteColorFromTablePayload, DeleteTablePayload, EditColorInsideTablePayload, EditTablePayload, UserLoginPayload } from "../typescript/types";
+import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, RUN_TABLES_FILTER, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE, ADD_COLOR_TO_TABLE, EDIT_COLOR_INSIDE_TABLE, DELETE_COLOR_FROM_TABLE, LOGIN } from "./action_types";
 
 //-------------------------Tables filter---------------------------//
 
@@ -28,6 +28,23 @@ export function changeTablesSearchTerm (payload: ChangeTablesSearcTermhPayload):
 
 
 //-------------------------User-----------------------------//
+
+export function login(payload: UserLoginPayload):any{
+    return function(dispath:any):void{
+        dispath({ type: LOGIN, payload: { login: payload.login, password: payload.password } });
+        //dispath({ type: RUN_TABLES_FILTER, payload: { tablesToFilter: payload.tablesToFilter } })
+    }
+}
+
+export function register():any{
+
+}
+
+//export function logout():any{
+//    return function(dispatch: any):void{
+//        
+//    }
+//}
 
 export function createTable(payload: CreateTablePayload):any{
     return function (dispatch: any):void{

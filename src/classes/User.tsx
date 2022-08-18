@@ -54,6 +54,7 @@ class User{
         for(let i = 0; i < this.tables.length; i++){
             if(this.tables[i].name === tableName){
                 this.tables[i].deleteColor((colorName));
+                console.log("Deleting", this.tables[i])
                 return;
             }
         }
