@@ -8,8 +8,8 @@ function SortBy({ tablesSortCriteria, handleTablesSortCriteriaChnage } : SortByP
     return(
         <select value={tablesSortCriteria} onChange={handleTablesSortCriteriaChnage}>
             <optgroup>
-                <option value="date">Name</option>
-                <option value="name">Date</option>
+                <option value="name">Name</option>
+                <option value="date">Date</option>
             </optgroup>
         </select>
     );

@@ -7,11 +7,13 @@ import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CRE
 import { users } from "../various_things/users";
 
 function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: ""}, action: ActionType):TableFilterState{
+    console.log("Tables filter")
     switch(action.type){
         case CHANGE_COLOR_MODE:{
             return {...state, colorMode: action.payload.colorMode};
         }
         case CHANGE_TABLES_SORT_CRITERIA:{
+            //console.log("SSSooort", action.payload.sortCriteria)
             return {...state, sortBy: action.payload.sortCriteria };
         }
         case RUN_TABLES_SEARCH:{
@@ -149,7 +151,8 @@ function user(state: UserState = { user: new UserClass("stranger", "", ""), forc
         }
 
         default: {
-            return state;
+            console.log("Defff")
+            return state; //maybe use forceUpdate too
         }
     }
 }

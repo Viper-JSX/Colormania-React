@@ -4,12 +4,12 @@ import ColorClass from "./Color";
 
 class Table{
     name: string;
-    date: Date;
+    creationDate: Date;
     colors: ColorClass[] = []
 
     constructor(name: string){
         this.name = name;
-        this.date = new Date();
+        this.creationDate = new Date();
     }
 
     edit( newTableName: string ):void{

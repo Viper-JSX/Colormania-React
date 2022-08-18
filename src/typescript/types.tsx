@@ -82,6 +82,8 @@ export type TableFilterState = {
     searchTerm: string;
 }
 
+export type FilterTablesParams = { tables: TableClass[], filterOptions: TableFilterState, order?: "small-big" | "big-small" };
+
 //User//
 export type UserState = { user: UserClass, forceUpdate: any };
 
@@ -95,3 +97,4 @@ export type DeleteTablePayload =  CreateTablePayload;
 export type AddColorToTablePayload = { tableName: string, color: ColorClass};
 export type EditColorInsideTablePayload = { tableName: string, oldColorName: string, color: ColorClass};
 export type DeleteColorFromTablePayload = { tableName: string, colorName: string};
+

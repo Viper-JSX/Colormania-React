@@ -12,6 +12,7 @@ export function chnageColorMode (payload: ChangeColorModePayload):any{
 
 export function changeTablesSortCriteria (payload: ChangeTablesSortCriteriaPayload):any{
     return function(dispath : any): void{
+        console.log(payload)
         dispath({ type: CHANGE_TABLES_SORT_CRITERIA, payload });
         //dispath({ type: RUN_TABLES_FILTER, payload });
     }
@@ -32,19 +33,12 @@ export function changeTablesSearchTerm (payload: ChangeTablesSearcTermhPayload):
 export function login(payload: UserLoginPayload):any{
     return function(dispath:any):void{
         dispath({ type: LOGIN, payload: { login: payload.login, password: payload.password } });
-        //dispath({ type: RUN_TABLES_FILTER, payload: { tablesToFilter: payload.tablesToFilter } })
     }
 }
 
 export function register():any{
 
 }
-
-//export function logout():any{
-//    return function(dispatch: any):void{
-//        
-//    }
-//}
 
 export function createTable(payload: CreateTablePayload):any{
     return function (dispatch: any):void{

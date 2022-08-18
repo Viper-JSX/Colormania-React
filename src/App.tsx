@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable, login } from './redux/thunks';
@@ -9,13 +9,15 @@ import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_
 
 import TableClass from './classes/Table';
 import Layout from './components/Layout/Layout';
+import filterTables from './api/filter_tables';
+import { sortByField } from './api/sort_by_field';
 
 
 function App() {
     const dispatch = useDispatch();
     const user = useSelector((state: any) => state.user);
-    const tablesToRender = useSelector((state: any) => state.user.user.tables)
-
+    const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));
+    
 
     useEffect(() => {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
@@ -35,6 +37,7 @@ function App() {
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
         if(event.target.value === "name" || event.target.value === "date"){
+            console.log("in handlerdd", event.target)
             dispatch(changeTablesSortCriteria({ sortCriteria: event.target.value }));
         }
     }
@@ -51,7 +54,7 @@ function App() {
         //const newColor = new Color("Pin", {r: 50, g: 50, b: 50});
         //dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor }));
         //dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark" }));
-        console.log("Click")
+        //console.log("Click")
         //dispatch(login({ login: "pivasik", password: "pivasik" }))
     }
 
