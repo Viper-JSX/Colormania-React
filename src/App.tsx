@@ -9,7 +9,7 @@ import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_
 
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
-import { logout } from './redux/action_functions';
+import { logout, setError } from './redux/action_functions';
 
 
 function App() {
@@ -17,8 +17,11 @@ function App() {
     const user = useSelector((state: any) => state.user.user);
     const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));
     
-
+    const error = useSelector((state:any) => state.error);
+    console.log("Crash:", error.errorText);
+    
     useEffect(() => {
+        dispatch(setError({ errorText: "You pidor"}))
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
             addItemToLocaleStorage("guest_user", user);
         }
