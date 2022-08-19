@@ -117,7 +117,6 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
 
         case ADD_COLOR_TO_TABLE:{
             let colorAlreadyExistsInsideCurrentTable = false;
-
             for(let i = 0; i < state.user.tables.length; i++){
                 if(state.user.tables[i].name.toLowerCase() === action.payload.tableName.toLowerCase()){
                     for(let j = 0; j < state.user.tables[i].colors.length; j++){
@@ -132,6 +131,7 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
             }
 
             if(!colorAlreadyExistsInsideCurrentTable){
+                //console.log("adding")
                 state.user.addColorToTable(action.payload.tableName, action.payload.color);
             }
 

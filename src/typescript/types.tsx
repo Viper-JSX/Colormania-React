@@ -4,7 +4,7 @@ import TableClass from "../classes/Table";
 import UserClass from "../classes/User";
 
 
-export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps;
+export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps & ColorEditorProps;
 
 
 //-----------------Header-----------------
@@ -35,7 +35,7 @@ export type SearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; 
 
 
 //-----------------------Color_editor-------------------------------//
-export type ColorEditorProps = { mode: "create" | "edit" };
+export type ColorEditorProps = { mode: "create" | "edit", handleAddColorToTable: (params: AddColorToTableParams) => void };
 
 
 
@@ -103,3 +103,7 @@ export type AddColorToTablePayload = { tableName: string, color: ColorClass};
 export type EditColorInsideTablePayload = { tableName: string, oldColorName: string, color: ColorClass};
 export type DeleteColorFromTablePayload = { tableName: string, colorName: string};
 
+
+
+//---------------------Handlers--------------------------//
+export type AddColorToTableParams = { tableName: string, colorName: string, rgbValue: RGBValue };

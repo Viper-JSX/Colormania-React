@@ -36,6 +36,8 @@ class User{
         for(let i = 0; i < this.tables.length; i++){
             if(this.tables[i].name === tableName){
                 this.tables[i].addColor(color);
+                console.log("addinng to table")
+                console.log(this.tables[i])
                 return;
             }
         }

@@ -1,26 +1,34 @@
-import React, { useState } from "react";
-import { ColorEditorProps, RGBValue } from "../../typescript/types";
 import iro from "@jaames/iro";
 
-function ColorEditor({ mode } : ColorEditorProps):JSX.Element{
-    //console.log(mode)
-    
+import React, { ChangeEvent, useState } from "react";
+import { ColorEditorProps, RGBValue } from "../../typescript/types";
+import { hexToRgb } from "../../api/hex_to_rgb";
+import { NavLink } from "react-router-dom";
+
+function ColorEditor({ mode, handleAddColorToTable } : ColorEditorProps):JSX.Element{
+    const [ colorName, setColorName ] = useState<string>("");
     const [ currentColorValue, setCurrentColorValue ] = useState<{ hex: string, rgb: RGBValue }>({
         hex: "#ffffff", 
         rgb: {r: 255, g: 255, b: 255}
     });
 
+    function handleColorNameInput(event: ChangeEvent<HTMLInputElement>){
+        setColorName(event.target.value);;
+    } 
+
     function handleColorInput(event: React.ChangeEvent<HTMLInputElement>){
-        setCurrentColorValue({hex: event.target.value, rgb: { r: 255, g: 255, b: 255 }});
-    
-        console.log(event.target.value);
+        const colorHexValue = event.target.value;
+        const rgbValue = hexToRgb(colorHexValue);
+
+        setCurrentColorValue({hex: colorHexValue, rgb: rgbValue});
     }
 
     return(
         <div className="colorEditor">
-            <input className="colorNameInput" type="text"/>
+            <input className="colorNameInput" type="text" value={colorName} onChange={handleColorNameInput}/>
             <input className="rgbInput" type="color" value={currentColorValue.hex}  onChange={handleColorInput}  />
-            <button className="addColorTotable">Add</button>
+            <button className="addColorToTable" onClick={() => handleAddColorToTable({ tableName: "Welcome table", colorName, rgbValue: currentColorValue.rgb })} >Add</button>
+            {/*<NavLink to="/">Main</NavLink>*/}
         </div>
     );
 }

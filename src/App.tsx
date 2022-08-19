@@ -7,9 +7,12 @@ import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, crea
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
 
+import { logout } from './redux/action_functions';
+
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
-import { logout } from './redux/action_functions';
+import ColorClass from './classes/Color';
+import { AddColorToTableParams, RGBValue } from './typescript/types';
 
 
 function App() {
@@ -17,7 +20,8 @@ function App() {
     const user = useSelector((state: any) => state.user.user);
     const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));    
     const error = useSelector((state:any) => state.error);
-    console.log(error.errorText);
+    //console.log(error.errorText);
+    console.log(user.tables)
 
     useEffect(() => {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
@@ -42,6 +46,11 @@ function App() {
         dispatch(changeTablesSearchTerm({ searchTerm: event.target.value }))
     }
 
+    function handleAddColorToTable({ tableName, colorName, rgbValue } : AddColorToTableParams):void{
+        const color = new ColorClass(colorName, rgbValue);
+        console.log(color);
+        dispatch(addColorToTable({ tableName, color }));
+    }
 
     document.body.onclick = function(){
         //dispatch(createTable({tableName: "Sobakens"}));
@@ -72,6 +81,9 @@ function App() {
                 handleColorModeChange={handleColorModeChange}
                 handleTablesSortCriteriaChange={handleTablesSortCriteriaChnage}
                 handleTablesSearch={handleTablesSearch}
+
+                mode={"create"} //Color editor mode, it's not necessary;
+                handleAddColorToTable={handleAddColorToTable}
             />
         </div>
     );
