@@ -9,19 +9,17 @@ import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_
 
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
-import { logout, setError } from './redux/action_functions';
+import { logout } from './redux/action_functions';
 
 
 function App() {
     const dispatch = useDispatch();
     const user = useSelector((state: any) => state.user.user);
-    const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));
-    
+    const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));    
     const error = useSelector((state:any) => state.error);
-    console.log("Crash:", error.errorText);
-    
+    console.log(error.errorText);
+
     useEffect(() => {
-        dispatch(setError({ errorText: "You pidor"}))
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
             addItemToLocaleStorage("guest_user", user);
         }
@@ -54,7 +52,7 @@ function App() {
         //dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor }));
         //dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark" }));
         //console.log("Click")
-        dispatch(login({ login: "pivasik", password: "pivasik" }))
+        dispatch(login({ login: "pivasi", password: "pivasik" }))
         //dispatch(register({nickname: "Ivaniii", login: "pivasik", password: "ssssssssssssssssss"}));
     }
 

@@ -15,9 +15,9 @@ export function logout():ActionType{
 }
 
 
-export function setError(payload: { errorText: string }):ActionType{
-    return { type: SET_ERROR, payload };
-}
+//export function setError(payload: { errorText: string }):ActionType{
+//    return { type: SET_ERROR, payload };
+//}
 
 
 //export function changeColorMode(payload: ChangeColorModePayload):ActionType{
