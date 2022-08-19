@@ -5,7 +5,6 @@ import { getItemFromLocalStorage } from "./get_item_from_locale_storage";
 
 export function getGuestUserFromLocaleStorage():UserClass | null{
     const guestUserObject = getItemFromLocalStorage("guest_user");
-    //console.log("guestUserObject: ",guestUserObject);
     let guestUser = null;
 
     if(guestUserObject){
@@ -16,7 +15,6 @@ export function getGuestUserFromLocaleStorage():UserClass | null{
 
             recreatedTable.colors = table.colors.map((color:ColorClass):ColorClass => {
                 const recreatedColor = new ColorClass(color.name, color.rgbValue);
-                //console.log(recreatedColor)
                 return recreatedColor;
             });
 

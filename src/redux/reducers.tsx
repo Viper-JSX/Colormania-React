@@ -27,7 +27,16 @@ function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name"
     }
 }
 
-function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGuestUserFromLocaleStorage() : new UserClass("stranger", "", "") , forceUpdate: {} }, action: ActionType ):UserState{
+let userrr:UserClass; 
+if(getGuestUserFromLocaleStorage()){
+    userrr = getGuestUserFromLocaleStorage();    
+}
+else {
+    userrr = new UserClass("", "", "");
+}
+
+
+function user(state: UserState = { user: userrr /*getGuestUserFromLocaleStorage() ? getGuestUserFromLocaleStorage() : new UserClass("stranger", "", "")*/  , forceUpdate: {} }, action: ActionType ):UserState{
     switch(action.type){
         case LOGIN:{
             console.log("Login")
