@@ -8,10 +8,6 @@ function ColorValueInfo({ colorValue } : {colorValue: ConvertedColorValue}):JSX.
 
     const valueIsRgb = valueIsRgbTypeGuard(colorValue); //If value is of type RGBValue then it returns true. It's a type guard. The object passed is { r: 10 g: 10 , b: 10 }
     const valueIsHsl = valueIsHslTypeGuard(colorValue); //so it returns true. Here ConvertedColorValue is RGBValue | HSLValue
-    
-
-
-    console.log(colorValue)
 
     if(valueIsRgb){
         return(
