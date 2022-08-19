@@ -56,8 +56,8 @@ function App() {
         //dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor }));
         //dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark" }));
         //console.log("Click")
-        //dispatch(login({ login: "pivasik", password: "pivasik" }))
-        dispatch(register({nickname: "Ivaniii", login: "sssssssssssssssss", password: "ssssssssssssssssss"}));
+        dispatch(login({ login: "pivasik", password: "pivasik" }))
+        //dispatch(register({nickname: "Ivaniii", login: "pivasik", password: "ssssssssssssssssss"}));
     }
 
     //document.body.ondblclick = function(){

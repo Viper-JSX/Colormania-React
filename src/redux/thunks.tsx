@@ -2,6 +2,7 @@ import { checkNicknameExistance } from "../api/check_nickname_existance";
 import { validateLogin } from "../api/validate_login";
 import { validatePassword } from "../api/validate_password";
 import { AddColorToTablePayload, ChangeColorModePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteColorFromTablePayload, DeleteTablePayload, EditColorInsideTablePayload, EditTablePayload, UserLoginPayload, UserRegisterPayload } from "../typescript/types";
+import { users } from "../various_things/users";
 import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE, ADD_COLOR_TO_TABLE, EDIT_COLOR_INSIDE_TABLE, DELETE_COLOR_FROM_TABLE, LOGIN, REGISTER } from "./action_types";
 
 //-------------------------Tables filter---------------------------//
@@ -35,7 +36,17 @@ export function changeTablesSearchTerm (payload: ChangeTablesSearcTermhPayload):
 
 export function login(payload: UserLoginPayload):any{
     return function(dispath:any):void{
-        dispath({ type: LOGIN, payload: { login: payload.login, password: payload.password } });
+        //const userExists = false;
+
+        for(let i = 0; i < users.length; i++){
+            if(users[i].login === payload.login.toLowerCase() && users[i].password === payload.password.toLowerCase()){
+                dispath({ type: LOGIN, payload: { login: payload.login, password: payload.password } });
+                console.log("Logging in...");
+                return;
+            }   
+        }
+
+        console.log("Wrong login or password")
     }
 }
 
