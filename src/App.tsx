@@ -12,7 +12,7 @@ import { logout } from './redux/action_functions';
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
 import ColorClass from './classes/Color';
-import { AddColorToTableParams, RGBValue } from './typescript/types';
+import { AddColorToTableParams, EditColorParams, RGBValue } from './typescript/types';
 
 
 function App() {
@@ -52,6 +52,10 @@ function App() {
         dispatch(addColorToTable({ tableName, color }));
     }
 
+    function handleColorEdit({ tableName, oldColorName, colorName, rgbValue } : EditColorParams):void{
+        dispatch(editColorInsideTable({ tableName, colorName, colorName rgbValue }))
+    }
+
     document.body.onclick = function(){
         //dispatch(createTable({tableName: "Sobakens"}));
         //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewsz" }));
@@ -84,6 +88,7 @@ function App() {
 
                 mode={"create"} //Color editor mode, it's not necessary;
                 handleAddColorToTable={handleAddColorToTable}
+                handleColorEdit={}
             />
         </div>
     );

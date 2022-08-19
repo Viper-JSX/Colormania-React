@@ -107,3 +107,4 @@ export type DeleteColorFromTablePayload = { tableName: string, colorName: string
 
 //---------------------Handlers--------------------------//
 export type AddColorToTableParams = { tableName: string, colorName: string, rgbValue: RGBValue };
+export type EditColorParams = AddColorToTableParams & { oldColorName: string };

@@ -6,8 +6,8 @@ import { hexToRgb } from "../../api/hex_to_rgb";
 import { NavLink, useLocation } from "react-router-dom";
 
 function ColorEditor({ mode, handleAddColorToTable } : ColorEditorProps):JSX.Element{
-    const location = useLocation();
-    const tableName:unknown = location.state.tableName;
+    const { state }  = useLocation();
+    const tableName = state.tableName as string;
     console.log(location);
 
     const [ colorName, setColorName ] = useState<string>("");
