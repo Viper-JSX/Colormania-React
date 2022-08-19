@@ -2,13 +2,14 @@ import './App.css';
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable, login } from './redux/thunks';
+import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable, login, register } from './redux/thunks';
 
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
 
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
+import { logout } from './redux/action_functions';
 
 
 function App() {
@@ -23,9 +24,9 @@ function App() {
         }
 
         
-        else if(getGuestUserFromLocaleStorage()){
-            const savedGuestUser = getGuestUserFromLocaleStorage()
-        }
+        //else if(getGuestUserFromLocaleStorage()){
+        //    const savedGuestUser = getGuestUserFromLocaleStorage()
+        //}
     }, [])
 
     function handleColorModeChange(event : (React.ChangeEvent<HTMLSelectElement> )){
@@ -47,7 +48,7 @@ function App() {
 
 
     document.body.onclick = function(){
-        dispatch(createTable({tableName: "Sobakens"}));
+        //dispatch(createTable({tableName: "Sobakens"}));
         //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewsz" }));
         //dispatch(deleteTable({ tableName: "Welcome table" }))
         //dispatch(addColorToTable({ tableName: "Welcome table", color: new Color("Bereza", { r: 40, g: 20, b: 30}) }))
@@ -56,7 +57,16 @@ function App() {
         //dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark" }));
         //console.log("Click")
         //dispatch(login({ login: "pivasik", password: "pivasik" }))
+        dispatch(register({nickname: "Ivaniii", login: "sssssssssssssssss", password: "ssssssssssssssssss"}));
     }
+
+    //document.body.ondblclick = function(){
+    //    dispatch(logout());
+    //}
+
+    //document.body.onkeydown = function(){
+    //    dispatch(createTable({ tableName: "New tables" }));
+    //}
 
     return (
         <div className="App">

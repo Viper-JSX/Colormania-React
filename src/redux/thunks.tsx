@@ -1,5 +1,8 @@
-import { AddColorToTablePayload, ChangeColorModePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteColorFromTablePayload, DeleteTablePayload, EditColorInsideTablePayload, EditTablePayload, UserLoginPayload } from "../typescript/types";
-import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE, ADD_COLOR_TO_TABLE, EDIT_COLOR_INSIDE_TABLE, DELETE_COLOR_FROM_TABLE, LOGIN } from "./action_types";
+import { checkNicknameExistance } from "../api/check_nickname_existance";
+import { validateLogin } from "../api/validate_login";
+import { validatePassword } from "../api/validate_password";
+import { AddColorToTablePayload, ChangeColorModePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteColorFromTablePayload, DeleteTablePayload, EditColorInsideTablePayload, EditTablePayload, UserLoginPayload, UserRegisterPayload } from "../typescript/types";
+import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE, ADD_COLOR_TO_TABLE, EDIT_COLOR_INSIDE_TABLE, DELETE_COLOR_FROM_TABLE, LOGIN, REGISTER } from "./action_types";
 
 //-------------------------Tables filter---------------------------//
 
@@ -36,8 +39,35 @@ export function login(payload: UserLoginPayload):any{
     }
 }
 
-export function register():any{
+export function register(payload: UserRegisterPayload):any{
+    return function(dispatch: any){
+        const userNicknameDoesNotExist = checkNicknameExistance(payload.nickname);
+        const loginIsValidAndDoesNotExist = validateLogin(payload.login);
+        const passwordIsValid = validatePassword(payload.password);
 
+
+        if(userNicknameDoesNotExist && loginIsValidAndDoesNotExist && passwordIsValid){
+            const lowerCasedPayload:UserRegisterPayload = { ...payload };
+            lowerCasedPayload.login = payload.login.toLowerCase();
+            lowerCasedPayload.password = payload.password.toLowerCase();
+
+            dispatch({ type: REGISTER, lowerCasedPayload });
+        }
+        //dispatch errorMessage
+        else if(!userNicknameDoesNotExist){
+            console.log(`Nickname:${payload.nickname} is already taken`);
+        }
+        else if(!loginIsValidAndDoesNotExist){
+            console.log(`Login: ${payload.login} is invalid or already taken`);
+        }
+        else if(!passwordIsValid){
+            console.log(`Password: ${payload.login} is invalalid, password must be at least 8 characters long and contain numbers`);
+        }
+        else{
+            console.log("Unknown error");
+        }
+
+    }
 }
 
 export function createTable(payload: CreateTablePayload):any{

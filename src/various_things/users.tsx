@@ -4,4 +4,4 @@ export const users:UserClass[] = [
     new UserClass("Ivan", "pivasik", "pivasik"),
 ];
 
-users[0].tables = []
+//users[0].tables = []

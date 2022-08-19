@@ -87,7 +87,7 @@ export type FilterTablesParams = { tables: TableClass[], filterOptions: TableFil
 //User//
 export type UserState = { user: UserClass, forceUpdate: any };
 
-export type UserLoginPayload = { login: string, password: string, /*tablesToFilter: TableClass[]*/ };
+export type UserLoginPayload = { login: string,  password: string, /*tablesToFilter: TableClass[]*/ };
 export type UserRegisterPayload =  { nickname: string } & UserLoginPayload;
 
 export type CreateTablePayload = { tableName: string }; //tablesToEdit must be passed each time to run filter on new list of tables so that filtered tables are up to date
