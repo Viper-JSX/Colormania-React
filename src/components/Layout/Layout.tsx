@@ -10,6 +10,7 @@ import HomePage from "../Home_page/Home_page";
 import Table from "../Tables/Table";
 import Tables from "../Tables/Tables";
 import UserProfile from "../User/User_profile";
+import ColorEditor from "../Color_editor/Color_editor";
 
 function Layout({ appTitle, tablesToRender, handleColorModeChange, handleTablesSortCriteriaChange, handleTablesSearch } : LayoutProps):JSX.Element{
     return(
@@ -29,6 +30,8 @@ function Layout({ appTitle, tablesToRender, handleColorModeChange, handleTablesS
                         )            
                     }
 
+                    <Route path="/tables/:tablename/create-color" element={<ColorEditor mode="create" />} />
+                    <Route path="/tables/:tablename/:colorname/edit" element={<ColorEditor mode="edit" />} />
                     <Route path="/user" element={<UserProfile />} />
                     <Route path="*" element={<b>Page not found</b>} />
                 </Routes>

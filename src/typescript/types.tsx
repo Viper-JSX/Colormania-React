@@ -34,6 +34,11 @@ export type SortByProps = { tablesSortCriteria?: HeaderProps['tablesSortCriteria
 export type SearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; handleTablesSearch: HeaderProps["handleTablesSearch"]; }
 
 
+//-----------------------Color_editor-------------------------------//
+export type ColorEditorProps = { mode: "create" | "edit" };
+
+
+
 //-------------------------User_class-------------------------------//
 
 
