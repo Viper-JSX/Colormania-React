@@ -6,7 +6,7 @@ import { getItemFromLocalStorage } from "./get_item_from_locale_storage";
 export function getGuestUserFromLocaleStorage():UserClass | null{
     const guestUserObject = getItemFromLocalStorage("guest_user");
     let guestUser = null;
-
+    console.log(guestUserObject)
     if(guestUserObject){
         guestUser = new UserClass(guestUserObject.nickname, "", "");
 
@@ -21,7 +21,7 @@ export function getGuestUserFromLocaleStorage():UserClass | null{
             return recreatedTable;
         });
     }
-console.log(guestUser?.tables[0].colors[0]);
+//console.log(guestUser?.tables[0].colors[0]);
     return guestUser;
 }
 

@@ -14,7 +14,7 @@ import { logout } from './redux/action_functions';
 
 function App() {
     const dispatch = useDispatch();
-    const user = useSelector((state: any) => state.user);
+    const user = useSelector((state: any) => state.user.user);
     const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));
     
 
@@ -22,11 +22,6 @@ function App() {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
             addItemToLocaleStorage("guest_user", user);
         }
-
-        
-        //else if(getGuestUserFromLocaleStorage()){
-        //    const savedGuestUser = getGuestUserFromLocaleStorage()
-        //}
     }, [])
 
     function handleColorModeChange(event : (React.ChangeEvent<HTMLSelectElement> )){

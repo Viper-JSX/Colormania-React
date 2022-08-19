@@ -9,13 +9,11 @@ import { addItemToLocaleStorage } from "../api/add_item_to_locale_storage";
 import { getGuestUserFromLocaleStorage } from "../api/get_guest_user_from_locale_storage";
 
 function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: ""}, action: ActionType):TableFilterState{
-    console.log("Tables filter")
     switch(action.type){
         case CHANGE_COLOR_MODE:{
             return {...state, colorMode: action.payload.colorMode};
         }
         case CHANGE_TABLES_SORT_CRITERIA:{
-            //console.log("SSSooort", action.payload.sortCriteria)
             return {...state, sortBy: action.payload.sortCriteria };
         }
         case RUN_TABLES_SEARCH:{
@@ -27,24 +25,12 @@ function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name"
     }
 }
 
-let userrr:UserClass; 
-if(getGuestUserFromLocaleStorage()){
-    userrr = getGuestUserFromLocaleStorage();    
-}
-else {
-    userrr = new UserClass("", "", "");
-}
 
-
-function user(state: UserState = { user: userrr /*getGuestUserFromLocaleStorage() ? getGuestUserFromLocaleStorage() : new UserClass("stranger", "", "")*/  , forceUpdate: {} }, action: ActionType ):UserState{
+function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGuestUserFromLocaleStorage()! : new UserClass("stranger", "", "")  , forceUpdate: {} }, action: ActionType ):UserState{
     switch(action.type){
         case LOGIN:{
             console.log("Login")
             let userFound = false;
-
-            if(action.payload.guestUser){
-                return action.payload.guestUser;
-            }
 
             for(let i = 0; i < users.length; i++){
                 if(users[i].login === action.payload.login && users[i].password === action.payload.password){
@@ -178,11 +164,10 @@ function user(state: UserState = { user: userrr /*getGuestUserFromLocaleStorage(
         case DELETE_COLOR_FROM_TABLE:{
             state.user.deleteColorFromTable(action.payload.tableName, action.payload.colorName);
 
-            return { ...state, forceUpdate: new Object() }//state; //users[0];
+            return { ...state, forceUpdate: new Object() };
         }
 
         default: {
-            console.log("Defff")
             return state; //maybe use forceUpdate too
         }
     }
