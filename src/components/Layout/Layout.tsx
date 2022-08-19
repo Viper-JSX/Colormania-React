@@ -30,7 +30,7 @@ function Layout({ appTitle, tablesToRender, handleColorModeChange, handleTablesS
                         )            
                     }
 
-                    <Route path="/tables/:tablename/create-color" element={<ColorEditor mode="create" />} />
+                    <Route path="/tables/:tablename/add-color" element={<ColorEditor mode="create" />} />
                     <Route path="/tables/:tablename/:colorname/edit" element={<ColorEditor mode="edit" />} />
                     <Route path="/user" element={<UserProfile />} />
                     <Route path="*" element={<b>Page not found</b>} />
