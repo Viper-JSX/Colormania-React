@@ -36,8 +36,6 @@ export function changeTablesSearchTerm (payload: ChangeTablesSearcTermhPayload):
 
 export function login(payload: UserLoginPayload):any{
     return function(dispath:any):void{
-        //const userExists = false;
-
         for(let i = 0; i < users.length; i++){
             if(users[i].login === payload.login.toLowerCase() && users[i].password === payload.password.toLowerCase()){
                 dispath({ type: LOGIN, payload: { login: payload.login, password: payload.password } });
