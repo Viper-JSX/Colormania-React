@@ -5,6 +5,7 @@ import { ActionType, TableFilterState, UserState } from "../typescript/types";
 import UserClass from "../classes/User";
 import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, DELETE_COLOR_FROM_TABLE, DELETE_TABLE, EDIT_COLOR_INSIDE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_SEARCH } from "./action_types";
 import { users } from "../various_things/users";
+import { addItemToLocaleStorage } from "../api/add_item_to_locale_storage";
 
 function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: ""}, action: ActionType):TableFilterState{
     console.log("Tables filter")
@@ -30,6 +31,10 @@ function user(state: UserState = { user: new UserClass("stranger", "", ""), forc
         case LOGIN:{
             console.log("Login")
             let userFound = false;
+
+            if(action.payload.guestUser){
+                return action.payload.guestUser;
+            }
 
             for(let i = 0; i < users.length; i++){
                 if(users[i].login === action.payload.login && users[i].password === action.payload.password){
@@ -65,6 +70,10 @@ function user(state: UserState = { user: new UserClass("stranger", "", ""), forc
             
             if(!tableAlreadyExists){
                 state.user.createTable(action.payload.tableName);
+            }
+
+            if(!state.user.authorized){
+                addItemToLocaleStorage("guest_user", state.user);
             }
 
             return { ...state, forceUpdate: new Object() };

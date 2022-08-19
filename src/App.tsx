@@ -7,10 +7,8 @@ import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, crea
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
 
-import TableClass from './classes/Table';
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
-import { sortByField } from './api/sort_by_field';
 
 
 function App() {
@@ -24,8 +22,9 @@ function App() {
             addItemToLocaleStorage("guest_user", user);
         }
 
-        else{
-            //dispatch({ type: LOGIN, payload: getGuestUserFromLocaleStorage()});
+        
+        else if(getGuestUserFromLocaleStorage()){
+            const savedGuestUser = getGuestUserFromLocaleStorage()
         }
     }, [])
 
@@ -48,6 +47,7 @@ function App() {
 
 
     document.body.onclick = function(){
+        dispatch(createTable({tableName: "Sobakens"}));
         //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewsz" }));
         //dispatch(deleteTable({ tableName: "Welcome table" }))
         //dispatch(addColorToTable({ tableName: "Welcome table", color: new Color("Bereza", { r: 40, g: 20, b: 30}) }))

@@ -1,10 +1,9 @@
-import React from "react";
-import { useSelector } from "react-redux";
 import { Routes, Route, Router } from "react-router";
 import { stringToUrl } from "../../api/string_to_url";
-import Color from "../../classes/Color";
-import TableClass from "../../classes/Table";
+
 import { LayoutProps } from "../../typescript/types";
+
+import TableClass from "../../classes/Table";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import HomePage from "../Home_page/Home_page";
