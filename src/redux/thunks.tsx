@@ -1,6 +1,7 @@
 import { checkNicknameExistance } from "../api/check_nickname_existance";
 import { validateLogin } from "../api/validate_login";
 import { validatePassword } from "../api/validate_password";
+import { messageShowTime } from "../app_config/app_config";
 import { AddColorToTablePayload, ChangeColorModePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteColorFromTablePayload, DeleteTablePayload, EditColorInsideTablePayload, EditTablePayload, UserLoginPayload, UserRegisterPayload } from "../typescript/types";
 import { users } from "../various_things/users";
 //import { setError } from "./action_functions";
@@ -119,6 +120,6 @@ export function setError(payload: { errorText: string }):any{
     return function(dispatch: any):void{
         dispatch({ type: SET_ERROR, payload });
 
-        setTimeout(() => dispatch({ type: SET_ERROR, payload: {...payload, errorText: ""} }), 3000);
+        setTimeout(() => dispatch({ type: SET_ERROR, payload: {...payload, errorText: ""} }), messageShowTime);
     }
 }

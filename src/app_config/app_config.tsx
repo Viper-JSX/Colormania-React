@@ -1,0 +1,1 @@
+export const messageShowTime:number = 4000
