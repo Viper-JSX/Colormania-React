@@ -21,7 +21,6 @@ function App() {
     const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));    
     const error = useSelector((state:any) => state.error);
     //console.log(error.errorText);
-    console.log(user.tables)
 
     useEffect(() => {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
@@ -72,14 +71,6 @@ function App() {
 
         handleColorEdit({ tableName: "Welcome table", oldColorName: "dark", colorName: "Pinkyyyyyyyyyy", rgbValue: { r: 10, g: 10, b: 200 } });
     }
-
-    //document.body.ondblclick = function(){
-    //    dispatch(logout());
-    //}
-
-    //document.body.onkeydown = function(){
-    //    dispatch(createTable({ tableName: "New tables" }));
-    //}
 
     return (
         <div className="App">

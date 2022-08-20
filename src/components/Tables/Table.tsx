@@ -8,7 +8,7 @@ function Table({ table } : { table: TableClass }){
             <b className="tableName">{table.name}</b>
             <div className="tableColors">
                 {
-                    table.colors.map((color) => <Color color={color} key={`${table.name}_${color.name}`} />)
+                    table.colors.map((color) => <Color color={color} tableName={table.name} key={`${table.name}_${color.name}`} />)
                 }
             </div>
             <OpenColorCreator tableName={table.name} />

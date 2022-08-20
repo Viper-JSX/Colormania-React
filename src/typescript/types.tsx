@@ -41,6 +41,7 @@ export type ColorEditorProps = {
     handleColorEdit: (prarms: EditColorParams) => void;
 };
 
+export type OpenColorEditorProps = { tableName: string, colorToEdit: { oldColorName: string, rgbValue: RGBValue } };
 
 
 //-------------------------User_class-------------------------------//

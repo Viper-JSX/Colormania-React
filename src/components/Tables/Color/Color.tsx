@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ColorClass from "../../../classes/Color";
 import { RGBValue } from "../../../typescript/types";
 import ColorInfoLabel from "./Color_info_label";
+import OpenColorEditor from "./Open_color_editor";
 
 interface StyledColorProps{
     colorRgbValue: { r: number, g:number, b: number };
@@ -23,11 +24,12 @@ const StyledColor = styled.div<StyledColorProps>`
     }
 `;
 
-function Color({ color } : { color: ColorClass }):JSX.Element{
+function Color({ tableName, color } : { tableName: string, color: ColorClass }):JSX.Element{
 
     return(
         <StyledColor className="color" colorRgbValue={color.rgbValue}>
             <ColorInfoLabel color={color} />
+            <OpenColorEditor tableName={tableName} colorToEdit={{ oldColorName: color.name, rgbValue: color.rgbValue }} />
         </StyledColor>
     );
 }
