@@ -155,7 +155,6 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
             }
            
             if(!colorAlreayExistsInsideCurrentTable){
-                console.log("Edit color");
                 state.user.editColorInsideTable(action.payload.tableName, action.payload.oldColorName, action.payload.colorName, action.payload.rgbValue);
             }
 

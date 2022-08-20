@@ -9,11 +9,10 @@ import { rgbToHex } from "../../api/rgb_to_hex";
 function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEditorProps):JSX.Element{
     const location  = useLocation();
     const state = location.state;
-    console.log(state);
 
     const tableName:string = state.tableName;
-    const colorToEdit:OpenColorEditorProps["colorToEdit"] = state.colorToEdit;
-    const oldColorName: string = colorToEdit.oldColorName;
+    const colorToEdit:OpenColorEditorProps["colorToEdit"] = state?.colorToEdit;
+    const oldColorName: string = colorToEdit?.oldColorName;
 
     const [ colorName, setColorName ] = useState<string>(() => oldColorName ? oldColorName : "");
     const [ currentColorValue, setCurrentColorValue ] = useState(() => {
@@ -29,8 +28,6 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
             rgb: colorToEdit.rgbValue
         };
     });
-
-    console.log(currentColorValue)
 
     function handleColorNameInput(event: ChangeEvent<HTMLInputElement>){
         setColorName(event.target.value);;

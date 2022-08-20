@@ -10,7 +10,7 @@ function Header({ appTitle, handleColorModeChange, handleTablesSortCriteriaChang
 
     return(
         <header>
-            <AppTitle titleText={appTitle || "Color Picker by Yura Shtefanko" + nickname} />
+            <AppTitle titleText={appTitle || "ColorMania by Yura Shtefanko" + nickname} />
             <Routes>
                 <Route path="tables" element={<FilterTools  handleColorModeChange={handleColorModeChange} handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} handleTablesSearch={handleTablesSearch}  />} />
             </Routes>
