@@ -9,11 +9,8 @@ import { addItemToLocaleStorage } from "../api/add_item_to_locale_storage";
 import { getGuestUserFromLocaleStorage } from "../api/get_guest_user_from_locale_storage";
 import { editColorInsideTable } from "./thunks";
 
-function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: ""}, action: ActionType):TableFilterState{
+function tablesFilter(state:TableFilterState = { sortBy: "name", searchTerm: ""}, action: ActionType):TableFilterState{
     switch(action.type){
-        case CHANGE_COLOR_MODE:{
-            return {...state, colorMode: action.payload.colorMode};
-        }
         case CHANGE_TABLES_SORT_CRITERIA:{
             return {...state, sortBy: action.payload.sortCriteria };
         }

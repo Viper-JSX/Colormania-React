@@ -13,7 +13,6 @@ export type HeaderProps = {
     tablesSearchTerm?: string;
     tablesSortCriteria?: string;
 
-    handleColorModeChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     handleTablesSortCriteriaChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     handleTablesSearch?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -22,12 +21,9 @@ export type FilterToolsProps = {
     tablesSearchTerm?: HeaderProps['tablesSearchTerm'];
     tablesSortCriteria?: HeaderProps['tablesSortCriteria'];
 
-    handleColorModeChange: HeaderProps['handleColorModeChange'];
     handleTablesSortCriteriaChange: HeaderProps['handleTablesSortCriteriaChange'];
     handleTablesSearch: HeaderProps['handleTablesSearch'];
 };
-
-export type ColorModeSwitchProps = { handleColorModeChange: HeaderProps['handleColorModeChange']; }
 
 export type SortByProps = { tablesSortCriteria?: HeaderProps['tablesSortCriteria']; handleTablesSortCriteriaChnage: HeaderProps['handleTablesSortCriteriaChange'] };
 
@@ -82,12 +78,10 @@ export type ActionType = {
     payload?: any;
 }
 
-export type ChangeColorModePayload = { colorMode: "rgb" | "hsl" };
 export type ChangeTablesSortCriteriaPayload = { sortCriteria: "name" | "date" };
 export type ChangeTablesSearcTermhPayload = { searchTerm: string };
 
 export type TableFilterState = {
-    colorMode: "rgb" | "hsl";
     sortBy: "name" | "date";
     searchTerm: string;
 }

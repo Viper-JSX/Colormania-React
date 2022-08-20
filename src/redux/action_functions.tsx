@@ -1,5 +1,5 @@
 import UserClass from "../classes/User";
-import { ActionType, ChangeColorModePayload, ChangeTablesSortCriteriaPayload } from "../typescript/types";
+import { ActionType, ChangeTablesSortCriteriaPayload } from "../typescript/types";
 import { CHANGE_COLOR_MODE, RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, REGISTER, LOGIN, LOGOUT, SET_ERROR } from "./action_types";
 
 //export function login(payload: UserLogin){ //You may need to create a thunk, to dispatch RUN_TABLES_FILTER, cause old guest tables may remain untill first filter change
@@ -20,10 +20,7 @@ export function logout():ActionType{
 //}
 
 
-//export function changeColorMode(payload: ChangeColorModePayload):ActionType{
-//    return({ type: CHANGE_COLOR_MODE, payload: payload })
-//}
-//
+
 //export function changeTablessortCriteria(payload: ChangeTablessortCriteriaPayload):ActionType{
 //    return { type: CHANGE_TABLES_SORT_FILTER, payload: payload };
 //}

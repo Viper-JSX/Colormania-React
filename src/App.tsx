@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTablesSearchTerm, chnageColorMode, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable, login, register } from './redux/thunks';
+import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable, login, register } from './redux/thunks';
 
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
@@ -28,11 +28,6 @@ function App() {
         }
     }, [])
 
-    function handleColorModeChange(event : (React.ChangeEvent<HTMLSelectElement> )){
-        if(event.target.value === "rgb" || event.target.value === "hsl"){
-            dispatch(chnageColorMode({ colorMode: event.target.value }));
-        }
-    }
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
         if(event.target.value === "name" || event.target.value === "date"){
@@ -76,11 +71,10 @@ function App() {
             <Layout
                 tablesToRender={tablesToRender}
 
-                handleColorModeChange={handleColorModeChange}
                 handleTablesSortCriteriaChange={handleTablesSortCriteriaChnage}
                 handleTablesSearch={handleTablesSearch}
 
-                mode={"create"} //Color editor mode, it's not necessary;
+                mode="create"
                 handleAddColorToTable={handleAddColorToTable}
                 handleColorEdit={handleColorEdit}
             />

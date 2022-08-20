@@ -15,18 +15,6 @@ function filterTables( { tables, filterOptions, order="small-big" } : FilterTabl
         filtered = filtered.sort((a, b) => order === "small-big" ? (a.creationDate.getTime() > b.creationDate.getTime() ? 1 : -1) : (a.creationDate.getTime() < b.creationDate.getTime() ? 1 : -1) );
     }
 
-    ///convertToColorMode
-    if(filterOptions.colorMode === "rgb"){
-        for(let i = 0; i < filtered.length; i++){
-            filtered[i].colors.forEach((color: ColorClass) => color.currentConvertedValue = color.rgbValue);
-        }
-    }
-
-    else if(filterOptions.colorMode === "hsl"){
-        for(let i = 0; i < filtered.length; i++){
-            filtered[i].colors.forEach((color: ColorClass) => color.currentConvertedValue = iro.Color.hsvToHsl(iro.Color.rgbToHsv(color.rgbValue)));
-        }
-    }
     return filtered;
 }
 

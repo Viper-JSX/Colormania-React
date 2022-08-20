@@ -12,12 +12,11 @@ import Tables from "../Tables/Tables";
 import UserProfile from "../User/User_profile";
 import ColorEditor from "../Color_editor/Color_editor";
 
-function Layout({ appTitle, tablesToRender, handleColorModeChange, handleTablesSortCriteriaChange, handleTablesSearch, handleAddColorToTable, handleColorEdit } : LayoutProps):JSX.Element{
+function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTablesSearch, handleAddColorToTable, handleColorEdit } : LayoutProps):JSX.Element{
     return(
         <div id="layout">
             <Header 
                 appTitle={appTitle}
-                handleColorModeChange={handleColorModeChange}
                 handleTablesSortCriteriaChange={handleTablesSortCriteriaChange}
                 handleTablesSearch={handleTablesSearch}
             />
