@@ -52,7 +52,6 @@ function App() {
     }
 
     function handleColorEdit({ tableName, oldColorName, colorName, rgbValue } : EditColorParams):void{
-        console.log("Edidit")
         console.log(rgbValue);
         dispatch(editColorInsideTable({ tableName, oldColorName, colorName, rgbValue}));
     }
@@ -69,7 +68,7 @@ function App() {
         //dispatch(login({ login: "pivasi", password: "pivasik" }))
         //dispatch(register({nickname: "Ivaniii", login: "pivasik", password: "ssssssssssssssssss"}));
 
-        handleColorEdit({ tableName: "Welcome table", oldColorName: "dark", colorName: "Pinkyyyyyyyyyy", rgbValue: { r: 10, g: 10, b: 200 } });
+        //handleColorEdit({ tableName: "Welcome table", oldColorName: "dark", colorName: "Pinkyyyyyyyyyy", rgbValue: { r: 10, g: 10, b: 200 } });
     }
 
     return (

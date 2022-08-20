@@ -4,11 +4,13 @@ import React, { ChangeEvent, useState } from "react";
 import { ColorEditorProps, OpenColorEditorProps, RGBValue } from "../../typescript/types";
 import { hexToRgb } from "../../api/hex_to_rgb";
 import { NavLink, useLocation } from "react-router-dom";
+import { rgbToHex } from "../../api/rgb_to_hex";
 
 function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEditorProps):JSX.Element{
     const location  = useLocation();
     const state = location.state;
     console.log(state);
+
     const tableName:string = state.tableName;
     const colorToEdit:OpenColorEditorProps["colorToEdit"] = state.colorToEdit;
     const oldColorName: string = colorToEdit.oldColorName;
@@ -23,10 +25,12 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
         }
     
         return {
-            hex: "#000000",
-            rgb: colorToEdit.rgbValue//{r: 255, g: 255, b: 255}
+            hex: rgbToHex(colorToEdit.rgbValue),
+            rgb: colorToEdit.rgbValue
         };
     });
+
+    console.log(currentColorValue)
 
     function handleColorNameInput(event: ChangeEvent<HTMLInputElement>){
         setColorName(event.target.value);;
@@ -46,9 +50,9 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
 
             {
                 mode === "create" ? 
-                <button className="addColorToTable" onClick={() => handleAddColorToTable({ tableName: "welcome table", colorName, rgbValue: currentColorValue.rgb })} >Add</button>
+                <button className="addColorToTable" onClick={() => handleAddColorToTable({ tableName, colorName, rgbValue: currentColorValue.rgb })} >Add</button>
                 :
-                <button className="addColorToTable" onClick={() => handleColorEdit({ tableName: "welcome table", oldColorName:"dark", colorName, rgbValue: currentColorValue.rgb })} >Add</button>
+                <button className="addColorToTable" onClick={() => handleColorEdit({ tableName, oldColorName, colorName, rgbValue: currentColorValue.rgb })} >Save</button>
             }
             <NavLink to="/">Main</NavLink>
         </div>
