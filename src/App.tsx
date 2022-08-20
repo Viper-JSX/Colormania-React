@@ -53,7 +53,9 @@ function App() {
     }
 
     function handleColorEdit({ tableName, oldColorName, colorName, rgbValue } : EditColorParams):void{
-        dispatch(editColorInsideTable({ tableName, colorName, colorName rgbValue }))
+        console.log("Edidit")
+        console.log(rgbValue);
+        dispatch(editColorInsideTable({ tableName, oldColorName, colorName, rgbValue}));
     }
 
     document.body.onclick = function(){
@@ -65,8 +67,10 @@ function App() {
         //dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor }));
         //dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark" }));
         //console.log("Click")
-        dispatch(login({ login: "pivasi", password: "pivasik" }))
+        //dispatch(login({ login: "pivasi", password: "pivasik" }))
         //dispatch(register({nickname: "Ivaniii", login: "pivasik", password: "ssssssssssssssssss"}));
+
+        handleColorEdit({ tableName: "Welcome table", oldColorName: "dark", colorName: "Pinkyyyyyyyyyy", rgbValue: { r: 10, g: 10, b: 200 } });
     }
 
     //document.body.ondblclick = function(){
@@ -88,7 +92,7 @@ function App() {
 
                 mode={"create"} //Color editor mode, it's not necessary;
                 handleAddColorToTable={handleAddColorToTable}
-                handleColorEdit={}
+                handleColorEdit={handleColorEdit}
             />
         </div>
     );

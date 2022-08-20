@@ -13,9 +13,9 @@ class Color{
         this.currentConvertedValue = rgbValue;
     }
 
-    edit(color: Color):void{
-        this.name = color.name;
-        this.rgbValue = color.rgbValue;
+    edit(colorName: string, rgbValue: RGBValue):void{
+        this.name = colorName;
+        this.rgbValue = rgbValue;
     }
 }
 

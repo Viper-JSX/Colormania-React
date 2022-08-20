@@ -20,11 +20,10 @@ class Table{
         this.colors.push(color);
     }
 
-    editColor(oldColorName: string, color: ColorClass):void{
+    editColor(oldColorName: string, colorName: string, rgbValue: RGBValue):void{
         for(let i = 0; i < this.colors.length; i++){
             if(this.colors[i].name.toLowerCase() === oldColorName.toLowerCase()){
-                this.colors[i].edit(color);
-                console.log("EDIIIIITITITING")
+                this.colors[i].edit(colorName, rgbValue);
             }
         }
     }

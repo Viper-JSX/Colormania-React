@@ -17,7 +17,6 @@ export function chnageColorMode (payload: ChangeColorModePayload):any{
 
 export function changeTablesSortCriteria (payload: ChangeTablesSortCriteriaPayload):any{
     return function(dispatch : any): void{
-        console.log(payload)
         dispatch({ type: CHANGE_TABLES_SORT_CRITERIA, payload });
     }
 }

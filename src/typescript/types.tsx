@@ -35,7 +35,11 @@ export type SearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; 
 
 
 //-----------------------Color_editor-------------------------------//
-export type ColorEditorProps = { mode: "create" | "edit", handleAddColorToTable: (params: AddColorToTableParams) => void };
+export type ColorEditorProps = { 
+    mode: "create" | "edit";
+    handleAddColorToTable: (params: AddColorToTableParams) => void;
+    handleColorEdit: (prarms: EditColorParams) => void;
+};
 
 
 
@@ -100,7 +104,7 @@ export type EditTablePayload = { oldTableName: string, tableName: string }; //Th
 export type DeleteTablePayload =  CreateTablePayload;
 
 export type AddColorToTablePayload = { tableName: string, color: ColorClass};
-export type EditColorInsideTablePayload = { tableName: string, oldColorName: string, color: ColorClass};
+export type EditColorInsideTablePayload = { tableName: string, oldColorName: string, colorName: string, rgbValue: RGBValue};
 export type DeleteColorFromTablePayload = { tableName: string, colorName: string};
 
 

@@ -1,3 +1,4 @@
+import { RGBValue } from "../typescript/types";
 import initialColorTables from "../various_things/initial_color_tables";
 import ColorClass from "./Color";
 import Table from "./Table";
@@ -36,17 +37,15 @@ class User{
         for(let i = 0; i < this.tables.length; i++){
             if(this.tables[i].name === tableName){
                 this.tables[i].addColor(color);
-                console.log("addinng to table")
-                console.log(this.tables[i])
                 return;
             }
         }
     }
 
-    editColorInsideTable(tableName: string, oldColorName: string, color: ColorClass){
+    editColorInsideTable(tableName: string, oldColorName: string, colorName: string, rgbValue: RGBValue){
         for(let i = 0; i < this.tables.length; i++){
             if(this.tables[i].name === tableName){
-                this.tables[i].editColor(oldColorName, color);
+                this.tables[i].editColor(oldColorName, colorName, rgbValue);
                 return;
             }
         } 

@@ -7,6 +7,7 @@ import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CRE
 import { users } from "../various_things/users";
 import { addItemToLocaleStorage } from "../api/add_item_to_locale_storage";
 import { getGuestUserFromLocaleStorage } from "../api/get_guest_user_from_locale_storage";
+import { editColorInsideTable } from "./thunks";
 
 function tablesFilter(state:TableFilterState = {colorMode: "rgb", sortBy: "name", searchTerm: ""}, action: ActionType):TableFilterState{
     switch(action.type){
@@ -144,7 +145,7 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
             for(let i = 0; i < state.user.tables.length; i++){
                 if(state.user.tables[i].name.toLowerCase() === action.payload.tableName.toLowerCase()){
                     for(let j = 0; j < state.user.tables[i].colors.length; j++){
-                        if(state.user.tables[i].colors[j].name.toLocaleLowerCase() === action.payload.color.name.toLowerCase() && state.user.tables[i].colors[j].name.toLocaleLowerCase() !== action.payload.oldColorName.toLowerCase()){
+                        if(state.user.tables[i].colors[j].name.toLowerCase() === action.payload.colorName.toLowerCase() && state.user.tables[i].colors[j].name.toLowerCase() !== action.payload.oldColorName.toLowerCase()){
                             colorAlreayExistsInsideCurrentTable = true;
                             break;
                         }
@@ -155,7 +156,7 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
            
             if(!colorAlreayExistsInsideCurrentTable){
                 console.log("Edit color");
-                state.user.editColorInsideTable(action.payload.tableName, action.payload.oldColorName, action.payload.color);
+                state.user.editColorInsideTable(action.payload.tableName, action.payload.oldColorName, action.payload.colorName, action.payload.rgbValue);
             }
 
             return { ...state, forceUpdate: new Object() };
