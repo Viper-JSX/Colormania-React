@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { SearchProps } from "../../../typescript/types";
+import { TableSearchProps } from "../../../typescript/types";
 
-function Search({ tablesSearchTerm, handleTablesSearch } : SearchProps):JSX.Element{
+function TableSearch({ tablesSearchTerm, handleTablesSearch } : TableSearchProps):JSX.Element{
     const searchTerm = useSelector((state : any) => state.tablesFilter.searchTerm);
 
     return(
@@ -9,4 +9,4 @@ function Search({ tablesSearchTerm, handleTablesSearch } : SearchProps):JSX.Elem
     );
 }
 
-export default Search;
+export default TableSearch;

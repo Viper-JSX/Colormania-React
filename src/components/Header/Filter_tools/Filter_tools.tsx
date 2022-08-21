@@ -1,12 +1,12 @@
 import { FilterToolsProps } from "../../../typescript/types";
-import Search from "./Search";
+import TableSearch from "./Table_search";
 import SortBy from "./Sort_by";
 
 function FilterTools({ tablesSearchTerm, tablesSortCriteria, handleTablesSortCriteriaChange, handleTablesSearch } : FilterToolsProps):JSX.Element{
     return(
         <div className="FilterTools">
             <SortBy tablesSortCriteria={tablesSortCriteria} handleTablesSortCriteriaChnage={handleTablesSortCriteriaChange} />
-            <Search tablesSearchTerm={tablesSearchTerm} handleTablesSearch={handleTablesSearch} />
+            <TableSearch tablesSearchTerm={tablesSearchTerm} handleTablesSearch={handleTablesSearch} />
         </div>
     );
 }

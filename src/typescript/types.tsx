@@ -6,6 +6,7 @@ import UserClass from "../classes/User";
 
 export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps & ColorEditorProps;
 
+export type SearchProps = { handler: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void; value: string };
 
 //-----------------Header-----------------
 export type HeaderProps = {
@@ -27,7 +28,7 @@ export type FilterToolsProps = {
 
 export type SortByProps = { tablesSortCriteria?: HeaderProps['tablesSortCriteria']; handleTablesSortCriteriaChnage: HeaderProps['handleTablesSortCriteriaChange'] };
 
-export type SearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; handleTablesSearch: HeaderProps["handleTablesSearch"]; }
+export type TableSearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; handleTablesSearch: HeaderProps["handleTablesSearch"]; }
 
 
 //-----------------------Color_editor-------------------------------//
