@@ -15,7 +15,9 @@ const StyledColorInfoLabel = styled.div`
 function ColorInfoLabel({ color } : { color: ColorClass }):JSX.Element{
     return(
         <StyledColorInfoLabel className="colorInfoLabel">
-            <ColorValueInfo colorValue={color.rgbValue} />
+            
+
+            {/*<ColorValueInfo colorValue={color.rgbValue} />*/}
         </StyledColorInfoLabel>
     );
 }
