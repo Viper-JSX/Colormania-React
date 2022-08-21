@@ -1,4 +1,4 @@
-import { ConvertedColorValue, HSLValue, RGBValue } from "../../../typescript/types";
+import { ConvertedColorValue, HSLValue, RGBValue } from "../../../../typescript/types";
 
 function ColorValueInfo({ colorValue } : {colorValue: ConvertedColorValue}):JSX.Element{
     const colorValueKeys = Object.keys(colorValue);
@@ -19,15 +19,15 @@ function ColorValueInfo({ colorValue } : {colorValue: ConvertedColorValue}):JSX.
         );
     }
 
-    else if(valueIsHsl){
-        return(
-            <div>
-                <span>H: {colorValue.h}</span>
-                <span>S: {colorValue.s}</span>
-                <span>L: {colorValue.l}</span>
-            </div>
-        );
-    }
+    //else if(valueIsHsl){
+    //    return(
+    //        <div>
+    //            <span>H: {colorValue.h}</span>
+    //            <span>S: {colorValue.s}</span>
+    //            <span>L: {colorValue.l}</span>
+    //        </div>
+    //    );
+    //}
     return (<></>);
 
 };
