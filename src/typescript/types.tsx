@@ -112,6 +112,8 @@ export type EditColorParams = AddColorToTableParams & { oldColorName: string };
 
 
 //----------------------------Color--------------------------//
+//export type ColorEditorLocationState = { tableName: string, oldColorName?: string, colorToEdit?: OpenColorEditorProps["colorToEdit"] };
+
 export type ColorModels = "rgb" | "hsl" | "hex";
 export type ColorValueViewerProps = { colorRgbValue: RGBValue };
 export type ColorValueModelSwitchProps = { handleColorModelChange : (colorModel : ColorModels) => void  }

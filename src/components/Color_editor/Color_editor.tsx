@@ -8,7 +8,7 @@ import { rgbToHex } from "../../api/rgb_to_hex";
 
 function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEditorProps):JSX.Element{
     const location  = useLocation();
-    const state = location.state;
+    const state = location.state as any;
 
     const tableName:string = state.tableName;
     const colorToEdit:OpenColorEditorProps["colorToEdit"] = state?.colorToEdit;
