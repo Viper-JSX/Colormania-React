@@ -6,7 +6,6 @@ import UserClass from "../classes/User";
 
 export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps & ColorEditorProps;
 
-export type SearchProps = { value: string, placeholder: string; handler: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;  };
 
 //-----------------Header-----------------
 export type HeaderProps = {
@@ -28,7 +27,7 @@ export type FilterToolsProps = {
 
 export type SortByProps = { tablesSortCriteria?: HeaderProps['tablesSortCriteria']; handleTablesSortCriteriaChnage: HeaderProps['handleTablesSortCriteriaChange'] };
 
-export type TableSearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; handleTablesSearch: HeaderProps["handleTablesSearch"]; }
+export type SearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; handleTablesSearch: HeaderProps["handleTablesSearch"]; }
 
 
 //-----------------------Color_editor-------------------------------//
@@ -119,3 +118,6 @@ export type ColorModels = "rgb" | "hsl" | "hex";
 export type ColorValueViewerProps = { colorRgbValue: RGBValue };
 export type ColorValueModelSwitchProps = { handleColorModelChange : (colorModel : ColorModels) => void  }
 export type ColorValueInfoProps = { currentColorModel: ColorModels, currentColorValue: ConvertedColorValue };
+
+export type ColorInfoLabelProps = { tableName: string, color: ColorClass };
+export type DeleteColorButtonProps = { tableName: string, colorName: string, handleColorDelete: ( {colorName, tableName } : { colorName:string, tableName: string }) => void };

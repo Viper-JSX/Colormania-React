@@ -51,6 +51,10 @@ function App() {
         dispatch(editColorInsideTable({ tableName, oldColorName, colorName, rgbValue}));
     }
 
+    function handleColorDelete({ tableName, colorName } : {tableName: string, colorName: string}):void{
+        dispatch(deleteColorFromTable({ tableName, colorName }));
+    }
+
     document.body.onclick = function(){
         //dispatch(createTable({tableName: "Sobakens"}));
         //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewsz" }));
@@ -77,6 +81,7 @@ function App() {
                 mode="create"
                 handleAddColorToTable={handleAddColorToTable}
                 handleColorEdit={handleColorEdit}
+                /*handleColorDelete={handleColorDelete}*/
             />
         </div>
     );

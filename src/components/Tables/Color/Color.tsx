@@ -28,7 +28,7 @@ function Color({ tableName, color } : { tableName: string, color: ColorClass }):
 
     return(
         <StyledColor className="color" colorRgbValue={color.rgbValue}>
-            <ColorInfoLabel color={color} />
+            <ColorInfoLabel tableName={tableName} color={color} />
             <OpenColorEditor tableName={tableName} colorToEdit={{ oldColorName: color.name, rgbValue: color.rgbValue }} />
         </StyledColor>
     );
