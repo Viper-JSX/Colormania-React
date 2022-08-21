@@ -51,6 +51,8 @@ export type OpenColorEditorProps = { tableName: string, colorToEdit: { oldColorN
 
 //-------------Color_class----------------------------//
 
+export type HEXValue = { hex: string };//"#" + string
+
 export type RGBValue = {
     r: number;
     g: number;
@@ -63,7 +65,7 @@ export type HSLValue = {
     l: number;
 }
 
-export type ConvertedColorValue = RGBValue | HSLValue;
+export type ConvertedColorValue = RGBValue | HSLValue | HEXValue;
 
 //export type ColorEditParams = { oldColorName: string, name: string, rgbValue: RGBValue};
 
@@ -110,7 +112,7 @@ export type EditColorParams = AddColorToTableParams & { oldColorName: string };
 
 
 //----------------------------Color--------------------------//
-export type ColorModels = "rgb" | "hsl";
+export type ColorModels = "rgb" | "hsl" | "hex";
 export type ColorValueViewerProps = { colorRgbValue: RGBValue };
 export type ColorValueModelSwitchProps = { handleColorModelChange : (colorModel : ColorModels) => void  }
 export type ColorValueInfoProps = { currentColorModel: ColorModels, currentColorValue: ConvertedColorValue };

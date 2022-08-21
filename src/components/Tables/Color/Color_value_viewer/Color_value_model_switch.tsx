@@ -1,4 +1,3 @@
-import React from "react";
 import { ColorValueModelSwitchProps } from "../../../../typescript/types";
 
 function ColorValueModelSwitch({ handleColorModelChange } : ColorValueModelSwitchProps ):JSX.Element{
@@ -7,6 +6,7 @@ function ColorValueModelSwitch({ handleColorModelChange } : ColorValueModelSwitc
             <ul>
                 <li onClick={() => handleColorModelChange("rgb")}>RGB</li>
                 <li onClick={() => handleColorModelChange("hsl")}>HSL</li>
+                <li onClick={() => handleColorModelChange("hex")}>HEX</li>
             </ul>
         </nav>
     );  

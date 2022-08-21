@@ -1,6 +1,7 @@
 
 import iro from "@jaames/iro";
 import { useState } from "react";
+import { rgbToHex } from "../../../../api/rgb_to_hex";
 import { ColorModels, ColorValueViewerProps, ConvertedColorValue } from "../../../../typescript/types";
 
 import ColorValueInfo from "./Color_value_info";
@@ -27,8 +28,14 @@ function ColorValueViewer( { colorRgbValue } : ColorValueViewerProps ){
                 convertedToHsl.l = Math.floor(convertedToHsl.l);
 
                 setCurrentColorValue(convertedToHsl);
-                //console.log(iro.Color.hsvToHsl(iro.Color.rgbToHsv(colorRgbValue)));
                 break
+            }
+            case "hex":{
+                setCurrentColorValue({hex: rgbToHex(colorRgbValue)});
+                break;
+            }
+            default:{
+                setCurrentColorValue(colorRgbValue);
             }
         }
     }
