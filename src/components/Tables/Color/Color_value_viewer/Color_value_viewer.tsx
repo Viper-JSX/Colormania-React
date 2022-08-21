@@ -15,13 +15,18 @@ function ColorValueViewer( { colorRgbValue } : ColorValueViewerProps ){
     function handleColorModelChange(colorModel : ColorModels):void{
         setCurrentColorModel(colorModel);
 
-        switch(currentColorModel){
+        switch(colorModel){
             case "rgb":{
                 setCurrentColorValue(colorRgbValue);
                 break;
             }
             case "hsl":{
-                setCurrentColorValue(iro.Color.hsvToHsl(iro.Color.rgbToHsv(colorRgbValue)));
+                const convertedToHsl = iro.Color.hsvToHsl(iro.Color.rgbToHsv(colorRgbValue));
+                convertedToHsl.h = Math.floor(convertedToHsl.h);
+                convertedToHsl.s = Math.floor(convertedToHsl.s);
+                convertedToHsl.l = Math.floor(convertedToHsl.l);
+
+                setCurrentColorValue(convertedToHsl);
                 //console.log(iro.Color.hsvToHsl(iro.Color.rgbToHsv(colorRgbValue)));
                 break
             }
