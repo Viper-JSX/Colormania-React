@@ -5,8 +5,8 @@ function ColorValueModelSwitch({ handleColorModelChange } : ColorValueModelSwitc
     return(
         <nav>
             <ul>
-                <li>RGB</li>
-                <li>HSL</li>
+                <li onClick={() => handleColorModelChange("rgb")}>RGB</li>
+                <li onClick={() => handleColorModelChange("hsl")}>HSL</li>
             </ul>
         </nav>
     );  

@@ -110,6 +110,7 @@ export type EditColorParams = AddColorToTableParams & { oldColorName: string };
 
 
 //----------------------------Color--------------------------//
+export type ColorModels = "rgb" | "hsl";
 export type ColorValueViewerProps = { colorRgbValue: RGBValue };
-export type ColorValueModelSwitchProps = { handleColorModelChange : (colorModel : string) => void  }
-export type ColorValueInfoProps = { currentColorModel: "rgb" | "hsl", currentColorValue: ConvertedColorValue };
+export type ColorValueModelSwitchProps = { handleColorModelChange : (colorModel : ColorModels) => void  }
+export type ColorValueInfoProps = { currentColorModel: ColorModels, currentColorValue: ConvertedColorValue };
