@@ -1,8 +1,8 @@
 import { SearchProps } from "../../typescript/types";
 
-function Search({ handler, value }: SearchProps):JSX.Element{
+function Search({ value, placeholder, handler }: SearchProps):JSX.Element{
     return(
-        <input value={value} onChange={handler} />
+        <input value={value} placeholder={placeholder} onChange={handler} />
     );
 }
 

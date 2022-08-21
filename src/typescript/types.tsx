@@ -6,7 +6,7 @@ import UserClass from "../classes/User";
 
 export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps & ColorEditorProps;
 
-export type SearchProps = { handler: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void; value: string };
+export type SearchProps = { value: string, placeholder: string; handler: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;  };
 
 //-----------------Header-----------------
 export type HeaderProps = {

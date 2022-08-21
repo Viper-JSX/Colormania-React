@@ -17,7 +17,7 @@ function Table({ table } : { table: TableClass }){
     return(
         <div className="table">
             <b className="tableName">{table.name}</b>
-            <Search value={colorSearchTerm} handler={handleSearchTermChange} />
+            <Search value={colorSearchTerm} placeholder={"Type color name"}  handler={handleSearchTermChange} />
             <div className="tableColors">
                 {
                     colorsToRender.map((color) => <Color color={color} tableName={table.name} key={`${table.name}_${color.name}`} />)
