@@ -1,6 +1,7 @@
 import React from "react";
+import { ColorValueModelSwitchProps } from "../../../../typescript/types";
 
-function ColorValueModelSwitch({ handleColorModelChange } : { handleColorModelChange: (event: React.TouchEvent<HTMLLIElement>) => void }):JSX.Element{
+function ColorValueModelSwitch({ handleColorModelChange } : ColorValueModelSwitchProps ):JSX.Element{
     return(
         <nav>
             <ul>

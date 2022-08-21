@@ -107,3 +107,9 @@ export type DeleteColorFromTablePayload = { tableName: string, colorName: string
 //---------------------Handlers--------------------------//
 export type AddColorToTableParams = { tableName: string, colorName: string, rgbValue: RGBValue };
 export type EditColorParams = AddColorToTableParams & { oldColorName: string };
+
+
+//----------------------------Color--------------------------//
+export type ColorValueViewerProps = { colorRgbValue: RGBValue };
+export type ColorValueModelSwitchProps = { handleColorModelChange : (colorModel : string) => void  }
+export type ColorValueInfoProps = { currentColorModel: "rgb" | "hsl", currentColorValue: ConvertedColorValue };
