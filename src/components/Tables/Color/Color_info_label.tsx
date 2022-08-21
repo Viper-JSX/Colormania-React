@@ -18,15 +18,7 @@ const StyledColorInfoLabel = styled.div`
 `;
 
 
-function ColorInfoLabel({ tableName, color } : ColorInfoLabelProps):JSX.Element{
-    const dispatch = useDispatch();
-
-    function handleColorDelete({ tableName, colorName } : { tableName: string, colorName: string }):void{
-        //console.log("deleting ", tableName, colorName);
-        dispatch(deleteColorFromTable({ tableName, colorName }));
-    }
-
-
+function ColorInfoLabel({ tableName, color, handleColorDelete } : ColorInfoLabelProps):JSX.Element{
     return(
         <StyledColorInfoLabel className="colorInfoLabel">
             <DeleteColorButton tableName={tableName} colorName={color.name}  handleColorDelete={handleColorDelete} />

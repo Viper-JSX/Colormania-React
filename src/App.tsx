@@ -81,7 +81,7 @@ function App() {
                 mode="create"
                 handleAddColorToTable={handleAddColorToTable}
                 handleColorEdit={handleColorEdit}
-                /*handleColorDelete={handleColorDelete}*/
+                handleColorDelete={handleColorDelete}
             />
         </div>
     );

@@ -4,8 +4,9 @@ import OpenColorCreator from "./Open_color_creator";
 import Search from "../General_reusable_components/Search";
 import { useState } from "react";
 import ColorClass from "../../classes/Color";
+import { TableProps } from "../../typescript/types";
 
-function Table({ table } : { table: TableClass }){
+function Table({ table, handleColorDelete } : TableProps){
     const [ colorSearchTerm, setColorSearchTerm ] = useState<string>("");
 
     function handleSearchTermChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>):void{
@@ -20,7 +21,7 @@ function Table({ table } : { table: TableClass }){
             <Search value={colorSearchTerm} placeholder={"Type color name"}  handler={handleSearchTermChange} />
             <div className="tableColors">
                 {
-                    colorsToRender.map((color) => <Color color={color} tableName={table.name} key={`${table.name}_${color.name}`} />)
+                    colorsToRender.map((color) => <Color color={color} tableName={table.name} handleColorDelete={handleColorDelete} key={`${table.name}_${color.name}`} />)
                 }
             </div>
             <OpenColorCreator tableName={table.name} />

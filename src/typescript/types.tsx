@@ -4,7 +4,7 @@ import TableClass from "../classes/Table";
 import UserClass from "../classes/User";
 
 
-export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps & ColorEditorProps;
+export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps & ColorEditorProps & {handleColorDelete:  HandleColorDeleteFunc};
 
 
 //-----------------Header-----------------
@@ -27,8 +27,10 @@ export type FilterToolsProps = {
 
 export type SortByProps = { tablesSortCriteria?: HeaderProps['tablesSortCriteria']; handleTablesSortCriteriaChnage: HeaderProps['handleTablesSortCriteriaChange'] };
 
-export type SearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; handleTablesSearch: HeaderProps["handleTablesSearch"]; }
 
+export type TableSearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; handleTablesSearch: HeaderProps["handleTablesSearch"]; }
+
+export type SearchProps = { value: string, placeholder: string;  handler: (event: React.ChangeEvent<HTMLInputElement>) => void; }
 
 //-----------------------Color_editor-------------------------------//
 export type ColorEditorProps = { 
@@ -111,13 +113,22 @@ export type AddColorToTableParams = { tableName: string, colorName: string, rgbV
 export type EditColorParams = AddColorToTableParams & { oldColorName: string };
 
 
+
+//--------------------------Table---------------------------//
+export type TablesProps = {tables: TableClass[], handleColorDelete: HandleColorDeleteFunc};
+export type TableProps = { table: TableClass, handleColorDelete: HandleColorDeleteFunc };
+
 //----------------------------Color--------------------------//
 //export type ColorEditorLocationState = { tableName: string, oldColorName?: string, colorToEdit?: OpenColorEditorProps["colorToEdit"] };
+type TableNameColorName = { tableName: string, colorName: string };
+type HandleColorDeleteFunc = ({ tableName, colorName } : TableNameColorName) => void;
 
 export type ColorModels = "rgb" | "hsl" | "hex";
+export type ColorProps = { tableName: string, color: ColorClass, handleColorDelete: HandleColorDeleteFunc };
 export type ColorValueViewerProps = { colorRgbValue: RGBValue };
 export type ColorValueModelSwitchProps = { handleColorModelChange : (colorModel : ColorModels) => void  }
 export type ColorValueInfoProps = { currentColorModel: ColorModels, currentColorValue: ConvertedColorValue };
 
-export type ColorInfoLabelProps = { tableName: string, color: ColorClass };
-export type DeleteColorButtonProps = { tableName: string, colorName: string, handleColorDelete: ( {colorName, tableName } : { colorName:string, tableName: string }) => void };
+export type ColorInfoLabelProps = { tableName: string, color: ColorClass, handleColorDelete: HandleColorDeleteFunc };
+
+export type DeleteColorButtonProps = { tableName: string, colorName: string, handleColorDelete: HandleColorDeleteFunc }

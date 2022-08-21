@@ -12,7 +12,7 @@ import Tables from "../Tables/Tables";
 import UserProfile from "../User/User_profile";
 import ColorEditor from "../Color_editor/Color_editor";
 
-function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTablesSearch, handleAddColorToTable, handleColorEdit } : LayoutProps):JSX.Element{
+function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTablesSearch, handleAddColorToTable, handleColorEdit, handleColorDelete } : LayoutProps):JSX.Element{
     return(
         <div id="layout">
             <Header 
@@ -22,10 +22,10 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
             />
                 <Routes>
                     <Route index element={<HomePage />} />
-                    <Route path="/tables" element={<Tables tables={tablesToRender} />} />
+                    <Route path="/tables" element={<Tables tables={tablesToRender} handleColorDelete={handleColorDelete} />} />
                     {
                         tablesToRender.map((table:TableClass) =>
-                            <Route path={`/tables/${stringToUrl(table.name)}`} element={<Table table={table} />}  key={`${table.name}_table`}/>
+                            <Route path={`/tables/${stringToUrl(table.name)}`} element={<Table table={table} handleColorDelete={handleColorDelete} />}  key={`${table.name}_table`}/>
                         )            
                     }
 

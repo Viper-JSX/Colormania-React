@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
 import { stringToUrl } from "../../api/string_to_url";
 import TableClass from "../../classes/Table";
+import { TablesProps } from "../../typescript/types";
 import Table from "./Table";
 
-function Tables({ tables } : {tables: TableClass[]}):JSX.Element{
+function Tables({ tables, handleColorDelete } : TablesProps):JSX.Element{
     return(
         <div className="tables">
             <b>Tables</b>
