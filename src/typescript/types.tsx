@@ -118,7 +118,8 @@ export type EditColorParams = AddColorToTableParams & { oldColorName: string };
 export type TablesProps = {tables: TableClass[], handleColorDelete: HandleColorDeleteFunc};
 export type TableProps = { table: TableClass, handleColorDelete: HandleColorDeleteFunc };
 
-export type TableEditorProps = { 
+export type TableEditorProps = {
+    oldTableName: string, 
     handleTableEdit: ({ oldTableName, tableName} : { oldTableName: string, tableName: string }) => void,
 };
 export type HandleTableEditParams = { oldTableName: string, tableName: string };

@@ -26,11 +26,12 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
                     <Route path="/tables" element={<Tables tables={tablesToRender} handleColorDelete={handleColorDelete} />} />
                     {
                         tablesToRender.map((table:TableClass) =>
-                            <Route path={`/tables/${stringToUrl(table.name)}`} element={<Table table={table} handleColorDelete={handleColorDelete} />}  key={`${table.name}_table`}/>
+                            <Route path={`/tables/${stringToUrl(table.name)}`} element={<Table table={table} handleColorDelete={handleColorDelete} />}  key={`${table.name}_table`}>
+                                <Route path="edit" element={<TableEditor oldTableName={table.name} handleTableEdit={handleTableEdit} />} />
+                            </Route>
                         )            
                     }
 
-                    <Route path="/tables/:tablename/edit" element={<TableEditor handleTableEdit={handleTableEdit} />} />
                     <Route path="/tables/:tablename/add-color" element={<ColorEditor mode="create" handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit} />} />
                     <Route path="/tables/:tablename/:colorname/edit" element={<ColorEditor handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit}  mode="edit" />} />
                     <Route path="/user" element={<UserProfile />} />

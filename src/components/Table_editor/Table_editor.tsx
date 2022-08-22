@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { TableEditorProps } from "../../typescript/types";
 
-function TableEditor({ handleTableEdit } : TableEditorProps):JSX.Element{
-    const oldTableName = "";
+function TableEditor({ oldTableName, handleTableEdit } : TableEditorProps):JSX.Element{
+    //const oldTableName = "";
     const [ tableName, setTableName ] = useState<string>(/*oldTableName*/"");
 
     function handleTableNameChange(event: React.ChangeEvent<HTMLInputElement>):void{
