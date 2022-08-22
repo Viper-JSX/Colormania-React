@@ -4,8 +4,8 @@ import { validatePassword } from "../api/validate_password";
 import { messageShowTime } from "../app_config/app_config";
 import { AddColorToTablePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteColorFromTablePayload, DeleteTablePayload, EditColorInsideTablePayload, EditTablePayload, UserLoginPayload, UserRegisterPayload } from "../typescript/types";
 import { users } from "../various_things/users";
-//import { setError } from "./action_functions";
-import { RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE, ADD_COLOR_TO_TABLE, EDIT_COLOR_INSIDE_TABLE, DELETE_COLOR_FROM_TABLE, LOGIN, REGISTER, SET_ERROR } from "./action_types";
+//import { setMessage } from "./action_functions";
+import { RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE, ADD_COLOR_TO_TABLE, EDIT_COLOR_INSIDE_TABLE, DELETE_COLOR_FROM_TABLE, LOGIN, REGISTER, SET_MESSAGE } from "./action_types";
 
 //-------------------------Tables filter---------------------------//
 
@@ -37,7 +37,7 @@ export function login(payload: UserLoginPayload):any{
             }   
         }
 
-        dispatch(setError({ errorText: "Wrong login or password" }));
+        dispatch(setMessage({ messageText: "Wrong login or password" }));
     }
 }
 
@@ -55,19 +55,19 @@ export function register(payload: UserRegisterPayload):any{
 
             dispatch({ type: REGISTER, lowerCasedPayload });
         }
-        //dispatch errorMessage
+        
         else if(!userNicknameDoesNotExist){
-            dispatch(setError({ errorText: `Nickname ${payload.nickname} is already taken` }));
+            dispatch(setMessage({ messageText: `Nickname ${payload.nickname} is already taken` }));
         }
         else if(!loginIsValidAndDoesNotExist){
-            dispatch(setError({ errorText: `Login ${payload.login} is invalid or already taken` }));
+            dispatch(setMessage({ messageText: `Login ${payload.login} is invalid or already taken` }));
         }
         else if(!passwordIsValid){
-            dispatch(setError({ errorText: `Password ${payload.login} is invalalid, password must be at least 8 characters long and contain numbers` }));
+            dispatch(setMessage({ messageText: `Password ${payload.login} is invalalid, password must be at least 8 characters long and contain numbers` }));
         }
         else{
-            console.log("Unknown error");
-            dispatch(setError({ errorText: `Unknown error` }));
+            console.log("Unknown message");
+            dispatch(setMessage({ messageText: `Unknown message` }));
         }
 
     }
@@ -110,10 +110,10 @@ export function deleteColorFromTable(payload: DeleteColorFromTablePayload):any{
     }
 }
 
-export function setError(payload: { errorText: string }):any{
+export function setMessage(payload: { messageText: string }):any{
     return function(dispatch: any):void{
-        dispatch({ type: SET_ERROR, payload });
+        dispatch({ type: SET_MESSAGE, payload });
 
-        setTimeout(() => dispatch({ type: SET_ERROR, payload: {...payload, errorText: ""} }), messageShowTime);
+        setTimeout(() => dispatch({ type: SET_MESSAGE, payload: {...payload, messageText: ""} }), messageShowTime);
     }
 }

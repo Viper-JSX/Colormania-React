@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable, login, register } from './redux/thunks';
+import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable, login, register, setMessage } from './redux/thunks';
 
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
@@ -18,9 +18,11 @@ function App() {
     const dispatch = useDispatch();
     const user = useSelector((state: any) => state.user.user);
     const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));    
-    const error = useSelector((state:any) => state.error);
-   const navigate = useNavigate();
-    //console.log(error.errorText);
+    const message = useSelector((state:any) => state.message);
+    const navigate = useNavigate();
+    console.log(message);
+
+    //dispatch(setMessage({ messageText: "Nothing happened" }))
 
     useEffect(() => {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){

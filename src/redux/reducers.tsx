@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import { ActionType, TableFilterState, UserState } from "../typescript/types";
 
 import UserClass from "../classes/User";
-import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, DELETE_COLOR_FROM_TABLE, DELETE_TABLE, EDIT_COLOR_INSIDE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_SEARCH, SET_ERROR } from "./action_types";
+import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, DELETE_COLOR_FROM_TABLE, DELETE_TABLE, EDIT_COLOR_INSIDE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_SEARCH, SET_MESSAGE } from "./action_types";
 import { users } from "../various_things/users";
 import { addItemToLocaleStorage } from "../api/add_item_to_locale_storage";
 import { getGuestUserFromLocaleStorage } from "../api/get_guest_user_from_locale_storage";
@@ -170,10 +170,10 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
     }
 }
 
-function error(state = { errorText: "" }, action:ActionType){
+function message(state = { messageText: "" }, action:ActionType){
     switch(action.type){
-        case SET_ERROR:{
-            return { ...state, errorText: action.payload.errorText };
+        case SET_MESSAGE:{
+            return { ...state, messageText: action.payload.messageText };
         }
         default:{
             return state;
@@ -181,4 +181,4 @@ function error(state = { errorText: "" }, action:ActionType){
     }
 }
 
-export const rootReducer = combineReducers({tablesFilter: tablesFilter, user: user, error: error});
+export const rootReducer = combineReducers({tablesFilter: tablesFilter, user: user, message: message});
