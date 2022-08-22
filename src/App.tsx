@@ -81,6 +81,7 @@ function App() {
 
                 handleTablesSortCriteriaChange={handleTablesSortCriteriaChnage}
                 handleTablesSearch={handleTablesSearch}
+                handleTableEdit={handleTableEdit}
 
                 mode="create"
                 handleAddColorToTable={handleAddColorToTable}
