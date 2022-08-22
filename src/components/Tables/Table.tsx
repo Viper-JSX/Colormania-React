@@ -5,6 +5,7 @@ import Search from "../General_reusable_components/Search";
 import { useState } from "react";
 import ColorClass from "../../classes/Color";
 import { TableProps } from "../../typescript/types";
+import { NavLink, Outlet } from "react-router-dom";
 
 function Table({ table, handleColorDelete } : TableProps){
     const [ colorSearchTerm, setColorSearchTerm ] = useState<string>("");
@@ -17,6 +18,7 @@ function Table({ table, handleColorDelete } : TableProps){
 
     return(
         <div className="table">
+            <NavLink to="edit">Edit table</NavLink>
             <b className="tableName">{table.name}</b>
             <Search value={colorSearchTerm} placeholder={"Type color name"}  handler={handleSearchTermChange} />
             <div className="tableColors">
@@ -25,6 +27,7 @@ function Table({ table, handleColorDelete } : TableProps){
                 }
             </div>
             <OpenColorCreator tableName={table.name} />
+            <Outlet />
         </div>
     );
 }
