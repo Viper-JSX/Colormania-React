@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { TableEditorProps } from "../../typescript/types";
 
 function TableEditor({ oldTableName, handleTableEdit } : TableEditorProps):JSX.Element{
-    //const oldTableName = "";
-    const [ tableName, setTableName ] = useState<string>(/*oldTableName*/"");
+    const [ tableName, setTableName ] = useState<string>(oldTableName);
 
     function handleTableNameChange(event: React.ChangeEvent<HTMLInputElement>):void{
         setTableName(event.target.value);
@@ -11,8 +10,8 @@ function TableEditor({ oldTableName, handleTableEdit } : TableEditorProps):JSX.E
 
     return(
         <div>
-            <input className="tableNameInput" type="text" value={tableName} />
-            <button className="saveTableChangesButton" onChange={() => handleTableEdit({ oldTableName, tableName })}>Apply</button>
+            <input className="tableNameInput" type="text" value={tableName} onChange={handleTableNameChange} />
+            <button className="saveTableChangesButton" onClick={() => handleTableEdit({ oldTableName, tableName })}>Apply</button>
         </div>
     );
 }

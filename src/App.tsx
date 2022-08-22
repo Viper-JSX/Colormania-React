@@ -7,12 +7,11 @@ import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColo
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
 
-import { logout } from './redux/action_functions';
-
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
 import ColorClass from './classes/Color';
 import { AddColorToTableParams, EditColorParams, HandleTableEditParams, RGBValue } from './typescript/types';
+import { useNavigate } from 'react-router';
 
 
 function App() {
@@ -20,6 +19,7 @@ function App() {
     const user = useSelector((state: any) => state.user.user);
     const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));    
     const error = useSelector((state:any) => state.error);
+   const navigate = useNavigate();
     //console.log(error.errorText);
 
     useEffect(() => {
@@ -42,6 +42,7 @@ function App() {
 
     function handleTableEdit({ oldTableName, tableName } : HandleTableEditParams):void{
         dispatch(editTable({ oldTableName, tableName }));
+        navigate("/tables");
     }
 
     function handleAddColorToTable({ tableName, colorName, rgbValue } : AddColorToTableParams):void{
@@ -51,7 +52,6 @@ function App() {
     }
 
     function handleColorEdit({ tableName, oldColorName, colorName, rgbValue } : EditColorParams):void{
-        console.log(rgbValue);
         dispatch(editColorInsideTable({ tableName, oldColorName, colorName, rgbValue}));
     }
 
