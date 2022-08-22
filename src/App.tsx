@@ -12,7 +12,7 @@ import { logout } from './redux/action_functions';
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
 import ColorClass from './classes/Color';
-import { AddColorToTableParams, EditColorParams, RGBValue } from './typescript/types';
+import { AddColorToTableParams, EditColorParams, HandleTableEditParams, RGBValue } from './typescript/types';
 
 
 function App() {
@@ -38,6 +38,10 @@ function App() {
 
     function handleTablesSearch(event: React.ChangeEvent<HTMLInputElement>){
         dispatch(changeTablesSearchTerm({ searchTerm: event.target.value }))
+    }
+
+    function handleTableEdit({ oldTableName, tableName } : HandleTableEditParams):void{
+        dispatch(editTable({ oldTableName, tableName }));
     }
 
     function handleAddColorToTable({ tableName, colorName, rgbValue } : AddColorToTableParams):void{

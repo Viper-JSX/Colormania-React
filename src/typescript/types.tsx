@@ -122,6 +122,7 @@ export type TableEditorProps = {
     oldTableName: string, 
     handleTableEdit: ({ oldTableName, tableName} : { oldTableName: string, tableName: string }) => void,
 };
+export type HandleTableEditParams = { oldTableName: string, tableName: string };
 
 //----------------------------Color--------------------------//
 //export type ColorEditorLocationState = { tableName: string, oldColorName?: string, colorToEdit?: OpenColorEditorProps["colorToEdit"] };
