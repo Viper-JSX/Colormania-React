@@ -12,6 +12,7 @@ import Tables from "../Tables/Tables";
 import UserProfile from "../User/User_profile";
 import ColorEditor from "../Color_editor/Color_editor";
 import TableEditor from "../Table_editor/Table_editor";
+import Message from "../Message/Message";
 
 function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete } : LayoutProps):JSX.Element{
     return(
@@ -37,7 +38,7 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
                     <Route path="/user" element={<UserProfile />} />
                     <Route path="*" element={<b>Page not found</b>} />
                 </Routes>
-
+            <Message />
             <Footer />
         </div>
     )

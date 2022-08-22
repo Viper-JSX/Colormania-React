@@ -22,7 +22,7 @@ function App() {
     const navigate = useNavigate();
     console.log(message);
 
-    //dispatch(setMessage({ messageText: "Nothing happened" }))
+    dispatch(setMessage({ messageText: "Nothing happened" }))
 
     useEffect(() => {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
