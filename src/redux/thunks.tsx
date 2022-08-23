@@ -75,6 +75,8 @@ export function register(payload: UserRegisterPayload):any{
 
 export function createTable(payload: CreateTablePayload):any{
     return function (dispatch: any):void{
+        //for(let i = 0; i < tables)
+
         dispatch({ type: CREATE_TABLE, payload });
     }
 }

@@ -22,7 +22,7 @@ function App() {
     const navigate = useNavigate();
     console.log(message);
 
-    dispatch(setMessage({ messageText: "Nothing happened" }))
+    //dispatch(setMessage({ messageText: "Nothing happened" }))
 
     useEffect(() => {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
@@ -42,7 +42,21 @@ function App() {
         dispatch(changeTablesSearchTerm({ searchTerm: event.target.value }))
     }
 
-    function handleTableEdit({ oldTableName, tableName } : HandleTableEditParams):void{
+    function handleTableEdit({ oldTableName, tableName} : HandleTableEditParams):void{
+        let tableAlreadyExists = false;
+
+        for(let i = 0; i < user.tables.length; i++){
+            if(user.tables[i].name.toLowerCase() === tableName.toLocaleLowerCase() && oldTableName.toLowerCase() !== tableName.toLowerCase()){
+                tableAlreadyExists = true;
+                break;
+            }
+        }
+
+        if(tableAlreadyExists){
+            dispatch(setMessage({ messageText: "Table with such name already exists" }));
+            return;
+        }
+
         dispatch(editTable({ oldTableName, tableName }));
         navigate("/tables");
     }
@@ -70,7 +84,7 @@ function App() {
         //dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor }));
         //dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark" }));
         //console.log("Click")
-        //dispatch(login({ login: "pivasi", password: "pivasik" }))
+        //dispatch(login({ login: "pivasik", password: "pivasik" }))
         //dispatch(register({nickname: "Ivaniii", login: "pivasik", password: "ssssssssssssssssss"}));
 
         //handleColorEdit({ tableName: "Welcome table", oldColorName: "dark", colorName: "Pinkyyyyyyyyyy", rgbValue: { r: 10, g: 10, b: 200 } });

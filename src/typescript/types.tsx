@@ -120,9 +120,9 @@ export type TableProps = { table: TableClass, handleColorDelete: HandleColorDele
 
 export type TableEditorProps = {
     oldTableName: string, 
-    handleTableEdit: ({ oldTableName, tableName} : { oldTableName: string, tableName: string }) => void,
+    handleTableEdit: ({ oldTableName, tableName} : HandleTableEditParams) => void,
 };
-export type HandleTableEditParams = { oldTableName: string, tableName: string };
+export type HandleTableEditParams = { oldTableName: string, tableName: string};
 
 //----------------------------Color--------------------------//
 //export type ColorEditorLocationState = { tableName: string, oldColorName?: string, colorToEdit?: OpenColorEditorProps["colorToEdit"] };
