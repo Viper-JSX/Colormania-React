@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable, login, register, setMessage } from './redux/thunks';
+import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable, login as doLogin, register as doRegister, setMessage } from './redux/thunks';
 
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
@@ -138,16 +138,20 @@ function App() {
         dispatch(deleteColorFromTable({ tableName, colorName }));
     }
 
-    function handleLogin({ login, password } : LoginData):void{
-
+    function handleLogin({ event, login, password } : LoginData):void{
+        event.preventDefault();
+        console.log(login, password)
+        dispatch(doLogin({ password, login }));
     }
 
-    function handleRegister({ nickname, login, password } : RegisterData):void{
-
+    function handleRegister({ event, nickname, login, password } : RegisterData):void{
+        event.preventDefault();
+        console.log(nickname, login, password)
+        dispatch(doRegister({ nickname, login, password }))
     }
 
     function handleLogout():void{
-        
+
     }
 
     document.body.onclick = function(){
