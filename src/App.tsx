@@ -142,19 +142,19 @@ function App() {
     function handleLogin({ event, login, password } : LoginData):void{
         event.preventDefault();
         dispatch(doLogin({ password, login }));
-        navigate("/tables")
+        navigate("/user")
     }
 
     function handleRegister({ event, nickname, login, password } : RegisterData):void{
         event.preventDefault();
         console.log(nickname, login, password )
         dispatch(doRegister({ nickname, login, password }))
-        navigate("/tables")
+        navigate("/user")
     }
 
     function handleLogout():void{
         dispatch(doLogout());
-        navigate("/tables")
+        navigate("/user")
     }
 
     document.body.onclick = function(){
