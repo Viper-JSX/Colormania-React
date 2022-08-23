@@ -62,10 +62,12 @@ function App() {
     function handleTableEdit({ oldTableName, tableName} : HandleTableEditParams):void{
         let tableAlreadyExists = false;
 
-        for(let i = 0; i < user.tables.length; i++){
-            if(user.tables[i].name.toLowerCase() === tableName.toLowerCase() && oldTableName.toLowerCase() !== tableName.toLowerCase()){
-                tableAlreadyExists = true;
-                break;
+        if(oldTableName.toLowerCase() !== tableName.toLowerCase()){ //Table name has been changed
+            for(let i = 0; i < user.tables.length; i++){
+                if(user.tables[i].name.toLowerCase() === tableName.toLowerCase()){
+                    tableAlreadyExists = true;
+                    break;
+                }
             }
         }
 
@@ -90,6 +92,7 @@ function App() {
                     break;  
                     }
                 }
+                break;
             }
         }
     
@@ -104,6 +107,29 @@ function App() {
     }
 
     function handleColorEdit({ tableName, oldColorName, colorName, rgbValue } : EditColorParams):void{
+        let colorAlreadyExists = false;
+
+        if(oldColorName.toLowerCase() !== colorName.toLowerCase()){ //Color name has been changed
+            for(let i = 0; i < user.tables.length; i++){
+                console.log("Exists");
+                if(user.tables[i].name.toLowerCase() === tableName.toLowerCase()){
+                    for(let j = 0; j < user.tables[i].colors.length; j++){
+                        if(user.tables[i].colors[j].name.toLowerCase() === colorName.toLowerCase()){
+                        colorAlreadyExists = true;  
+                        break;  
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+    
+        if(colorAlreadyExists){
+            dispatch(setMessage({ messageText: "Color with such name already exists inside this table" }));
+            return;
+        }
+
+        navigate(-1);
         dispatch(editColorInsideTable({ tableName, oldColorName, colorName, rgbValue}));
     }
 
@@ -113,7 +139,7 @@ function App() {
 
     document.body.onclick = function(){
         //dispatch(createTable({tableName: "Sobakens"}));
-        //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewsz" }));
+        //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewzzzz" }));
         //dispatch(deleteTable({ tableName: "Welcome table" }))
         //dispatch(addColorToTable({ tableName: "Welcome table", color: new Color("Bereza", { r: 40, g: 20, b: 30}) }))
         //const newColor = new Color("Pin", {r: 50, g: 50, b: 50});
