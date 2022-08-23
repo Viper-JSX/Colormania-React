@@ -13,6 +13,9 @@ import UserProfile from "../User/User_profile";
 import ColorEditor from "../Color_editor/Color_editor";
 import TableEditor from "../Table_editor/Table_editor";
 import Message from "../Message/Message";
+import AuthorizationForm from "../Authorization_form/Authorization_form";
+import Login from "../Authorization_form/Login";
+import Register from "../Authorization_form/Register";
 
 function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete } : LayoutProps):JSX.Element{
     return(
@@ -37,7 +40,12 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
                     <Route path="/create-table" element={<TableEditor mode="edit" handleTableCreate={handleTableCreate} />} />
                     <Route path="/tables/:tablename/add-color" element={<ColorEditor mode="create" handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit} />} />
                     <Route path="/tables/:tablename/:colorname/edit" element={<ColorEditor handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit}  mode="edit" />} />
-                    <Route path="/user" element={<UserProfile />} />
+                    <Route path="/user" element={<UserProfile />}>
+                        <Route path="authorization" element={<AuthorizationForm />}>
+                            <Route path="login" element={<Login />} />
+                            <Route path="register" element={<Register />} />
+                        </Route>
+                    </Route>
                     <Route path="*" element={<b>Page not found</b>} />
                 </Routes>
             <Message />

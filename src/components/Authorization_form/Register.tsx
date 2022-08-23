@@ -1,7 +1,7 @@
 function Register():JSX.Element{
     return(
         <div className="login">
-            register
+            <b>register</b>
         </div>
     );
 }

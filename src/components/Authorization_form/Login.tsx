@@ -1,7 +1,7 @@
 function Login():JSX.Element{
     return(
         <div className="login">
-            login
+            <b>login</b>
         </div>
     );
 }
