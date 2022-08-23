@@ -16,7 +16,7 @@ function UserProfile({ handleLogout } : UserProfileProps):JSX.Element{
                 user.authorized ? 
                 <button className="logoutButton" onClick={handleLogout}>Logout</button>
                 :
-                <button className="loginButton" onClick={handleLogout}><NavLink to="authorization/login">Login</NavLink></button>
+                <NavLink to="authorization/login"><button className="loginButton" onClick={handleLogout}>Login</button></NavLink>
             }
             <Outlet />
         </div>
