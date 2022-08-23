@@ -53,7 +53,8 @@ export function register(payload: UserRegisterPayload):any{
             lowerCasedPayload.login = payload.login.toLowerCase();
             lowerCasedPayload.password = payload.password.toLowerCase();
 
-            dispatch({ type: REGISTER, lowerCasedPayload });
+            console.log(lowerCasedPayload)
+            dispatch({ type: REGISTER, payload: lowerCasedPayload });
         }
         
         else if(!userNicknameDoesNotExist){

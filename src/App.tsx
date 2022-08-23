@@ -147,6 +147,7 @@ function App() {
 
     function handleRegister({ event, nickname, login, password } : RegisterData):void{
         event.preventDefault();
+        console.log(nickname, login, password )
         dispatch(doRegister({ nickname, login, password }))
         navigate("/tables")
     }

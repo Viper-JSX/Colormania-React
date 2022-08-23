@@ -45,7 +45,8 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
         } 
 
         case REGISTER:{
-            console.log("registering");
+            //console.log("registering");
+            console.log(action)
             const newUser = new UserClass(action.payload.nickname, action.payload.login, action.payload.password);
             newUser.tables = state.user.tables;
             users.push(newUser);
