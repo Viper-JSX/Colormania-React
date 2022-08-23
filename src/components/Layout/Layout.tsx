@@ -24,7 +24,9 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
             />
                 <Routes>
                     <Route index element={<HomePage />} />
-                    <Route path="/tables" element={<Tables tables={tablesToRender} handleColorDelete={handleColorDelete} />} />
+                    <Route path="/tables" element={<Tables tables={tablesToRender} handleColorDelete={handleColorDelete} />} >
+                        <Route path="create" element></Route>
+                    </Route>
                     {
                         tablesToRender.map((table:TableClass) =>
                             <Route path={`/tables/${stringToUrl(table.name)}`} element={<Table table={table} handleColorDelete={handleColorDelete} />}  key={`${table.name}_table`}>
