@@ -17,7 +17,9 @@ function Login({ handleLogin } : LoginProps):JSX.Element{
         <div className="login">
             <form>
                 <input type="text" value={login} placeholder="Login" onChange={handleLoginChange} />
+                <br />
                 <input type="password" value={password} placeholder="Password" onChange={handlePasswordChange} />
+                <br />
                 <button type="submit" onClick={(event: React.MouseEvent):void => {handleLogin({ event, login, password })}}>Login</button>
             </form>
         </div>

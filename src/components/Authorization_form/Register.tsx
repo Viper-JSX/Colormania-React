@@ -21,9 +21,11 @@ function Register({ handleRegister } : RegisterProps):JSX.Element{
     return(
         <div className="register">
             <input type="text" value={nickname} placeholder="Nickname" onChange={handleNicknameChange} />
+            <br />
             <input type="text" value={login} placeholder="Login" onChange={handleLoginChange} />
+            <br />
             <input type="password" value={password} placeholder="Password" onChange={handlePasswordChange} />
-
+            <br />
             <button onClick={(event) => handleRegister({ event, nickname, login, password })}>Register</button>
         </div>
     );
