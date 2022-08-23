@@ -4,7 +4,7 @@ import TableClass from "../classes/Table";
 import UserClass from "../classes/User";
 
 
-export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps & ColorEditorProps & {handleColorDelete:  HandleColorDeleteFunc} & { handleTableCreate: CreatorProps["handleTableCreate"], handleTableEdit: EditorProps["handleTableEdit"] };
+export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps & ColorEditorProps & {handleColorDelete:  HandleColorDeleteFunc} & { handleTableCreate: TableCreatorSubtypeProps["handleTableCreate"], handleTableEdit: TableEditorSubtypeProps["handleTableEdit"] };
 
 
 //-----------------Header-----------------
@@ -120,12 +120,13 @@ export type TableProps = { table: TableClass, handleColorDelete: HandleColorDele
 
 export type TableEditorProps = { 
     mode: "create" | "edit"
-} & (CreatorProps | EditorProps);
-export type CreatorProps = {
+} & (TableCreatorSubtypeProps | TableEditorSubtypeProps);
+
+export type TableCreatorSubtypeProps = {
     handleTableCreate: ({ tableName } : { tableName: string }) => void;
 }
 
-export type EditorProps = {
+export type TableEditorSubtypeProps = {
     oldTableName: string;
     handleTableEdit: ({ oldTableName, tableName} : HandleTableEditParams) => void,
 }

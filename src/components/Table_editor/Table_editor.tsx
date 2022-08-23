@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CreatorProps, EditorProps, TableEditorProps } from "../../typescript/types";
+import { TableEditorProps } from "../../typescript/types";
 
 function TableEditor(props: TableEditorProps):JSX.Element{
 
