@@ -168,6 +168,8 @@ function App() {
                 handleAddColorToTable={handleAddColorToTable}
                 handleColorEdit={handleColorEdit}
                 handleColorDelete={handleColorDelete}
+
+                
             />
         </div>
     );

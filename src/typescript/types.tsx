@@ -4,7 +4,13 @@ import TableClass from "../classes/Table";
 import UserClass from "../classes/User";
 
 
-export type LayoutProps = { tablesToRender: TableClass[] } & HeaderProps & ColorEditorProps & {handleColorDelete:  HandleColorDeleteFunc} & { handleTableCreate: TableCreatorSubtypeProps["handleTableCreate"], handleTableEdit: TableEditorSubtypeProps["handleTableEdit"] };
+export type LayoutProps = { tablesToRender: TableClass[] } & 
+    HeaderProps & 
+    ColorEditorProps & 
+    {handleColorDelete:  HandleColorDeleteFunc} & 
+    { handleTableCreate: TableCreatorSubtypeProps["handleTableCreate"], handleTableEdit: TableEditorSubtypeProps["handleTableEdit"] } &
+    LoginProps &
+    RegisterProps;
 
 
 //-----------------Header-----------------
@@ -152,6 +158,6 @@ export type DeleteColorButtonProps = { tableName: string, colorName: string, han
 
 
 //-----------------------------User------------------------------------//
-export type AuthorizationProps = LoginProps & RegisterProps;
+export type AuthorizationFormProps = LoginProps & RegisterProps;
 export type LoginProps = { handleLogin: ({ login, password } : {login: string, password: string}) => void };
 export type RegisterProps = { handleRegister: ({ nickname, login, password } : { nickname: string,  login: string, password: string }) => void };
