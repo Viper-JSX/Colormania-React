@@ -147,3 +147,11 @@ export type ColorValueInfoProps = { currentColorModel: ColorModels, currentColor
 export type ColorInfoLabelProps = { tableName: string, color: ColorClass, handleColorDelete: HandleColorDeleteFunc };
 
 export type DeleteColorButtonProps = { tableName: string, colorName: string, handleColorDelete: HandleColorDeleteFunc }
+
+
+
+
+//-----------------------------User------------------------------------//
+export type AuthorizationProps = LoginProps & RegisterProps;
+export type LoginProps = { handleLogin: ({ login, password } : {login: string, password: string}) => void };
+export type RegisterProps = { handleRegister: ({ nickname, login, password } : { nickname: string,  login: string, password: string }) => void };
