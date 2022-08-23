@@ -17,7 +17,7 @@ import AuthorizationForm from "../Authorization_form/Authorization_form";
 import Login from "../Authorization_form/Login";
 import Register from "../Authorization_form/Register";
 
-function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete, handleLogin, handleRegister } : LayoutProps):JSX.Element{
+function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete, handleLogin, handleRegister, handleLogout } : LayoutProps):JSX.Element{
     return(
         <div id="layout">
             <Header 
@@ -40,7 +40,7 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
                     <Route path="/create-table" element={<TableEditor mode="edit" handleTableCreate={handleTableCreate} />} />
                     <Route path="/tables/:tablename/add-color" element={<ColorEditor mode="create" handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit} />} />
                     <Route path="/tables/:tablename/:colorname/edit" element={<ColorEditor handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit}  mode="edit" />} />
-                    <Route path="/user" element={<UserProfile />}>
+                    <Route path="/user" element={<UserProfile handleLogout={handleLogout} />}>
                         <Route path="authorization" element={<AuthorizationForm />}>
                             <Route path="login" element={<Login handleLogin={handleLogin} />} />
                             <Route path="register" element={<Register  handleRegister={handleRegister}/>} />

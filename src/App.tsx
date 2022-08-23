@@ -12,6 +12,7 @@ import filterTables from './api/filter_tables';
 import ColorClass from './classes/Color';
 import { AddColorToTableParams, EditColorParams, HandleTableEditParams, LoginData, RegisterData, RGBValue } from './typescript/types';
 import { useNavigate } from 'react-router';
+import { logout as doLogout } from './redux/action_functions';
 
 
 function App() {
@@ -151,7 +152,7 @@ function App() {
     }
 
     function handleLogout():void{
-
+        dispatch(doLogout());
     }
 
     document.body.onclick = function(){
@@ -187,6 +188,7 @@ function App() {
 
                 handleLogin={handleLogin}
                 handleRegister={handleRegister}
+                handleLogout={handleLogout}
                 
             />
         </div>

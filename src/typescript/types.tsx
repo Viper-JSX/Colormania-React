@@ -9,6 +9,7 @@ export type LayoutProps = { tablesToRender: TableClass[] } &
     ColorEditorProps & 
     {handleColorDelete:  HandleColorDeleteFunc} & 
     { handleTableCreate: TableCreatorSubtypeProps["handleTableCreate"], handleTableEdit: TableEditorSubtypeProps["handleTableEdit"] } &
+    UserProfileProps &
     LoginProps &
     RegisterProps;
 
@@ -158,6 +159,8 @@ export type DeleteColorButtonProps = { tableName: string, colorName: string, han
 
 
 //-----------------------------User------------------------------------//
+export type UserProfileProps = { handleLogout: () => void };
+
 export type LoginData = { event: React.MouseEvent, login: string, password: string};
 export type RegisterData = { nickname: string } & LoginData;
 
