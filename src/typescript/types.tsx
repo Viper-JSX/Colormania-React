@@ -167,3 +167,7 @@ export type RegisterData = { nickname: string } & LoginData;
 export type AuthorizationFormProps = LoginProps & RegisterProps;
 export type LoginProps = { handleLogin: ({ event, login, password } : LoginData) => void };
 export type RegisterProps = { handleRegister: ({ event, nickname, login, password } : RegisterData) => void };
+
+
+//------------------------Theme-------------------------------//
+export type ChangeThemePayload = { themeName: string };

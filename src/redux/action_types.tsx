@@ -20,3 +20,6 @@ export const EDIT_COLOR_INSIDE_TABLE = "EDIT_COLOR_INSIDE_TABLE";
 export const DELETE_COLOR_FROM_TABLE = "DELETE_COLOR_FROM_TABLE";
 
 export const SET_MESSAGE = "SET_MESSAGE";
+
+//-----------------------Theme-----------------------//
+export const CHANNGE_THEME = "CHANNGE_THEME";
