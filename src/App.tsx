@@ -38,6 +38,23 @@ function App() {
         }
     }
 
+    function handleTablCreate({ tableName } : { tableName: string }):void{
+        let tableAlreadyExists = false;
+
+        for(let i = 0; i < user.tables.length; i++){
+            if(user.tables[i].name.toLowerCase() === tableName.toLowerCase()){
+                tableAlreadyExists = true;
+                break;
+            }
+        }
+
+        if(tableAlreadyExists){
+            dispatch(setMessage({ messageText: "Table with such name already exists" }));
+        }
+
+        dispatch(createTable({ tableName }));
+    }
+
     function handleTablesSearch(event: React.ChangeEvent<HTMLInputElement>){
         dispatch(changeTablesSearchTerm({ searchTerm: event.target.value }))
     }
@@ -46,7 +63,7 @@ function App() {
         let tableAlreadyExists = false;
 
         for(let i = 0; i < user.tables.length; i++){
-            if(user.tables[i].name.toLowerCase() === tableName.toLocaleLowerCase() && oldTableName.toLowerCase() !== tableName.toLowerCase()){
+            if(user.tables[i].name.toLowerCase() === tableName.toLowerCase() && oldTableName.toLowerCase() !== tableName.toLowerCase()){
                 tableAlreadyExists = true;
                 break;
             }
@@ -86,7 +103,7 @@ function App() {
         //console.log("Click")
         //dispatch(login({ login: "pivasik", password: "pivasik" }))
         //dispatch(register({nickname: "Ivaniii", login: "pivasik", password: "ssssssssssssssssss"}));
-
+        handleTablCreate({ tableName:"Siuuuuuur" });
         //handleColorEdit({ tableName: "Welcome table", oldColorName: "dark", colorName: "Pinkyyyyyyyyyy", rgbValue: { r: 10, g: 10, b: 200 } });
     }
 
