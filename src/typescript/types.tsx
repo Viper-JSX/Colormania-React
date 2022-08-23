@@ -166,4 +166,4 @@ export type RegisterData = { nickname: string } & LoginData;
 
 export type AuthorizationFormProps = LoginProps & RegisterProps;
 export type LoginProps = { handleLogin: ({ event, login, password } : LoginData) => void };
-export type RegisterProps = { handleRegister: ({ nickname, login, password } : RegisterData) => void };
+export type RegisterProps = { handleRegister: ({ event, nickname, login, password } : RegisterData) => void };
