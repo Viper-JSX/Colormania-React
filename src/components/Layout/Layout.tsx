@@ -14,7 +14,7 @@ import ColorEditor from "../Color_editor/Color_editor";
 import TableEditor from "../Table_editor/Table_editor";
 import Message from "../Message/Message";
 
-function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete } : LayoutProps):JSX.Element{
+function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete } : LayoutProps):JSX.Element{
     return(
         <div id="layout">
             <Header 
@@ -30,11 +30,11 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
                     {
                         tablesToRender.map((table:TableClass) =>
                             <Route path={`/tables/${stringToUrl(table.name)}`} element={<Table table={table} handleColorDelete={handleColorDelete} />}  key={`${table.name}_table`}>
-                                <Route path="edit" element={<TableEditor oldTableName={table.name} handleTableEdit={handleTableEdit} />} />
+                                <Route path="edit" element={<TableEditor mode="edit" oldTableName={table.name} handleTableEdit={handleTableEdit} />} />
                             </Route>
                         )            
                     }
-
+                    <Route path="/create-table" element={<TableEditor mode="edit" handleTableCreate={handleTableCreate} />} />
                     <Route path="/tables/:tablename/add-color" element={<ColorEditor mode="create" handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit} />} />
                     <Route path="/tables/:tablename/:colorname/edit" element={<ColorEditor handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit}  mode="edit" />} />
                     <Route path="/user" element={<UserProfile />} />

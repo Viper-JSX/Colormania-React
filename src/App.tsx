@@ -38,7 +38,7 @@ function App() {
         }
     }
 
-    function handleTablCreate({ tableName } : { tableName: string }):void{
+    function handleTableCreate({ tableName } : { tableName: string }):void{
         let tableAlreadyExists = false;
 
         for(let i = 0; i < user.tables.length; i++){
@@ -52,6 +52,7 @@ function App() {
             dispatch(setMessage({ messageText: "Table with such name already exists" }));
         }
 
+        navigate("/tables");
         dispatch(createTable({ tableName }));
     }
 
@@ -159,6 +160,7 @@ function App() {
                 tablesToRender={tablesToRender}
 
                 handleTablesSortCriteriaChange={handleTablesSortCriteriaChnage}
+                handleTableCreate={handleTableCreate}
                 handleTablesSearch={handleTablesSearch}
                 handleTableEdit={handleTableEdit}
 

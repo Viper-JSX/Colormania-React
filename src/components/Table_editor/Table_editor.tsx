@@ -1,19 +1,31 @@
 import React, { useState } from "react";
-import { TableEditorProps } from "../../typescript/types";
+import { CreatorProps, EditorProps, TableEditorProps } from "../../typescript/types";
 
-function TableEditor({ oldTableName, handleTableEdit } : TableEditorProps):JSX.Element{
-    const [ tableName, setTableName ] = useState<string>(oldTableName);
-    const [ tableNameWasEdited, setTableNameWasEdited ] = useState(false);
+function TableEditor(props: TableEditorProps):JSX.Element{
+
+    const [ tableName, setTableName ] = useState<string>(():string => {
+        if("handleTableCreate" in props){
+            return "";
+        }
+        return props.oldTableName
+    });
 
     function handleTableNameChange(event: React.ChangeEvent<HTMLInputElement>):void{
         setTableName(event.target.value);
-        setTableNameWasEdited(true);
     }
+
+    console.log("handleTableEdit")
 
     return(
         <div>
             <input className="tableNameInput" type="text" value={tableName} onChange={handleTableNameChange} />
-            <button className="saveTableChangesButton" onClick={() => handleTableEdit({ oldTableName, tableName })}>Apply</button>
+            {
+                "handleTableCreate" in props ? 
+                <button className="createButton" onClick={() => props.handleTableCreate({ tableName })}>Create</button>
+                :
+                <button className="saveTableChangesButton" onClick={() => props.handleTableEdit({ oldTableName: props.oldTableName, tableName })}>Apply</button>
+
+            }
         </div>
     );
 }
