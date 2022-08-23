@@ -17,7 +17,7 @@ import AuthorizationForm from "../Authorization_form/Authorization_form";
 import Login from "../Authorization_form/Login";
 import Register from "../Authorization_form/Register";
 
-function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete } : LayoutProps):JSX.Element{
+function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete, handleLogin, handleRegister } : LayoutProps):JSX.Element{
     return(
         <div id="layout">
             <Header 
@@ -42,8 +42,8 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
                     <Route path="/tables/:tablename/:colorname/edit" element={<ColorEditor handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit}  mode="edit" />} />
                     <Route path="/user" element={<UserProfile />}>
                         <Route path="authorization" element={<AuthorizationForm />}>
-                            <Route path="login" element={<Login />} />
-                            <Route path="register" element={<Register />} />
+                            <Route path="login" element={<Login handleLogin={handleLogin} />} />
+                            <Route path="register" element={<Register  handleRegister={handleRegister}/>} />
                         </Route>
                     </Route>
                     <Route path="*" element={<b>Page not found</b>} />

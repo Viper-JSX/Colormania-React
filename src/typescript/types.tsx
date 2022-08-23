@@ -158,6 +158,9 @@ export type DeleteColorButtonProps = { tableName: string, colorName: string, han
 
 
 //-----------------------------User------------------------------------//
+export type LoginData = {login: string, password: string};
+export type RegisterData = { nickname: string } & LoginData;
+
 export type AuthorizationFormProps = LoginProps & RegisterProps;
-export type LoginProps = { handleLogin: ({ login, password } : {login: string, password: string}) => void };
-export type RegisterProps = { handleRegister: ({ nickname, login, password } : { nickname: string,  login: string, password: string }) => void };
+export type LoginProps = { handleLogin: ({ login, password } : LoginData) => void };
+export type RegisterProps = { handleRegister: ({ nickname, login, password } : RegisterData) => void };

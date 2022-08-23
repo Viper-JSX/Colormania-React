@@ -10,7 +10,7 @@ import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
 import ColorClass from './classes/Color';
-import { AddColorToTableParams, EditColorParams, HandleTableEditParams, RGBValue } from './typescript/types';
+import { AddColorToTableParams, EditColorParams, HandleTableEditParams, LoginData, RegisterData, RGBValue } from './typescript/types';
 import { useNavigate } from 'react-router';
 
 
@@ -138,6 +138,18 @@ function App() {
         dispatch(deleteColorFromTable({ tableName, colorName }));
     }
 
+    function handleLogin({ login, password } : LoginData):void{
+
+    }
+
+    function handleRegister({ nickname, login, password } : RegisterData):void{
+
+    }
+
+    function handleLogout():void{
+        
+    }
+
     document.body.onclick = function(){
         //dispatch(createTable({tableName: "Sobakens"}));
         //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewzzzz" }));
@@ -169,6 +181,8 @@ function App() {
                 handleColorEdit={handleColorEdit}
                 handleColorDelete={handleColorDelete}
 
+                handleLogin={handleLogin}
+                handleRegister={handleRegister}
                 
             />
         </div>
