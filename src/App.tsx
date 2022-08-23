@@ -79,8 +79,27 @@ function App() {
     }
 
     function handleAddColorToTable({ tableName, colorName, rgbValue } : AddColorToTableParams):void{
+        let colorAlreadyExists = false;
+
+        for(let i = 0; i < user.tables.length; i++){
+            if(user.tables[i].name.toLowerCase() === tableName.toLowerCase()){
+                for(let j = 0; j < user.tables[i].colors.length; j++){
+                    if(user.tables[i].colors[j].name.toLowerCase() === colorName){
+                    colorAlreadyExists = true;  
+                    console.log("Exists");
+                    break;  
+                    }
+                }
+            }
+        }
+    
+        if(colorAlreadyExists){
+            console.log("not Exists");
+            dispatch(setMessage({ messageText: "Color with such name already exists inside this table" }));
+            return;
+        }
+
         const color = new ColorClass(colorName, rgbValue);
-        console.log(color);
         dispatch(addColorToTable({ tableName, color }));
     }
 
@@ -103,8 +122,9 @@ function App() {
         //console.log("Click")
         //dispatch(login({ login: "pivasik", password: "pivasik" }))
         //dispatch(register({nickname: "Ivaniii", login: "pivasik", password: "ssssssssssssssssss"}));
-        handleTablCreate({ tableName:"Siuuuuuur" });
+        //handleTablCreate({ tableName:"Siuuuuuur" });
         //handleColorEdit({ tableName: "Welcome table", oldColorName: "dark", colorName: "Pinkyyyyyyyyyy", rgbValue: { r: 10, g: 10, b: 200 } });
+        //handleAddColorToTable({  tableName: "welcome table", colorName: "darker", rgbValue: { r: 140, g: 10, b: 200 }});
     }
 
     return (
