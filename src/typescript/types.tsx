@@ -11,7 +11,8 @@ export type LayoutProps = { tablesToRender: TableClass[] } &
     { handleTableCreate: TableCreatorSubtypeProps["handleTableCreate"], handleTableEdit: TableEditorSubtypeProps["handleTableEdit"] } &
     UserProfileProps &
     LoginProps &
-    RegisterProps;
+    RegisterProps &
+    ThemeSwitchProps;
 
 
 //-----------------Header-----------------
@@ -22,7 +23,7 @@ export type HeaderProps = {
 
     handleTablesSortCriteriaChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     handleTablesSearch?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+} & ThemeSwitchProps;
 
 export type FilterToolsProps = {
     tablesSearchTerm?: HeaderProps['tablesSearchTerm'];
@@ -171,3 +172,4 @@ export type RegisterProps = { handleRegister: ({ event, nickname, login, passwor
 
 //------------------------Theme-------------------------------//
 export type ChangeThemePayload = { themeName: "light" | "dark" };
+export type ThemeSwitchProps = { handleThemeChange: ( event: React.ChangeEvent<HTMLSelectElement> ) => void };

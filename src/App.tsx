@@ -179,7 +179,7 @@ function App() {
         //handleTablCreate({ tableName:"Siuuuuuur" });
         //handleColorEdit({ tableName: "Welcome table", oldColorName: "dark", colorName: "Pinkyyyyyyyyyy", rgbValue: { r: 10, g: 10, b: 200 } });
         //handleAddColorToTable({  tableName: "welcome table", colorName: "darker", rgbValue: { r: 140, g: 10, b: 200 }});
-        dispatch(changeTheme({ themeName: "dark" }));
+        //dispatch(changeTheme({ themeName: "dark" }));
     }
 
     return (
@@ -200,6 +200,8 @@ function App() {
                 handleLogin={handleLogin}
                 handleRegister={handleRegister}
                 handleLogout={handleLogout}
+
+                handleThemeChange={handleThemeChange}
                 
             />
         </div>

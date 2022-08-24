@@ -3,9 +3,10 @@ import { Routes, Route } from "react-router";
 import { HeaderProps } from "../../typescript/types";
 import AppTitle from "./App_title";
 import FilterTools from "./Filter_tools/Filter_tools";
+import ThemeSwitch from "./Theme_switch";
 
 
-function Header({ appTitle, handleTablesSortCriteriaChange, handleTablesSearch } : HeaderProps):JSX.Element{
+function Header({ appTitle, handleTablesSortCriteriaChange, handleTablesSearch, handleThemeChange } : HeaderProps):JSX.Element{
     const nickname = useSelector((state:any) => state.user.user.nickname);
 
     return(
@@ -14,6 +15,7 @@ function Header({ appTitle, handleTablesSortCriteriaChange, handleTablesSearch }
             <Routes>
                 <Route path="tables" element={<FilterTools handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} handleTablesSearch={handleTablesSearch}  />} />
             </Routes>
+            <ThemeSwitch handleThemeChange={handleThemeChange} />
         </header>
     );
 }

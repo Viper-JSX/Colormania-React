@@ -17,13 +17,14 @@ import AuthorizationForm from "../Authorization_form/Authorization_form";
 import Login from "../Authorization_form/Login";
 import Register from "../Authorization_form/Register";
 
-function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete, handleLogin, handleRegister, handleLogout } : LayoutProps):JSX.Element{
+function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete, handleLogin, handleRegister, handleLogout, handleThemeChange } : LayoutProps):JSX.Element{
     return(
         <div id="layout">
             <Header 
                 appTitle={appTitle}
                 handleTablesSortCriteriaChange={handleTablesSortCriteriaChange}
                 handleTablesSearch={handleTablesSearch}
+                handleThemeChange={handleThemeChange}
             />
                 <Routes>
                     <Route index element={<HomePage />} />
