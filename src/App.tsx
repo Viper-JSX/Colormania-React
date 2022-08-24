@@ -10,9 +10,10 @@ import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
 import ColorClass from './classes/Color';
-import { AddColorToTableParams, EditColorParams, HandleTableEditParams, LoginData, RegisterData, RGBValue } from './typescript/types';
+import { AddColorToTableParams, ChangeThemePayload, EditColorParams, HandleTableEditParams, LoginData, RegisterData, RGBValue } from './typescript/types';
 import { useNavigate } from 'react-router';
 import { changeTheme, logout as doLogout } from './redux/action_functions';
+import { themeConfig } from './various_things/app_config';
 
 
 function App() {
@@ -156,6 +157,12 @@ function App() {
     function handleLogout():void{
         dispatch(doLogout());
         navigate("/user")
+    }
+
+    function handleThemeChange(event: React.ChangeEvent<HTMLSelectElement>):void{
+        if(event.target.value === "light" || event.target.value === "dark"){
+            dispatch(changeTheme({ themeName: event.target.value }));
+        }
     }
 
     document.body.onclick = function(){
