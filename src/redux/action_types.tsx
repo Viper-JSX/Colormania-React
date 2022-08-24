@@ -22,4 +22,5 @@ export const DELETE_COLOR_FROM_TABLE = "DELETE_COLOR_FROM_TABLE";
 export const SET_MESSAGE = "SET_MESSAGE";
 
 //-----------------------Theme-----------------------//
-export const CHANNGE_THEME = "CHANNGE_THEME";
+
+export const CHANGE_THEME = "CHANGE_THEME";

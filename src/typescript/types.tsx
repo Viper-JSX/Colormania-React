@@ -170,4 +170,4 @@ export type RegisterProps = { handleRegister: ({ event, nickname, login, passwor
 
 
 //------------------------Theme-------------------------------//
-export type ChangeThemePayload = { themeName: string };
+export type ChangeThemePayload = { themeName: "light" | "dark" };
