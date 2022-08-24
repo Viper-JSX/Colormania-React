@@ -1,0 +1,1 @@
+export const themeConfig: {avaliableThemes : string[]} = { avaliableThemes: ["light", "dark"] };

@@ -12,7 +12,7 @@ import filterTables from './api/filter_tables';
 import ColorClass from './classes/Color';
 import { AddColorToTableParams, EditColorParams, HandleTableEditParams, LoginData, RegisterData, RGBValue } from './typescript/types';
 import { useNavigate } from 'react-router';
-import { logout as doLogout } from './redux/action_functions';
+import { changeTheme, logout as doLogout } from './redux/action_functions';
 
 
 function App() {
@@ -21,9 +21,10 @@ function App() {
     const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));    
     const message = useSelector((state:any) => state.message);
     const navigate = useNavigate();
-    console.log(message);
+    //console.log(message);
 
     //dispatch(setMessage({ messageText: "Nothing happened" }))
+    useSelector((state:any) => console.log(state.theme));
 
     useEffect(() => {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
@@ -171,6 +172,7 @@ function App() {
         //handleTablCreate({ tableName:"Siuuuuuur" });
         //handleColorEdit({ tableName: "Welcome table", oldColorName: "dark", colorName: "Pinkyyyyyyyyyy", rgbValue: { r: 10, g: 10, b: 200 } });
         //handleAddColorToTable({  tableName: "welcome table", colorName: "darker", rgbValue: { r: 140, g: 10, b: 200 }});
+        dispatch(changeTheme({ themeName: "dark" }));
     }
 
     return (

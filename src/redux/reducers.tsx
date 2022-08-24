@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import { ActionType, TableFilterState, UserState } from "../typescript/types";
 
 import UserClass from "../classes/User";
-import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CHANNGE_THEME, CREATE_TABLE, DELETE_COLOR_FROM_TABLE, DELETE_TABLE, EDIT_COLOR_INSIDE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_SEARCH, SET_MESSAGE } from "./action_types";
+import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CHANGE_THEME, CREATE_TABLE, DELETE_COLOR_FROM_TABLE, DELETE_TABLE, EDIT_COLOR_INSIDE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_SEARCH, SET_MESSAGE } from "./action_types";
 import { users } from "../various_things/users";
 import { addItemToLocaleStorage } from "../api/add_item_to_locale_storage";
 import { getGuestUserFromLocaleStorage } from "../api/get_guest_user_from_locale_storage";
@@ -173,8 +173,11 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
 
 function theme(state = { themeName: "light"}, action:ActionType ){
     switch(action.type){
-        case CHANNGE_THEME:{
+        case CHANGE_THEME:{
             return { ...state, themeName: action.payload.themeName };
+        }
+        default:{
+            return state;
         }
     }
 }
