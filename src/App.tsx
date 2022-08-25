@@ -183,6 +183,7 @@ function App() {
         //dispatch(changeTheme({ themeName: "dark" }));
     }
 
+
     return (
         <div className="App">
             <Layout
@@ -193,17 +194,17 @@ function App() {
                 handleTablesSearch={handleTablesSearch}
                 handleTableEdit={handleTableEdit}
 
-                mode="create"
-                handleAddColorToTable={handleAddColorToTable}
-                handleColorEdit={handleColorEdit}
-                handleColorDelete={handleColorDelete}
+               mode="create"
+               handleAddColorToTable={handleAddColorToTable}
+               handleColorEdit={handleColorEdit}
+               handleColorDelete={handleColorDelete}
 
                 handleLogin={handleLogin}
                 handleRegister={handleRegister}
                 handleLogout={handleLogout}
 
                 handleThemeChange={handleThemeChange}
-                
+
             />
         </div>
     );
