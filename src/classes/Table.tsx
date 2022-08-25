@@ -1,4 +1,3 @@
-import { ThemeConsumer } from "styled-components";
 import { RGBValue } from "../typescript/types";
 import ColorClass from "./Color";
 

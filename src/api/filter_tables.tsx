@@ -1,4 +1,4 @@
-import iro from "@jaames/iro";
+import iro from '@jaames/iro';
 import ColorClass from "../classes/Color";
 
 import TableClass from "../classes/Table";
