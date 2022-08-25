@@ -6,6 +6,12 @@
       "dom.iterable",
       "esnext"
     ],
+    /*"types": [
+      "jest",
+      "cypress",
+      "@testing-library/cypress",
+      "@types/styled-components-react-native"
+    ],*/
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -22,15 +28,5 @@
   },
   "include": [
     "src"
-  ],
-
-  "extends": "some/tsconfig.base",
-  "compilerOptions": {
-    "types": [
-      "jest",
-      "cypress",
-      "@testing-library/cypress",
-      "@types/styled-components-react-native"
-    ]
-  },
+  ]
 }
