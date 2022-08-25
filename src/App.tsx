@@ -21,21 +21,19 @@ function App() {
     const user = useSelector((state: any) => state.user.user);
     const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));    
     const message = useSelector((state:any) => state.message);
+    const themeName = useSelector((state:any) => state.theme.themeName);
     const navigate = useNavigate();
+    
     //console.log(message);
     //dispatch(setMessage({ messageText: "Nothing happened" }))
     useSelector((state:any) => console.log(state.theme));
 
     useEffect(() => {
+        console.log(themeName);
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
             addItemToLocaleStorage("guest_user", user);
         }
     }, [])
-
-
-    if(true){
-        //import ('./App.css');
-    }
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
         if(event.target.value === "name" || event.target.value === "date"){
