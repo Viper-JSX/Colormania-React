@@ -1,4 +1,5 @@
-import './App.css';
+import "./css/App.css";
+
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,7 +16,6 @@ import { useNavigate } from 'react-router';
 import { changeTheme, logout as doLogout } from './redux/action_functions';
 import { themeConfig } from './various_things/app_config';
 
-
 function App() {
     const dispatch = useDispatch();
     const user = useSelector((state: any) => state.user.user);
@@ -23,7 +23,6 @@ function App() {
     const message = useSelector((state:any) => state.message);
     const navigate = useNavigate();
     //console.log(message);
-
     //dispatch(setMessage({ messageText: "Nothing happened" }))
     useSelector((state:any) => console.log(state.theme));
 
@@ -33,6 +32,10 @@ function App() {
         }
     }, [])
 
+
+    if(true){
+        //import ('./App.css');
+    }
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
         if(event.target.value === "name" || event.target.value === "date"){
