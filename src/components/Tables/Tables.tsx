@@ -3,6 +3,7 @@ import { stringToUrl } from "../../api/string_to_url";
 import TableClass from "../../classes/Table";
 import { TablesProps } from "../../typescript/types";
 import Table from "./Table";
+import TableOpener from "./Table_opener/Table_opener";
 
 function Tables({ tables, handleColorDelete } : TablesProps):JSX.Element{
     return(
@@ -10,7 +11,7 @@ function Tables({ tables, handleColorDelete } : TablesProps):JSX.Element{
             <b>Tables</b>
 
             {
-                tables.map((table) => <NavLink to={stringToUrl(table.name)}>{table.name}</NavLink> )
+                tables.map((table) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} /></NavLink> )
             }
         </div>
     );
