@@ -147,7 +147,8 @@ type TableNameColorName = { tableName: string, colorName: string };
 type HandleColorDeleteFunc = ({ tableName, colorName } : TableNameColorName) => void;
 
 export type ColorModels = "rgb" | "hsl" | "hex";
-export type ColorProps = { tableName: string, color: ColorClass, handleColorDelete: HandleColorDeleteFunc };
+//export type ColorProps = { tableName: string, color: ColorClass, handleColorDelete: HandleColorDeleteFunc } 
+export type ColorProps = { tableName?: string, color: ColorClass, handleColorDelete?: HandleColorDeleteFunc };
 export type ColorValueViewerProps = { colorRgbValue: RGBValue };
 export type ColorValueModelSwitchProps = { handleColorModelChange : (colorModel : ColorModels) => void  }
 export type ColorValueInfoProps = { currentColorModel: ColorModels, currentColorValue: ConvertedColorValue };

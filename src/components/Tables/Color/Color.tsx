@@ -10,7 +10,8 @@ interface StyledColorProps{
 
 
 const StyledColor = styled.div<StyledColorProps>`
-    width: max-content;
+    width: 100px;
+    min-width: max-content;
     aspect-ratio: 1/1;
     background-color: rgb(${(props) => props?.colorRgbValue.r }, ${(props) => props?.colorRgbValue.g}, ${(props) => props?.colorRgbValue.b} );
     border: 2px solid black;
@@ -28,8 +29,15 @@ function Color({ tableName, color, handleColorDelete } : ColorProps):JSX.Element
 
     return(
         <StyledColor className="color" colorRgbValue={color.rgbValue}>
-            <ColorInfoLabel tableName={tableName} color={color} handleColorDelete={handleColorDelete} />
-            <OpenColorEditor tableName={tableName} colorToEdit={{ oldColorName: color.name, rgbValue: color.rgbValue }} />
+            {
+                (handleColorDelete && tableName) ? 
+                <>
+                    <ColorInfoLabel tableName={tableName} color={color} handleColorDelete={handleColorDelete} />
+                    <OpenColorEditor tableName={tableName} colorToEdit={{ oldColorName: color.name, rgbValue: color.rgbValue }} />
+                </>
+                : 
+                <></>
+            }  
         </StyledColor>
     );
 }
