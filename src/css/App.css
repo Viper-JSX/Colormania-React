@@ -1,3 +1,7 @@
+:root{
+    --standardDarkBorder: 2px solid black;
+}
+
 *{
     box-sizing: border-box;
     transition: 0.3s;
@@ -18,6 +22,18 @@ input.light{
 
 input.black{
     background-color: red;
+}
+
+
+/*---TableOpener---*/
+.tableOpener{
+
+}
+
+.tableOpenerColors{
+    display: flex;
+    flex-wrap: wrap;
+    border: var(--standardDarkBorder);
 }
 
 /*---Message---*/
