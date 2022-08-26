@@ -1,4 +1,5 @@
 import "./css/App.css";
+//import "./css/dark.css"
 
 import React, { useEffect } from 'react';
 
@@ -8,15 +9,15 @@ import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColo
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
 
-import Helmet from 'react-helmet'
+import { Helmet as ReactHelmet } from "react-helmet";
 
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
 import ColorClass from './classes/Color';
-import { AddColorToTableParams, ChangeThemePayload, EditColorParams, HandleTableEditParams, LoginData, RegisterData, RGBValue } from './typescript/types';
+import { AddColorToTableParams, EditColorParams, HandleTableEditParams, LoginData, RegisterData } from './typescript/types';
 import { useNavigate } from 'react-router';
 import { changeTheme, logout as doLogout } from './redux/action_functions';
-import { themeConfig } from './various_things/app_config';
+import { forEachChild } from "typescript";
 
 function App() {
     const dispatch = useDispatch();
@@ -25,16 +26,34 @@ function App() {
     const message = useSelector((state:any) => state.message);
     const themeName = useSelector((state:any) => state.theme.themeName);
     const navigate = useNavigate();
-    
-    //console.log(message);
-    //dispatch(setMessage({ messageText: "Nothing happened" }))
+
     useSelector((state:any) => console.log(state.theme));
 
     useEffect(() => {
-        console.log(themeName);
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
             addItemToLocaleStorage("guest_user", user);
         }
+        console.log(document.head.querySelector("link"));
+        //const themeLinkElement = document.getElementById("theme");
+        
+        //if(!themeLinkElement){
+        //    console.log("not present")
+        //    const themeLink = document.createElement("link");
+        //    themeLink.rel = "stylesheet";
+        //    //themeLink.type = "text/css";
+        //    themeLink.href = `./css/dark.css`;
+        //    console.log(themeLink)
+
+        //    document.head.append(themeLink);
+        //}
+        //else{
+        //    console.log("present")
+        //}
+
+        const elements = document.querySelectorAll("*")
+        console.log(document.querySelectorAll("*"));
+        elements.forEach((element) => element.classList.add(themeName));
+
     }, [])
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
@@ -188,11 +207,6 @@ function App() {
 
     return (
         <div className="App">
-            <Helmet>
-                <title>{themeName}</title>
-                <link rel="stylesheet" href="./css/dark.css" />
-            </Helmet>
-
             <Layout
                 tablesToRender={tablesToRender}
 

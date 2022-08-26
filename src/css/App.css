@@ -12,7 +12,13 @@ header{
     display: flex;
 }
 
+input.light{
+    background-color: black;
+}
 
+input.black{
+    background-color: red;
+}
 
 /*---Message---*/
 .messageWindow{
@@ -20,3 +26,4 @@ header{
     bottom: 0;
     right: 0;
 }
+
