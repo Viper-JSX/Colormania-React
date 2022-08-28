@@ -18,15 +18,20 @@
 }
 
 
-
-/*---___Light___---*/
-
 body{
     margin: 0;
     padding: 0;
 }
 
+/*---___Light___---*/
+
+.App{
+    background-color: var(--paperBackground);
+    min-height: 100vh;
+}
+
 /*---Header---*/
+
 
 header{
     display: flex;
@@ -82,9 +87,8 @@ header{
 
 /*---___Dark___---*/
 
-
-body.dark{
-
+.App.dark{
+    background-color: var(--middleDarkBackgound);
 }
 
 /*---Header---*/
