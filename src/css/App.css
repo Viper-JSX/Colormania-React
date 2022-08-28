@@ -149,6 +149,7 @@ header .appTitle:hover{
 
 footer{
     height: 5rem;
+    background-color: var(--paperBackground);
 }
 
 
@@ -236,5 +237,5 @@ header .appTitle.dark:hover{
 
 /*---Footer---*/
 footer.dark{
-    height: 5rem;
+    background-color: var(--darkBackground);
 }
