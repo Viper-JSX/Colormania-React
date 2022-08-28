@@ -12,6 +12,8 @@
     --darkBackground: #111111;
     --middleDarkBackgound: #222222;
     --lightDarkBackground: #444444;
+
+    --transparentLightColor: rgba(230, 230, 230, 0.5);
 }
 
 *{
@@ -86,7 +88,15 @@ header .appTitle:hover{
     min-width: 300px;
     min-height: 300px;
     background-color: blue;
-    border: var(--standardDarkBorder)
+    border: var(--standardDarkBorder);
+    position: relative;
+}
+
+.tableOpenerTitleContainer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--transparentLightColor);
 }
 
 .tableOpenerColors{
@@ -119,6 +129,9 @@ header .appTitle:hover{
 footer{
     height: 5rem;
 }
+
+
+
 
 
 
