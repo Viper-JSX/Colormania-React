@@ -1,8 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { stringToUrl } from "../../api/string_to_url";
-import TableClass from "../../classes/Table";
 import { TablesProps } from "../../typescript/types";
-import Table from "./Table";
 import TableOpener from "./Table_opener/Table_opener";
 
 function Tables({ tables, handleColorDelete } : TablesProps):JSX.Element{
