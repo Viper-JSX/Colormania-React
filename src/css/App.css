@@ -1,5 +1,13 @@
 :root{
     --standardDarkBorder: 2px solid black;
+    --lightColor: #FFFFFF;
+    --darkColor: #000000;
+
+    --lightBackground: #EEEEEE;
+
+    --darkBackground: #111111;
+    --middleDarkBackgound: #222222;
+    --lightDarkBackground: #444444;
 }
 
 *{
@@ -7,23 +15,32 @@
     transition: 0.3s;
 }
 
+
+
+/*---___Light___---*/
+
 body{
     margin: 0;
     padding: 0;
 }
 
+/*---Header---*/
+
 header{
     display: flex;
 }
 
-input.light{
-    background-color: black;
-}
-
-input.black{
+.filterTools{
     background-color: red;
 }
 
+.filterTools .sortBy{
+    color: red;
+}
+
+.filterTools .filterTools{
+
+}
 
 /*---TableOpener---*/
 .tableOpener{
@@ -36,10 +53,55 @@ input.black{
     border: var(--standardDarkBorder);
 }
 
+
+
+/*---Authorization---*/
+
+
+
 /*---Message---*/
 .messageWindow{
     position: fixed;
     bottom: 0;
     right: 0;
+}
+
+
+/*---User---*/
+.userProfile{
+
+}
+
+
+
+
+
+
+
+/*---___Dark___---*/
+
+
+body.dark{
+
+}
+
+/*---Header---*/
+header.dark{
+    color: var(--lightColor);
+    background-color: var(--darkBackground);
+}
+
+.filterTools.dark .sortBy{
+    
+}
+
+.filterTools.dark .filterTools{
+    
+}
+
+
+/*---User---*/
+.userProfile.dark{
+    background-color: var(--darkBackground);
 }
 

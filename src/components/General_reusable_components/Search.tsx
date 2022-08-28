@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
 import { SearchProps } from "../../typescript/types";
 
 function Search({ value, placeholder, handler }: SearchProps):JSX.Element{
+    const themeName = useSelector((state: any) => state.theme.themeName);
+
     return(
-        <input value={value} placeholder={placeholder} onChange={handler} />
+        <input className={`search${themeName}`} value={value} placeholder={placeholder} onChange={handler} />
     );
 }
 

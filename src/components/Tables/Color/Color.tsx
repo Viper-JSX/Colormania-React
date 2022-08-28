@@ -1,8 +1,8 @@
+import { useSelector } from "react-redux";
+
 import styled from "styled-components";
-import ColorClass from "../../../classes/Color";
-import { ColorProps, RGBValue } from "../../../typescript/types";
+import { ColorProps } from "../../../typescript/types";
 import ColorInfoLabel from "./Color_info_label";
-import OpenColorEditor from "./Open_color_editor";
 
 interface StyledColorProps{
     colorRgbValue: { r: number, g:number, b: number };
@@ -26,14 +26,14 @@ const StyledColor = styled.div<StyledColorProps>`
 `;
 
 function Color({ tableName, color, handleColorDelete } : ColorProps):JSX.Element{
+    const themeName = useSelector((state: any) => state.theme.themeName);
 
     return(
-        <StyledColor className="color" colorRgbValue={color.rgbValue}>
+        <StyledColor className={`color ${themeName}`} colorRgbValue={color.rgbValue}>
             {
                 (handleColorDelete && tableName) ? 
                 <>
                     <ColorInfoLabel tableName={tableName} color={color} handleColorDelete={handleColorDelete} />
-                    <OpenColorEditor tableName={tableName} colorToEdit={{ oldColorName: color.name, rgbValue: color.rgbValue }} />
                 </>
                 : 
                 <></>

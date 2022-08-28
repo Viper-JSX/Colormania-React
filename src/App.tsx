@@ -33,28 +33,7 @@ function App() {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
             addItemToLocaleStorage("guest_user", user);
         }
-        console.log(document.head.querySelector("link"));
-        //const themeLinkElement = document.getElementById("theme");
-        
-        //if(!themeLinkElement){
-        //    console.log("not present")
-        //    const themeLink = document.createElement("link");
-        //    themeLink.rel = "stylesheet";
-        //    //themeLink.type = "text/css";
-        //    themeLink.href = `./css/dark.css`;
-        //    console.log(themeLink)
-
-        //    document.head.append(themeLink);
-        //}
-        //else{
-        //    console.log("present")
-        //}
-
-        const elements = document.querySelectorAll("*")
-        console.log(document.querySelectorAll("*"));
-        elements.forEach((element) => element.classList.add(themeName));
-
-    }, [])
+    }, []);
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
         if(event.target.value === "name" || event.target.value === "date"){

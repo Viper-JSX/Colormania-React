@@ -6,10 +6,10 @@ import { UserProfileProps } from "../../typescript/types";
 
 function UserProfile({ handleLogout } : UserProfileProps):JSX.Element{
     const user: UserClass = useSelector((state:any) => state.user.user);
-    console.log(user)
-
+    const themeName = useSelector((state: any) => state.theme.themeName);
+    
     return(
-        <div className="userProfile">
+        <div className={`userProfile ${themeName}`}>
             { user.nickname } User Proile
             
             {

@@ -1,4 +1,5 @@
 import iro from "@jaames/iro";
+import { useSelector } from "react-redux";
 
 import React, { ChangeEvent, useState } from "react";
 import { ColorEditorProps, OpenColorEditorProps, RGBValue } from "../../typescript/types";
@@ -7,6 +8,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import { rgbToHex } from "../../api/rgb_to_hex";
 
 function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEditorProps):JSX.Element{
+    const themeName = useSelector((state: any) => state.theme.themeName);
+
     const location  = useLocation();
     const state = location.state as any;
 
@@ -41,7 +44,7 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
     }
 
     return(
-        <div className="colorEditor">
+        <div className={`colorEditor ${themeName}`}>
             <input className="colorNameInput" type="text" value={colorName} onChange={handleColorNameInput}/>
             <input className="rgbInput" type="color" value={currentColorValue.hex}  onChange={handleColorInput}  />
 

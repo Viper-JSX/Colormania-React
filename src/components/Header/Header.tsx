@@ -8,9 +8,10 @@ import ThemeSwitch from "./Theme_switch";
 
 function Header({ appTitle, handleTablesSortCriteriaChange, handleTablesSearch, handleThemeChange } : HeaderProps):JSX.Element{
     const nickname = useSelector((state:any) => state.user.user.nickname);
-
+    const themeName = useSelector((state: any) => state.theme.themeName);
+    
     return(
-        <header>
+        <header id="header" className={`${themeName}`}>
             <AppTitle titleText={appTitle || "ColorMania by Yura Shtefanko" + nickname} />
             <Routes>
                 <Route path="tables" element={<FilterTools handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} handleTablesSearch={handleTablesSearch}  />} />

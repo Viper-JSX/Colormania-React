@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { TableEditorProps } from "../../typescript/types";
 
 function TableEditor(props: TableEditorProps):JSX.Element{
+    const themeName = useSelector((state: any) => state.theme.themeName);
 
     const [ tableName, setTableName ] = useState<string>(():string => {
         if("handleTableCreate" in props){
@@ -14,10 +16,9 @@ function TableEditor(props: TableEditorProps):JSX.Element{
         setTableName(event.target.value);
     }
 
-    console.log("handleTableEdit")
 
     return(
-        <div>
+        <div className={`tableEditor ${themeName}`}>
             <input className="tableNameInput" type="text" value={tableName} onChange={handleTableNameChange} />
             {
                 "handleTableCreate" in props ? 
