@@ -5,7 +5,9 @@ function TableOpener( { table } : { table: TableClass } ):JSX.Element{
     console.log(table)
     return(
         <div className="tableOpener">
-            <b className="tableOpenerName">{table.name}</b>
+            <div className="tableOpenerTitleContainer">
+                <b className="tableOpenerTitle">{table.name}</b>
+            </div>
             <div className="tableOpenerColors">
                 {
                     table.colors.map((color) => <Color color={color} />)

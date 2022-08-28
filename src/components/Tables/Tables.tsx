@@ -7,10 +7,11 @@ function Tables({ tables, handleColorDelete } : TablesProps):JSX.Element{
     return(
         <div className="tables">
             <b>Tables</b>
-
-            {
-                tables.map((table) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} /></NavLink> )
-            }
+            <div className="tableOpenersContainer">
+                {
+                    tables.map((table) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} /></NavLink> )
+                }
+            </div>
         </div>
     );
 }

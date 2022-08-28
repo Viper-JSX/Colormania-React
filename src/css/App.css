@@ -38,6 +38,7 @@ body{
 
 
 header{
+    height: 5rem;
     background-color: var(--paperBackground);
     display: flex;
     justify-content: space-around;
@@ -67,17 +68,35 @@ header .appTitle:hover{
 
 }
 
+/*---Tables---*/
+.tables{
+    height: calc(100vh - 10rem);
+    background-color: red;
+    overflow: auto;
+}
+
+.tableOpenersContainer{
+    display: flex;
+}
+
 /*---TableOpener---*/
 .tableOpener{
-
+    width: 20vw;
+    height: 20vw;
+    min-width: 300px;
+    min-height: 300px;
+    background-color: blue;
+    border: var(--standardDarkBorder)
 }
 
 .tableOpenerColors{
-    display: flex;
-    flex-wrap: wrap;
-    border: var(--standardDarkBorder);
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
 }
 
+/*---Table---*/
 
 
 /*---Authorization---*/
@@ -97,6 +116,9 @@ header .appTitle:hover{
 
 }
 
+footer{
+    height: 5rem;
+}
 
 
 
@@ -141,3 +163,9 @@ header .appTitle.dark:hover{
     background-color: var(--darkBackground);
 }
 
+
+
+/*---Footer---*/
+footer.dark{
+    height: 5rem;
+}
