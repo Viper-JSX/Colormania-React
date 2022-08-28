@@ -1,5 +1,3 @@
-import React from "react";
-
 import { useSelector } from "react-redux";
 import { ThemeSwitchProps } from "../../typescript/types";
 import { themeConfig } from "../../various_things/app_config";
