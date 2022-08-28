@@ -185,7 +185,7 @@ function App() {
 
 
     return (
-        <div className="App">
+        <div className={`App ${themeName}`}>
             <Layout
                 tablesToRender={tablesToRender}
 
