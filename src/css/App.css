@@ -1,8 +1,10 @@
 :root{
-    --standardDarkBorder: 2px solid black;
+    --standardDarkBorder: 2px solid var(--darkBackground);
+    --standardLightBorder: 2px solid var(--lightBackground);
     --lightColor: #FFFFFF;
     --darkColor: #000000;
-
+    --highlightColorForLight: orange;
+    --highlightColorForDark: pink; /*Electric blue*/
 
     --lightBackground: #EEEEEE;
     --paperBackground: #DDDDDD;
@@ -15,6 +17,7 @@
 *{
     box-sizing: border-box;
     transition: background-color 0.3s, color 0.3s;
+    transition-timing-function: linear;
 }
 
 
@@ -26,23 +29,38 @@ body{
 /*---___Light___---*/
 
 .App{
-    background-color: var(--paperBackground);
     min-height: 100vh;
+    color: var(--darkColor);
+    background-color: var(--lightBackground);
 }
 
 /*---Header---*/
 
 
 header{
+    background-color: var(--paperBackground);
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .appTitle{
+    color: var(--darkColor);
+    text-shadow: 0 0 0rem var(--highlightColorForLight);
+}
+
+header .appTitle:hover{
+    color: var(--highlightColorForLight);
+    transition: 0.3s;
+    text-shadow: 0 0 1rem var(--highlightColorForLight);
 }
 
 .filterTools{
-    background-color: red;
+    
 }
 
 .filterTools .sortBy{
-    color: red;
+    
 }
 
 .filterTools .filterTools{
@@ -88,6 +106,7 @@ header{
 /*---___Dark___---*/
 
 .App.dark{
+    color: var(--lightColor);
     background-color: var(--middleDarkBackgound);
 }
 
@@ -95,6 +114,17 @@ header{
 header.dark{
     color: var(--lightColor);
     background-color: var(--darkBackground);
+    border-bottom: var(--standardLightBorder);
+}
+
+header .appTitle.dark{
+    color: var(--lightBackground);
+    text-shadow: 0px 0px 0rem var(--highlightColorForDark);
+}
+
+header .appTitle.dark:hover{
+    color: var(--highlightColorForDark);
+    text-shadow: 0px 0px 1rem var(--highlightColorForDark);
 }
 
 .filterTools.dark .sortBy{

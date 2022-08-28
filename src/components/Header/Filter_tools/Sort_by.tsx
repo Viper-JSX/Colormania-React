@@ -9,6 +9,7 @@ function SortBy({ tablesSortCriteria, handleTablesSortCriteriaChnage } : SortByP
     return(
         <select className={`sortBy ${themeName}`} value={tablesSortCriteria} onChange={handleTablesSortCriteriaChnage}>
             <optgroup>
+                <option value="name" disabled selected>Sort by</option>
                 <option value="name">Name</option>
                 <option value="date">Date</option>
             </optgroup>

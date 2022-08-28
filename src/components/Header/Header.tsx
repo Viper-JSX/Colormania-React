@@ -12,7 +12,7 @@ function Header({ appTitle, handleTablesSortCriteriaChange, handleTablesSearch, 
     
     return(
         <header id="header" className={`${themeName}`}>
-            <AppTitle titleText={appTitle || "ColorMania by Yura Shtefanko" + nickname} />
+            <AppTitle titleText={appTitle || "ColorMania by Yura Shtefanko"} />
             <Routes>
                 <Route path="tables" element={<FilterTools handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} handleTablesSearch={handleTablesSearch}  />} />
             </Routes>

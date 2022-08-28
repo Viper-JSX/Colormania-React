@@ -6,7 +6,7 @@ function TableSearch({ tablesSearchTerm, handleTablesSearch } : TableSearchProps
     const themeName = useSelector((state:any) => state.theme.themeName);
 
     return(
-        <input className={`tableSearch ${themeName}`} type="text" value={tablesSearchTerm} onChange={handleTablesSearch} />
+        <input className={`tableSearch ${themeName}`} type="text" value={tablesSearchTerm} placeholder="Search tables" onChange={handleTablesSearch} />
     );
 }
 

@@ -9,8 +9,9 @@ function FilterTools({ tablesSearchTerm, tablesSortCriteria, handleTablesSortCri
 
     return(
         <div className={`filterTools ${themeName}`}>
-            <SortBy tablesSortCriteria={tablesSortCriteria} handleTablesSortCriteriaChnage={handleTablesSortCriteriaChange} />
             <TableSearch tablesSearchTerm={tablesSearchTerm} handleTablesSearch={handleTablesSearch} />
+            <br />
+            <SortBy tablesSortCriteria={tablesSortCriteria} handleTablesSortCriteriaChnage={handleTablesSortCriteriaChange} />
         </div>
     );
 }
