@@ -1,14 +1,16 @@
+import { useSelector } from "react-redux";
 import TableClass from "../../../classes/Table";
 import Color from "../Color/Color";
 
 function TableOpener( { table } : { table: TableClass } ):JSX.Element{
-    console.log(table)
+    const themeName = useSelector((state:any) => state.theme.themeName);
+    console.log(themeName)
     return(
-        <div className="tableOpener">
-            <div className="tableOpenerTitleContainer">
+        <div className={`tableOpener ${themeName}`}>
+            <div className={`tableOpenerTitleContainer ${themeName}`}>
                 <b className="tableOpenerTitle">{table.name}</b>
             </div>
-            <div className="tableOpenerColors">
+            <div className={`tableOpenerColors ${themeName}`}>
                 {
                     table.colors.map((color) => <Color color={color} />)
                 }

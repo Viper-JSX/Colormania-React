@@ -4,12 +4,10 @@ import "./css/App.css";
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from "react-redux";
-import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, deleteTable, editTable, addColorToTable, deleteColorFromTable, login as doLogin, register as doRegister, setMessage } from './redux/thunks';
+import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, editTable, addColorToTable, deleteColorFromTable, login as doLogin, register as doRegister, setMessage } from './redux/thunks';
 
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
-
-import { Helmet as ReactHelmet } from "react-helmet";
 
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
