@@ -17,6 +17,8 @@
     --transparentDarkColor: rgba(0, 0, 0, 0.5);
 
     --defaultTransitionTime: 0.3s;
+
+    --defaultFont: monospace, arial, sans-serif, serif;
 }
 
 *{
@@ -128,7 +130,33 @@ header .appTitle:hover{
 }
 
 /*---Table---*/
+.table{
+    font-family: var(--defaultFont);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.tableTools{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tableTools .tableName{
+    font-size: 1.5rem;
+}
+
+.tableColors{
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.tableColors .color{
+    min-width: 150px;
+    aspect-ratio: 1/1;
+}
 
 /*---Authorization---*/
 

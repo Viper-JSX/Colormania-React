@@ -18,14 +18,18 @@ function Table({ table, handleColorDelete } : TableProps){
 
     return(
         <div className="table">
-            <NavLink to="edit">Edit table</NavLink>
-            <b className="tableName">{table.name}</b>
-            <Search value={colorSearchTerm} placeholder={"Type color name"}  handler={handleSearchTermChange} />
+            <div className="tableTools">
+                <NavLink to="edit">Edit table</NavLink>
+                <b className="tableName">{table.name}</b>
+                <Search value={colorSearchTerm} placeholder={"Type color name"}  handler={handleSearchTermChange} />
+            </div>
+            
             <div className="tableColors">
                 {
                     colorsToRender.map((color) => <Color color={color} tableName={table.name} handleColorDelete={handleColorDelete} key={`${table.name}_${color.name}`} />)
                 }
             </div>
+
             <OpenColorCreator tableName={table.name} />
             <Outlet />
         </div>
