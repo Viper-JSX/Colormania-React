@@ -2,7 +2,7 @@ import { ColorValueModelSwitchProps } from "../../../../typescript/types";
 
 function ColorValueModelSwitch({ handleColorModelChange } : ColorValueModelSwitchProps ):JSX.Element{
     return(
-        <nav>
+        <nav className={`colorValueModelSwitch`}>
             <ul>
                 <li onClick={() => handleColorModelChange("rgb")}>RGB</li>
                 <li onClick={() => handleColorModelChange("hsl")}>HSL</li>

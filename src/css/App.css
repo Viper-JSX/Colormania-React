@@ -160,8 +160,79 @@ header .appTitle:hover{
     transition-timing-function: linear;
 }
 
+.colorInfoLabel{
+    position: relative;
+    background-color: var(--transparentLightColor);
+    text-align: center;
+}
+
 .tableColors .color:hover{
     border-width: 0px;
+}
+
+.deleteColorButton{
+    margin-left: 100%;
+    transform: translateX(-100%);
+}
+
+.deleteColorButton:hover{
+    background-color: var(--highlightColorForLight);
+}
+
+.colorName{
+    padding: 0.2rem;
+    background-color: var(--transparentDarkColor);
+    border-radius: 0.2rem;
+}
+
+.colorValueViewer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.colorValueModelSwitch{
+    list-style: none;
+}
+
+.colorValueModelSwitch ul{
+    width: max-content;
+    padding: 0;
+    border: var(--standardDarkBorder);
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.colorValueViewer .colorValueModelSwitch ul li{
+    border-right: var(--standardDarkBorder);   
+}
+
+.colorValueViewer .colorValueModelSwitch ul li:last-child{
+    border-right: none;   
+}
+
+.colorValueViewer .colorValueModelSwitch ul li:hover{
+    background-color: red;
+    cursor: pointer;
+}
+
+.colorValue{
+    background-color: var(--darkBackground);
+    text-align: center;
+}
+
+.openColorEditor{
+    width: 100%;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    position: absolute;
+    border: var(--standardDarkBorder);
+}
+
+.openColorEditor:hover{
+    background-color: var(--darkBackground);
 }
 
 .openColorCreator{
@@ -188,6 +259,9 @@ header .appTitle:hover{
     transform: scale(1);
     transition: var(--defaultTransitionTime);
 }   
+
+
+
 
 /*---Authorization---*/
 
@@ -252,11 +326,6 @@ header .appTitle.dark:hover{
 .filterTools.dark .filterTools{
     
 }
-
-
-/*---Tables---*/
-
-
 
 
 

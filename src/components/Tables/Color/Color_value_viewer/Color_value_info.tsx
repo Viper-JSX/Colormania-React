@@ -26,28 +26,27 @@ function ColorValueInfo({ currentColorModel, currentColorValue } : ColorValueInf
 
     if(valueIsRgb){
         return(
-            <div>
-                <span>R: {currentColorValue.r}</span>
-                <span>G: {currentColorValue.g}</span>
-                <span>B: {currentColorValue.b}</span>
+            <div className="colorValue rgbValue">
+                <span>R:{currentColorValue.r} </span>
+                <span>G:{currentColorValue.g} </span>
+                <span>B:{currentColorValue.b} </span>
             </div>  
         );
     }
 
     else if(valueIsHsl){
         return(
-            <div>
-                <span>H: {currentColorValue.h}</span>
-                <span>S: {currentColorValue.s}</span>
-                <span>L: {currentColorValue.l}</span>
+            <div className="colorValue hslValue">
+                <span>H:{currentColorValue.h} </span>
+                <span>S:{currentColorValue.s} </span>
+                <span>L:{currentColorValue.l} </span>
             </div>
         );
     }
 
     else if(valueIsHex){
-        //console.log("value is hex: ", currentColorValue)
         return(
-            <div>
+            <div className="colorValue hexValue">
                 <span>{currentColorValue.hex}</span>
             </div>
         );

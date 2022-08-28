@@ -4,7 +4,7 @@ import { OpenColorEditorProps } from "../../../typescript/types";
 
 function OpenColorEditor({ tableName, colorToEdit } : OpenColorEditorProps):JSX.Element{
     return(
-        <NavLink to={`${stringToUrl(colorToEdit.oldColorName)}/edit`} state={ { tableName, colorToEdit }}>Edit</NavLink>
+        <NavLink className={`openColorEditor`} to={`${stringToUrl(colorToEdit.oldColorName)}/edit`} state={ { tableName, colorToEdit }}>Edit</NavLink>
     );
 }
 

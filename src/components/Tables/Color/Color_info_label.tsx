@@ -10,7 +10,6 @@ const StyledColorInfoLabel = styled.div`
     width: 100%;
     height: 100%;
     color: white;
-    background-color: rgba(220, 220, 220, 0.8);
     transition: 0.2s;
     opacity: 0;
 `;
@@ -22,6 +21,7 @@ function ColorInfoLabel({ tableName, color, handleColorDelete } : ColorInfoLabel
     return(
         <StyledColorInfoLabel className={`colorInfoLabel ${themeName}`}>
             <DeleteColorButton tableName={tableName} colorName={color.name}  handleColorDelete={handleColorDelete} />
+            <b className="colorName">{color.name}</b>
             <ColorValueViewer colorRgbValue={color.rgbValue} />
             <OpenColorEditor tableName={tableName} colorToEdit={{ oldColorName: color.name, rgbValue: color.rgbValue }} />
         </StyledColorInfoLabel>
