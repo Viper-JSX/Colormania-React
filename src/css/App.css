@@ -156,7 +156,38 @@ header .appTitle:hover{
 .tableColors .color{
     min-width: 150px;
     aspect-ratio: 1/1;
+    transition: calc(var(--defaultTransitionTime) / 3);
+    transition-timing-function: linear;
 }
+
+.tableColors .color:hover{
+    border-width: 0px;
+}
+
+.openColorCreator{
+    min-width: 150px;
+    border: 2px solid black;/*var(--standardDarkBorder);*/
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--defaultTransitionTime);
+}
+
+.openColorCreator:hover{
+    border-color: transparent;
+}
+
+.openColorCreator:hover .plusSign{
+    transform: scale(1.2);
+}
+
+.openColorCreator .plusSign{
+    font-size: 500%;
+    transform: scale(1);
+    transition: var(--defaultTransitionTime);
+}   
 
 /*---Authorization---*/
 
@@ -195,6 +226,8 @@ footer{
     background-color: var(--middleDarkBackgound);
 }
 
+
+
 /*---Header---*/
 header.dark{
     color: var(--lightColor);
@@ -225,6 +258,8 @@ header .appTitle.dark:hover{
 
 
 
+
+
 /*---TableOpener---*/
 .tableOpener.dark{
     background-color: var(--paperBackground);
@@ -240,8 +275,42 @@ header .appTitle.dark:hover{
     /*background-color: var(--transparentDarkColor);*/
 }
 
+
+
+
 /*---Table---*/
 
+.tableTools{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tableTools .tableName{
+    font-size: 1.5rem;
+}
+
+.tableColors{
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.tableColors.dark .color{
+    border: var(--standardLightBorder);
+}
+
+.tableColors .color.dark:hover{
+    border-width: 0px;
+}
+
+.openColorCreator.dark:hover{
+    border-color: transparent;
+}
+
+.openColorCreator.dark{
+    border: var(--standardLightBorder);
+}
 
 /*---Authorization---*/
 
