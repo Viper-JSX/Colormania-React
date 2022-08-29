@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import GoToLinkButton from "../Go_to_link_button";
+import GoToLinkButton from "../General_reusable_components/Go_to_link_button";
 
 
 function HomePage():JSX.Element{
@@ -8,8 +8,8 @@ function HomePage():JSX.Element{
     return(
         <div className={`homePage ${themeName}`}>
             Home page
-            <GoToLinkButton text="User account" path="/user" />
-            <GoToLinkButton text="My tables" path="/tables" />
+            <GoToLinkButton path="/user" >User Profile</GoToLinkButton>
+            <GoToLinkButton path="/tables" >My Tables</GoToLinkButton>
         </div>
     );
 }
