@@ -211,6 +211,10 @@ header .appTitle:hover{
     align-items: center;
 }
 
+.colorValueViewer > *{
+    margin: 0.15rem
+}
+
 .colorValueModelSwitch{
     list-style: none;
 }
@@ -218,6 +222,7 @@ header .appTitle:hover{
 .colorValueModelSwitch ul{
     width: max-content;
     padding: 0;
+    background-color: var(--transparentDarkColor);
     border: var(--standardDarkBorder);
     list-style: none;
     display: flex;
@@ -238,7 +243,9 @@ header .appTitle:hover{
 }
 
 .colorValue{
+    padding: 0.15rem;
     background-color: var(--darkBackground);
+    border-radius: 0.3rem;
     text-align: center;
 }
 
