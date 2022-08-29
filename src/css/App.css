@@ -108,12 +108,17 @@ header .appTitle:hover{
     text-align: center;
 }
 
+.homePageNavigation .fontAwesomeIcon{
+    font-size: 3rem;
+}
+
 .homePageNavigation .goToLinkButton{
     width: 20%;
     min-width: 300px;
     margin: 0.3rem;
     aspect-ratio: 1/1;
 }
+
 
 /*---Tables---*/
 .tables{
