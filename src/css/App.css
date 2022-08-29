@@ -339,31 +339,36 @@ header .appTitle:hover{
 .authorizationForm{
     width: 30vw;
     min-width: 300px;
+    border: var(--standardDarkBorder);
+    border-radius: 0.5rem;
+    aspect-ratio: 1/1;
+    position: relative;
+    text-align: center;
 }
 
 .authorizationNavigation{
     width: 100%;
-    border: var(--standardDarkBorder);
-    border-bottom: none;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    overflow: hidden;
+    height: 2rem;
 }
 
 .authorizationNavigation > ul{
-    width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-    list-style: none;
     display: flex;
+    border-bottom: var(--standardDarkBorder);
 }
 
 .authorizationNavigation > ul > li{
-    height: 100%;
     text-align: center;
-    display: inline-block;
+    display: block;
     flex-grow: 1;
+}
+
+.authorizationNavigation > ul > li .navigationLink.active{
+    color: var(--lightColor);
+    background-color: var(--darkBackground);
+    border-bottom: none;
 }
 
 .authorizationNavigation > ul > li .navigationLink{
@@ -373,18 +378,25 @@ header .appTitle:hover{
     display: inline-block;
 }
 
+.authorizationNavigation > ul > li .navigationLink:not(.active){
+    color: var(--darkColor);
+}
+
 .authorizationNavigation > ul > li .navigationLink:not(.active):hover{
+    background-color: var(--transparentDarkColor);
     background-color: var(--transparentDarkColor);
 }
 
-.authorizationNavigation > ul > li .active{
-    color: var(--lightColor);
-    background-color: var(--darkBackground);
-    font-weight: 700;
+.authorizationForm input{
+    width: 90%;
+    height: 2rem;
+    margin: 0.3rem;
 }
 
-.authorizationNavigation > ul > li .navigationLink:not(.active){
-    color: var(--darkColor);
+.authorizationForm .loginButton, .authorizationForm .registerButton{
+    bottom: 0.5rem;
+    right: 0.5rem;
+    position: absolute;
 }
 
 /*---Message---*/
