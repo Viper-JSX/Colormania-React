@@ -45,8 +45,8 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
 
     return(
         <div className={`colorEditor ${themeName}`}>
-            <input className="colorNameInput" type="text" value={colorName} onChange={handleColorNameInput}/>
-            <input className="rgbInput" type="color" value={currentColorValue.hex}  onChange={handleColorInput}  />
+            <input className="colorNameInput" type="text" value={colorName} placeholder="Color name" onChange={handleColorNameInput}/>
+            <input className="colorInput" type="color" value={currentColorValue.hex}  onChange={handleColorInput}  />
 
             {
                 mode === "create" ? 

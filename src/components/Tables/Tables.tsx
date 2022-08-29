@@ -6,7 +6,7 @@ import TableOpener from "./Table_opener/Table_opener";
 function Tables({ tables, handleColorDelete } : TablesProps):JSX.Element{
     return(
         <div className="tables">
-            <b>Tables</b>
+            <b className="text">Tables</b>
             <div className="tableOpenersContainer">
                 {
                     tables.map((table) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} /></NavLink> )

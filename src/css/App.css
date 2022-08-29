@@ -33,7 +33,27 @@ body{
     padding: 0;
 }
 
+body *{
+    font-family: var(--defaultFont);
+}
+
+
 /*---___Light___---*/
+
+/*---General---*/
+button{
+    padding: 0.1rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+}
+
+button:hover{
+    color: var(--lightColor);
+    background-color: var(--darkBackground);
+    border-color: var(--lightColor);
+}
+
+/*---App---*/
 
 .App{
     min-height: 100vh;
@@ -84,10 +104,11 @@ header .appTitle:hover{
     overflow: auto;
 }
 
-.tables b{
+.tables b.text{
     width: 100%;
     display: inline-block;
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .tableOpenersContainer{
@@ -131,7 +152,6 @@ header .appTitle:hover{
 
 /*---Table---*/
 .table{
-    font-family: var(--defaultFont);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -262,6 +282,28 @@ header .appTitle:hover{
 
 
 
+/*---___ColorEditor___---*/
+.colorEditor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.colorEditor > *{
+    margin: 0.2rem
+}
+
+.colorEditor .colorNameInput{
+    width: 20%;
+    min-width: 300px;
+    font-size: 1.5rem;
+    font-family: monospace;
+}
+
+.addColorToTable{
+    align-self: end;
+}
+
 
 /*---Authorization---*/
 
@@ -294,6 +336,15 @@ footer{
 
 
 /*---___Dark___---*/
+body *.dark button{
+    color: var(--lightColor);
+    background-color: var(--darkBackground);
+}
+
+body *.dark button:hover{
+    color: var(--darkColor);
+    background-color: var(--lightBackground);
+}
 
 .App.dark{
     color: var(--lightColor);
