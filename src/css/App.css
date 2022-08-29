@@ -336,8 +336,56 @@ header .appTitle:hover{
 
 
 /*---Authorization---*/
+.authorizationForm{
+    width: 30vw;
+    min-width: 300px;
+}
 
+.authorizationNavigation{
+    width: 100%;
+    border: var(--standardDarkBorder);
+    border-bottom: none;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    overflow: hidden;
+}
 
+.authorizationNavigation > ul{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.authorizationNavigation > ul > li{
+    height: 100%;
+    text-align: center;
+    display: inline-block;
+    flex-grow: 1;
+}
+
+.authorizationNavigation > ul > li .navigationLink{
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.authorizationNavigation > ul > li .navigationLink:not(.active):hover{
+    background-color: var(--transparentDarkColor);
+}
+
+.authorizationNavigation > ul > li .active{
+    color: var(--lightColor);
+    background-color: var(--darkBackground);
+    font-weight: 700;
+}
+
+.authorizationNavigation > ul > li .navigationLink:not(.active){
+    color: var(--darkColor);
+}
 
 /*---Message---*/
 .messageWindow{

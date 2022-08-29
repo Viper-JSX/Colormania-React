@@ -8,8 +8,8 @@ function AuthorizationNavigation():JSX.Element{
     return(
         <nav className={`authorizationNavigation ${themeName}`}>
             <ul>
-                <li><NavLink to="login" >Login</NavLink></li>
-                <li><NavLink to="register" >Register</NavLink></li>
+                <li><NavLink className={`navigationLink`} to="login" >Login</NavLink></li>
+                <li><NavLink className={`navigationLink`} to="register" >Register</NavLink></li>
             </ul>
         </nav>
     );
