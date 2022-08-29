@@ -7,9 +7,10 @@ function HomePage():JSX.Element{
 
     return(
         <div className={`homePage ${themeName}`}>
-            Home page
-            <GoToLinkButton path="/user" >User Profile</GoToLinkButton>
-            <GoToLinkButton path="/tables" >My Tables</GoToLinkButton>
+            <nav className="homePageNavigation">
+                <GoToLinkButton path="/tables" >My Tables</GoToLinkButton>
+                <GoToLinkButton path="/user" >User Profile</GoToLinkButton>
+            </nav>
         </div>
     );
 }

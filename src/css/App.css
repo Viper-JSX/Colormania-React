@@ -56,6 +56,7 @@ button:hover{
 /*---App---*/
 
 .App{
+    width: 100vw;
     min-height: 100vh;
     color: var(--darkColor);
     background-color: var(--lightBackground);
@@ -97,6 +98,22 @@ header .appTitle:hover{
 }
 
 
+/*---HomePage---*/
+.homePage{
+    width: 100%;
+}
+
+.homePageNavigation{
+    width: 100%;
+    text-align: center;
+}
+
+.homePageNavigation .goToLinkButton{
+    width: 20%;
+    min-width: 300px;
+    margin: 0.3rem;
+    aspect-ratio: 1/1;
+}
 
 /*---Tables---*/
 .tables{
