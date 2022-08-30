@@ -16,6 +16,7 @@ import { AddColorToTableParams, EditColorParams, HandleTableEditParams, LoginDat
 import { useNavigate } from 'react-router';
 import { changeTheme, logout as doLogout } from './redux/action_functions';
 import { forEachChild } from "typescript";
+import { stringToUrl } from "./api/string_to_url";
 
 function App() {
     const dispatch = useDispatch();
@@ -107,6 +108,7 @@ function App() {
 
         const color = new ColorClass(colorName, rgbValue);
         dispatch(addColorToTable({ tableName, color }));
+        navigate(`/tables/${stringToUrl(tableName)}`);
     }
 
     function handleColorEdit({ tableName, oldColorName, colorName, rgbValue } : EditColorParams):void{
