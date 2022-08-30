@@ -130,6 +130,7 @@ header .appTitle:hover{
 .tables{
     /*height: calc(100vh - 10rem);
     overflow: auto;*/
+    
 }
 
 .tables b.text{
@@ -141,6 +142,7 @@ header .appTitle:hover{
 
 .tableOpenersContainer{
     display: flex;
+    flex-wrap: wrap;
 }
 
 
@@ -149,8 +151,8 @@ header .appTitle:hover{
 .tableOpener, .openTableCreator{
     width: 20vw;
     height: 20vw;
-    min-width: 300px;
-    min-height: 300px;
+    min-width: 280px;
+    min-height: 280px;
     background-color: var(--middleDarkBackgound);
     border: var(--standardDarkBorder);
     position: relative;
@@ -195,6 +197,7 @@ header .appTitle:hover{
 
 /*---Table---*/
 .table{
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
