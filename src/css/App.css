@@ -343,7 +343,7 @@ header .appTitle:hover{
 /*---Authorization---*/
 .authorizationFormWrapper{
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
     background-color: var(--transparentDarkColor);
     position: fixed;
     top: 0;
@@ -361,11 +361,13 @@ header .appTitle:hover{
     aspect-ratio: 1/1;
     position: relative;
     text-align: center;
+    display: flex;
+    flex-direction: column
 }
 
 .authorizationNavigation{
     width: 100%;
-    height: 2rem;
+    flex-grow: 1;
 }
 
 .authorizationNavigation > ul{
@@ -406,7 +408,8 @@ header .appTitle:hover{
 }
 
 .authorizationForm .login, .authorizationForm .register{
-    height: 100%;
+   height: 85%;
+   position: relative;
 } 
 
 .authorizationForm input{
