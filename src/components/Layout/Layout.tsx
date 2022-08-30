@@ -38,7 +38,7 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
                             </Route>
                         )            
                     }
-                    <Route path="/create-table" element={<TableEditor mode="edit" handleTableCreate={handleTableCreate} />} />
+                    <Route path="/tables/create-table" element={<TableEditor mode="edit" handleTableCreate={handleTableCreate} />} />
                     <Route path="/tables/:tablename/add-color" element={<ColorEditor mode="create" handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit} />} />
                     <Route path="/tables/:tablename/:colorname/edit" element={<ColorEditor handleAddColorToTable={handleAddColorToTable} handleColorEdit={handleColorEdit}  mode="edit" />} />
                     <Route path="/user" element={<UserProfile handleLogout={handleLogout} />}>
