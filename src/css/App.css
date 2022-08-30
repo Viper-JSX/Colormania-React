@@ -128,8 +128,8 @@ header .appTitle:hover{
 
 /*---Tables---*/
 .tables{
-    height: calc(100vh - 10rem);
-    overflow: auto;
+    /*height: calc(100vh - 10rem);
+    overflow: auto;*/
 }
 
 .tables b.text{
