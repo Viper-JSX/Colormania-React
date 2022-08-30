@@ -200,7 +200,7 @@ header .appTitle:hover{
 }
 
 .tableColors .color{
-    min-width: 150px;
+    min-width: 180px;
     aspect-ratio: 1/1;
     transition: calc(var(--defaultTransitionTime) / 3);
     transition-timing-function: linear;
@@ -217,8 +217,11 @@ header .appTitle:hover{
 }
 
 .deleteColorButton{
+    width: 1.5rem;
+    height: 1.5rem;
     margin-left: 100%;
     transform: translateX(-100%);
+    aspect-ratio: 1/1;
 }
 
 .deleteColorButton:hover{
@@ -226,33 +229,29 @@ header .appTitle:hover{
 }
 
 .colorName{
-    padding: 0.2rem;
+    padding: 0.1rem;
     background-color: var(--transparentDarkColor);
     border-radius: 0.2rem;
 }
 
 .colorValueViewer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.colorValueViewer > *{
-    margin: 0.15rem
+    width: 100%;
 }
 
 .colorValueModelSwitch{
+    width: max-content;
+    margin-left: 50%;
+    transform: translateX(-50%);
     list-style: none;
+    cursor: pointer;
 }
 
 .colorValueModelSwitch ul{
-    width: max-content;
     padding: 0;
     background-color: var(--transparentDarkColor);
     border: var(--standardDarkBorder);
     list-style: none;
     display: flex;
-    justify-content: center;
 }
 
 .colorValueViewer .colorValueModelSwitch ul li{
@@ -268,33 +267,42 @@ header .appTitle:hover{
     border-right: none;   
 }
 
-.colorValueViewer .colorValueModelSwitch ul li:hover{
+.colorValueViewer .colorValueModelSwitch ul li:not(.active):hover{
     background-color: var(--darkBackground);
     cursor: pointer;
 }
 
 .colorValue{
+    width: 90%;
+    min-width: max-content;
+    margin-left: 50%;
+    transform: translateX(-50%);
     padding: 0.15rem;
     background-color: var(--darkBackground);
     border-radius: 0.3rem;
     text-align: center;
+    word-wrap: no-wrap;
+    word-break: keep-all;
 }
 
 .openColorEditor{
     width: 100%;
-    left: 50%;
     bottom: 0;
-    transform: translateX(-50%);
+    color: var(--darkColor);
+    background-color: var(--transparentDarkColor);
     position: absolute;
-    border: var(--standardDarkBorder);
+    display: block;
+    border-top: var(--standardDarkBorder);
+    text-decoration: none;
 }
 
 .openColorEditor:hover{
+    color: var(--lightColor);
     background-color: var(--darkBackground);
 }
 
 .openColorCreator{
-    min-width: 150px;
+    min-width: 180px;
     border: 2px solid black;/*var(--standardDarkBorder);*/
     aspect-ratio: 1/1;
     display: flex;
@@ -604,6 +612,15 @@ header .appTitle.dark:hover{
 /*---Color---*/
 .colorValueViewer.dark .colorValueModelSwitch ul li.active{
     background-color: var(--highlightColorForDark);
+}
+
+.openColorEditor.dark{
+    color: var(--lightColor);
+}
+
+.openColorEditor.dark:not(.active):hover{
+    color: var(--darkColor);
+    background-color: var(--lightBackground);
 }
 
 
