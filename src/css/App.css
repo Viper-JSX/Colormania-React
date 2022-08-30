@@ -336,9 +336,21 @@ header .appTitle:hover{
 
 
 /*---Authorization---*/
+.authorizationFormWrapper{
+    width: 100vw;
+    height: 100vw;
+    background-color: var(--transparentDarkColor);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .authorizationForm{
     width: 30vw;
     min-width: 300px;
+    background-color: var(--lightBackground);
     border: var(--standardDarkBorder);
     border-radius: 0.5rem;
     aspect-ratio: 1/1;
@@ -430,6 +442,7 @@ footer{
 body *.dark button{
     color: var(--lightColor);
     background-color: var(--darkBackground);
+    border-color: var(--lightColor);
 }
 
 body *.dark button:hover{
@@ -523,22 +536,51 @@ header .appTitle.dark:hover{
     border: var(--standardLightBorder);
 }
 
-/*---Authorization---*/
 
+
+/*---Authorization---*/
+.authorizationForm.dark{
+    border: var(--standardLightBorder);
+}
+
+.authorizationNavigation{
+    width: 100%;
+    height: 2rem;
+}
+
+.authorizationNavigation > ul{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    border-bottom: var(--standardDarkBorder);
+}
+
+.authorizationNavigation.dark > ul > li .navigationLink.active{
+    color: var(--darkColor);
+    background-color: var(--lightBackground);
+    border-bottom: none;
+}
+
+.authorizationNavigation.dark > ul > li .navigationLink:not(.active){
+    color: var(--lightColor);
+}
+
+.authorizationNavigation.dark > ul > li .navigationLink:not(.active):hover{
+    background-color: var(--transparentLightColor);
+}
 
 
 /*---Message---*/
-.messageWindow{
-    position: fixed;
-    bottom: 0;
-    right: 0;
+.messageWindow.dark{
+    color: var(--lightColor);
+    border: var(--standardLightBorder);
 }
-
 
 
 /*---User---*/
 .userProfile.dark{
-    background-color: var(--darkBackground);
+
 }
 
 

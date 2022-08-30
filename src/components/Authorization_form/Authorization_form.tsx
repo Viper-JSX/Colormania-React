@@ -7,9 +7,11 @@ function AuthorizationForm():JSX.Element{
     const themeName = useSelector((state: any) => state.theme.themeName);
 
     return(
-        <div className={`authorizationForm ${themeName}`}>
-            <AuthorizationNavigation />
-            <Outlet />
+        <div className={`authorizationFormWrapper ${themeName}`}>
+            <div className={`authorizationForm ${themeName}`}>
+                <AuthorizationNavigation />
+                <Outlet />
+            </div>
         </div>
     );
 }
