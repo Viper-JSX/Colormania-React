@@ -128,7 +128,6 @@ header .appTitle:hover{
 
 /*---Tables---*/
 .tables{
-    padding: 0 1rem 0 1rem;
     
 }
 
@@ -140,6 +139,8 @@ header .appTitle:hover{
 }
 
 .tableOpenersContainer{
+    width: 100%;
+    padding: 0 1rem 0 1rem;
     display: flex;
     flex-wrap: wrap;
 }
@@ -199,7 +200,6 @@ header .appTitle:hover{
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .tableTools{
@@ -217,9 +217,10 @@ header .appTitle:hover{
 }
 
 .tableColors{
-    width: 95%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    padding: 0 1rem 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: red;
 }
 
 .tableColors .color{
@@ -581,12 +582,6 @@ header .appTitle.dark:hover{
     font-size: 1.5rem;
 }
 
-.tableColors{
-    width: 95%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-}
-
 .tableColors.dark .color{
     border: var(--standardLightBorder);
 }
@@ -674,4 +669,28 @@ header .appTitle.dark:hover{
 /*---Footer---*/
 footer.dark{
     background-color: var(--darkBackground);
+}
+
+
+
+
+/*---Media_queries---*/
+
+@media screen and (max-width: 570px){
+    .tableOpenersContainer{
+        justify-content: center;
+    }
+
+    .tableOpener{
+        margin: 0.1rem;
+    }
+
+    .tableColors{
+        justify-content: center;
+    }
+
+    .tableColors .color, .openColorCreator{
+        min-width: 280px;
+        margin: 0.1rem
+    }
 }

@@ -6,6 +6,7 @@ import { ColorEditorProps, OpenColorEditorProps, RGBValue } from "../../typescri
 import { hexToRgb } from "../../api/hex_to_rgb";
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { rgbToHex } from "../../api/rgb_to_hex";
+import { stringToUrl } from "../../api/string_to_url";
 
 function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEditorProps):JSX.Element{
     const themeName = useSelector((state: any) => state.theme.themeName);
@@ -49,7 +50,7 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
             <b className="text">
                 <span>{mode === "create" ? "Create" : "Edit"} </span>
                 <br />
-                <NavLink to="*" onClick={() => navigate(-1)}>Cancel</NavLink>
+                <NavLink to={`/tables/${stringToUrl(tableName)}`} >Cancel</NavLink>
             </b>
             <br />
             <input className="colorNameInput" type="text" value={colorName} placeholder="Color name" onChange={handleColorNameInput}/>
