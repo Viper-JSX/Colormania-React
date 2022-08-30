@@ -315,6 +315,8 @@ header .appTitle:hover{
 
 /*---___ColorEditor___---*/
 .colorEditor{
+    width: 100%;
+    height: calc(100vh - 5rem - 5rem);
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -54,7 +54,6 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
                 :
                 <button className="addColorToTable" onClick={() => handleColorEdit({ tableName, oldColorName, colorName, rgbValue: currentColorValue.rgb })} >Save</button>
             }
-            <NavLink to="/">Main</NavLink>
         </div>
     );
 
