@@ -4,13 +4,14 @@ import { useSelector } from "react-redux";
 import React, { ChangeEvent, useState } from "react";
 import { ColorEditorProps, OpenColorEditorProps, RGBValue } from "../../typescript/types";
 import { hexToRgb } from "../../api/hex_to_rgb";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { rgbToHex } from "../../api/rgb_to_hex";
 
 function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEditorProps):JSX.Element{
     const themeName = useSelector((state: any) => state.theme.themeName);
 
     const location  = useLocation();
+    const navigate = useNavigate();
     const state = location.state as any;
 
     const tableName:string = state.tableName;
@@ -45,6 +46,12 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
 
     return(
         <div className={`colorEditor ${themeName}`}>
+            <b className="text">
+                <span>{mode === "create" ? "Create" : "Edit"} </span>
+                <br />
+                <NavLink to="*" onClick={() => navigate(-1)}>Cancel</NavLink>
+            </b>
+            <br />
             <input className="colorNameInput" type="text" value={colorName} placeholder="Color name" onChange={handleColorNameInput}/>
             <input className="colorInput" type="color" value={currentColorValue.hex}  onChange={handleColorInput}  />
 
