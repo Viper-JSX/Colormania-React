@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { LoginProps } from "../../typescript/types";
+import GoToLinkButton from "../General_reusable_components/Go_to_link_button";
 
 function Login({ handleLogin } : LoginProps):JSX.Element{
     const [ login, setLogin ] = useState("");
@@ -21,6 +22,7 @@ function Login({ handleLogin } : LoginProps):JSX.Element{
                 <input className="passwordInput" type="password" value={password} placeholder="Password" onChange={handlePasswordChange} />
                 <br />
                 <button className="loginButton" type="submit" onClick={(event: React.MouseEvent):void => {handleLogin({ event, login, password })}}>Login</button>
+                <GoToLinkButton path="/user">Cancel</GoToLinkButton>
             </form>
         </div>
     );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RegisterProps } from "../../typescript/types";
+import GoToLinkButton from "../General_reusable_components/Go_to_link_button";
 
 function Register({ handleRegister } : RegisterProps):JSX.Element{
     const [ nickname, setNickname ] = useState("");
@@ -27,6 +28,7 @@ function Register({ handleRegister } : RegisterProps):JSX.Element{
             <input type="password" value={password} placeholder="Password" onChange={handlePasswordChange} />
             <br />
             <button className="registerButton" onClick={(event) => handleRegister({ event, nickname, login, password })}>Register</button>
+            <GoToLinkButton path="/user">Cancel</GoToLinkButton>
         </div>
     );
 }

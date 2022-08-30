@@ -400,10 +400,20 @@ header .appTitle:hover{
     background-color: var(--transparentDarkColor);
 }
 
+.authorizationForm .login, .authorizationForm .register{
+    height: 100%;
+} 
+
 .authorizationForm input{
     width: 90%;
     height: 2rem;
     margin: 0.3rem;
+}
+
+.authorizationForm .login .goToLinkButton, .authorizationForm .register .goToLinkButton{
+    left: 0.5rem;
+    bottom: 0.5rem;
+    position: absolute;
 }
 
 .authorizationForm .loginButton, .authorizationForm .registerButton{
@@ -540,6 +550,7 @@ header .appTitle.dark:hover{
 
 /*---Authorization---*/
 .authorizationForm.dark{
+    background-color: var(--darkBackground);
     border: var(--standardLightBorder);
 }
 
