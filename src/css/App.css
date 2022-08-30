@@ -140,7 +140,7 @@ header .appTitle:hover{
 
 
 /*---TableOpener---*/
-.tableOpener{
+.tableOpener, .openTableCreator{
     width: 20vw;
     height: 20vw;
     min-width: 300px;
@@ -149,7 +149,6 @@ header .appTitle:hover{
     border: var(--standardDarkBorder);
     position: relative;
 }
-
 
 .tableOpener:hover .tableOpenerTitleContainer{
     opacity: 0;
@@ -172,6 +171,20 @@ header .appTitle:hover{
     grid-template-rows: repeat(5, 1fr);
 }
 
+.openTableCreator{
+    background-color: var(--lightBackground);
+    font-size: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: calc(var(--defaultTransitionTime) / 3);
+}
+
+.openTableCreator:hover{
+    font-size: 12rem;
+    border-width: 0rem;
+}
 
 
 /*---Table---*/
@@ -535,7 +548,9 @@ header .appTitle.dark:hover{
     /*background-color: var(--transparentDarkColor);*/
 }
 
+.openTableCreator.dark{
 
+}
 
 
 /*---Table---*/
