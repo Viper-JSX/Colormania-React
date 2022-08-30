@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { stringToUrl } from "../../api/string_to_url";
 import { TableEditorProps } from "../../typescript/types";
+import GoToLinkButton from "../General_reusable_components/Go_to_link_button";
 
 function TableEditor(props: TableEditorProps):JSX.Element{
     const themeName = useSelector((state: any) => state.theme.themeName);
@@ -24,9 +26,16 @@ function TableEditor(props: TableEditorProps):JSX.Element{
                 <br />
                 {
                     "handleTableCreate" in props ? 
-                    <button className="createButton" onClick={() => props.handleTableCreate({ tableName })}>Create</button>
+                    <>
+                        <GoToLinkButton path="/tables" >Cancel</GoToLinkButton>
+                        <button className="createButton" onClick={() => props.handleTableCreate({ tableName })}>Create</button>
+                    </>
                     :
-                    <button className="saveTableChangesButton" onClick={() => props.handleTableEdit({ oldTableName: props.oldTableName, tableName })}>Apply</button>
+                    <>
+                        <GoToLinkButton path={`/tables/${stringToUrl(props.oldTableName)}`} >Cancel</GoToLinkButton>
+                        <button className="saveTableChangesButton" onClick={() => props.handleTableEdit({ oldTableName: props.oldTableName, tableName })}>Apply</button>
+                    </>
+                    
                 }
             </div>
         </div>
