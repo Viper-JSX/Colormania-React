@@ -22,7 +22,7 @@ function TableEditor(props: TableEditorProps):JSX.Element{
     return(
         <div className="tableEditorWrapper">
             <div className={`tableEditor ${themeName}`}>
-                <input className="tableNameInput" type="text" value={tableName} onChange={handleTableNameChange} />
+                <input className="tableNameInput" type="text" value={tableName} placeholder="Table name" onChange={handleTableNameChange} />
                 <br />
                 {
                     "handleTableCreate" in props ? 
