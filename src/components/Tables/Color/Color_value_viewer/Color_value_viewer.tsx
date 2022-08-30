@@ -44,7 +44,7 @@ function ColorValueViewer( { colorRgbValue } : ColorValueViewerProps ){
 
     return(
         <div className={`colorValueViewer ${themeName}`}>
-            <ColorValueModelSwitch handleColorModelChange={handleColorModelChange} />
+            <ColorValueModelSwitch currentColorModel={currentColorModel} handleColorModelChange={handleColorModelChange} />
             <ColorValueInfo currentColorModel={currentColorModel as ColorModels} currentColorValue={currentColorValue} />
         </div>
     );

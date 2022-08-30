@@ -150,7 +150,7 @@ export type ColorModels = "rgb" | "hsl" | "hex";
 //export type ColorProps = { tableName: string, color: ColorClass, handleColorDelete: HandleColorDeleteFunc } 
 export type ColorProps = { tableName?: string, color: ColorClass, handleColorDelete?: HandleColorDeleteFunc };
 export type ColorValueViewerProps = { colorRgbValue: RGBValue };
-export type ColorValueModelSwitchProps = { handleColorModelChange : (colorModel : ColorModels) => void  }
+export type ColorValueModelSwitchProps = { currentColorModel: ColorModels, handleColorModelChange : (colorModel : ColorModels) => void  }
 export type ColorValueInfoProps = { currentColorModel: ColorModels, currentColorValue: ConvertedColorValue };
 
 export type ColorInfoLabelProps = { tableName: string, color: ColorClass, handleColorDelete: HandleColorDeleteFunc };

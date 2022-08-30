@@ -259,12 +259,17 @@ header .appTitle:hover{
     border-right: var(--standardDarkBorder);   
 }
 
+.colorValueViewer .colorValueModelSwitch ul li.active{
+    background-color: var(--darkBackground);
+    background-color: var(--highlightColorForLight);
+}
+
 .colorValueViewer .colorValueModelSwitch ul li:last-child{
     border-right: none;   
 }
 
 .colorValueViewer .colorValueModelSwitch ul li:hover{
-    background-color: red;
+    background-color: var(--darkBackground);
     cursor: pointer;
 }
 
@@ -593,6 +598,15 @@ header .appTitle.dark:hover{
 .authorizationNavigation.dark > ul > li .navigationLink:not(.active):hover{
     background-color: var(--transparentLightColor);
 }
+
+
+
+/*---Color---*/
+.colorValueViewer.dark .colorValueModelSwitch ul li.active{
+    background-color: var(--highlightColorForDark);
+}
+
+
 
 
 /*---Message---*/
