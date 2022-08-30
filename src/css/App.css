@@ -475,8 +475,10 @@ header .appTitle:hover{
 }
 
 footer{
+    width: 100vw;
     height: 5rem;
     background-color: var(--paperBackground);
+    
 }
 
 
