@@ -19,7 +19,7 @@ import Register from "../Authorization_form/Register";
 
 function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete, handleLogin, handleRegister, handleLogout, handleThemeChange } : LayoutProps):JSX.Element{
     return(
-        <div id="layout">
+        <div className="layout">
             <Header 
                 appTitle={appTitle}
                 handleTablesSortCriteriaChange={handleTablesSortCriteriaChange}
