@@ -62,8 +62,6 @@ button:hover{
     background-color: var(--lightBackground);
 }
 
-
-
 /*---Header---*/
 
 header{
@@ -189,6 +187,10 @@ header .appTitle:hover{
 
 .tableTools .tableName{
     font-size: 1.5rem;
+}
+
+.tableTools input{
+    height: max-content;
 }
 
 .tableColors{
