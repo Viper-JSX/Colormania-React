@@ -18,15 +18,17 @@ function TableEditor(props: TableEditorProps):JSX.Element{
 
 
     return(
-        <div className={`tableEditor ${themeName}`}>
-            <input className="tableNameInput" type="text" value={tableName} onChange={handleTableNameChange} />
-            {
-                "handleTableCreate" in props ? 
-                <button className="createButton" onClick={() => props.handleTableCreate({ tableName })}>Create</button>
-                :
-                <button className="saveTableChangesButton" onClick={() => props.handleTableEdit({ oldTableName: props.oldTableName, tableName })}>Apply</button>
-
-            }
+        <div className="tableEditorWrapper">
+            <div className={`tableEditor ${themeName}`}>
+                <input className="tableNameInput" type="text" value={tableName} onChange={handleTableNameChange} />
+                <br />
+                {
+                    "handleTableCreate" in props ? 
+                    <button className="createButton" onClick={() => props.handleTableCreate({ tableName })}>Create</button>
+                    :
+                    <button className="saveTableChangesButton" onClick={() => props.handleTableEdit({ oldTableName: props.oldTableName, tableName })}>Apply</button>
+                }
+            </div>
         </div>
     );
 }

@@ -172,6 +172,8 @@ header .appTitle:hover{
     grid-template-rows: repeat(5, 1fr);
 }
 
+
+
 /*---Table---*/
 .table{
     display: flex;
@@ -327,6 +329,9 @@ header .appTitle:hover{
 }   
 
 
+/*---Table Editor*/
+
+
 
 /*---___ColorEditor___---*/
 .colorEditor{
@@ -354,7 +359,7 @@ header .appTitle:hover{
 
 
 /*---Authorization---*/
-.authorizationFormWrapper{
+.authorizationFormWrapper, .tableEditorWrapper{
     width: 100vw;
     height: 100vh;
     background-color: var(--transparentDarkColor);
