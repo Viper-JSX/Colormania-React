@@ -519,8 +519,13 @@ header .appTitle.dark:hover{
 
 .tableTools{
     width: 100%;
+    margin: 0.3rem 0 0.3rem 0;
     display: flex;
     justify-content: space-around;
+}
+
+.tableTools .tableNameAndLink{
+    text-align: center;
 }
 
 .tableTools .tableName{

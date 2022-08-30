@@ -4,8 +4,9 @@ import Search from "../General_reusable_components/Search";
 import { useState } from "react";
 import ColorClass from "../../classes/Color";
 import { TableProps } from "../../typescript/types";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import GoToLinkButton from "../General_reusable_components/Go_to_link_button";
 
 function Table({ table, handleColorDelete } : TableProps){
     const themeName = useSelector((state: any) => state.theme.themeName);
@@ -20,8 +21,12 @@ function Table({ table, handleColorDelete } : TableProps){
     return(
         <div className={`table ${themeName}`}>
             <div className="tableTools">
-                <NavLink to="edit">Edit table</NavLink>
-                <b className="tableName">{table.name}</b>
+                <GoToLinkButton path="edit">Edit table</GoToLinkButton>
+                <b className="tableNameAndLink">
+                    <span className="tableName">{table.name}</span>
+                    <br/>
+                    <Link to="/tables">{"<-"}Tables</Link>
+                </b>
                 <Search value={colorSearchTerm} placeholder={"Type color name"}  handler={handleSearchTermChange} />
             </div>
             
