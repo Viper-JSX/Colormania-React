@@ -1,10 +1,13 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function AppTitle({ titleText } : {titleText: string}):JSX.Element{
     const themeName = useSelector((state: any) => state.theme.themeName);
 
     return(
-        <h2 className={`appTitle ${themeName}`}>{titleText}</h2>
+        <Link className={`appTitle ${themeName}`} to="/">
+             <h2>{titleText}</h2>
+        </Link>
     );  
 }
 

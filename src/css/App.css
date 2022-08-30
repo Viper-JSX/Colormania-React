@@ -77,6 +77,7 @@ header{
 header .appTitle{
     color: var(--darkColor);
     text-shadow: 0 0 0rem var(--highlightColorForLight);
+    text-decoration: none;
 }
 
 header .appTitle:hover{
