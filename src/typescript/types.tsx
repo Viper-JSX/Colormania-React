@@ -9,6 +9,7 @@ export type LayoutProps = { tablesToRender: TableClass[] } &
     ColorEditorProps & 
     {handleColorDelete:  HandleColorDeleteFunc} & 
     { handleTableCreate: TableCreatorSubtypeProps["handleTableCreate"], handleTableEdit: TableEditorSubtypeProps["handleTableEdit"] } &
+    DeleteTableButtonProps &
     UserProfileProps &
     LoginProps &
     RegisterProps &
@@ -119,9 +120,11 @@ export type TablesProps = {
     tables: TableClass[], 
     
     handleColorDelete: HandleColorDeleteFunc, 
-} & FilterToolsProps;
+} & FilterToolsProps & DeleteTableButtonProps;
 
 export type TableProps = { table: TableClass, handleColorDelete: HandleColorDeleteFunc };
+
+export type TableOpenerProps = {table: TableClass} & DeleteTableButtonProps;
 
 export type TableEditorProps = { 
     mode: "create" | "edit"
@@ -137,6 +140,8 @@ export type TableEditorSubtypeProps = {
 }
 
 export type HandleTableEditParams = { oldTableName: string, tableName: string};
+
+export type DeleteTableButtonProps = {handleTableDelete: ({ tableName } : { tableName: string }) => void}
 
 //----------------------------Color--------------------------//
 //export type ColorEditorLocationState = { tableName: string, oldColorName?: string, colorToEdit?: OpenColorEditorProps["colorToEdit"] };

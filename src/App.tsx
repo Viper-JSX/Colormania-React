@@ -181,9 +181,11 @@ function App() {
                 tablesToRender={tablesToRender}
 
                 handleTablesSortCriteriaChange={handleTablesSortCriteriaChnage}
+
                 handleTableCreate={handleTableCreate}
                 handleTablesSearch={handleTablesSearch}
                 handleTableEdit={handleTableEdit}
+                handleTableDelete={handleTableDelete}
 
                mode="create"
                handleAddColorToTable={handleAddColorToTable}

@@ -7,7 +7,7 @@ import OpenTableCreator from "../Table_editor/Open_table_creator";
 import OpenColorCreator from "./Open_color_creator";
 import TableOpener from "./Table_opener/Table_opener";
 
-function Tables({ tables, handleColorDelete, handleTablesSearch, handleTablesSortCriteriaChange } : TablesProps):JSX.Element{
+function Tables({ tables, handleColorDelete, handleTablesSearch, handleTableDelete, handleTablesSortCriteriaChange, } : TablesProps):JSX.Element{
     const userTables = useSelector((state: any) => state.user.user.tables);
 
     return(
@@ -17,7 +17,7 @@ function Tables({ tables, handleColorDelete, handleTablesSearch, handleTablesSor
             <div className="tableOpenersContainer">
                 {
                     tables.length > 0 ?
-                    tables.map((table) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} /></NavLink> )
+                    tables.map((table) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} handleTableDelete={handleTableDelete} /></NavLink> )
                     :
                     (
                         userTables.length === 0 ?

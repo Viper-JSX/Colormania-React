@@ -17,7 +17,7 @@ import AuthorizationForm from "../Authorization_form/Authorization_form";
 import Login from "../Authorization_form/Login";
 import Register from "../Authorization_form/Register";
 
-function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleAddColorToTable, handleColorEdit, handleColorDelete, handleLogin, handleRegister, handleLogout, handleThemeChange } : LayoutProps):JSX.Element{
+function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, handleTableCreate, handleTablesSearch, handleTableEdit, handleTableDelete, handleAddColorToTable, handleColorEdit, handleColorDelete, handleLogin, handleRegister, handleLogout, handleThemeChange } : LayoutProps):JSX.Element{
     return(
         <div className="layout">
             <Header 
@@ -28,7 +28,7 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
             />
                 <Routes>
                     <Route index element={<HomePage />} />
-                    <Route path="/tables" element={<Tables tables={tablesToRender} handleColorDelete={handleColorDelete} handleTablesSearch={handleTablesSearch} handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} />} >
+                    <Route path="/tables" element={<Tables tables={tablesToRender} handleTableDelete={handleTableDelete} handleColorDelete={handleColorDelete} handleTablesSearch={handleTablesSearch} handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} />} >
                         <Route path="create" element></Route>
                     </Route>
                     {

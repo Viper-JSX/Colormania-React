@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import TableClass from "../../../classes/Table";
+import { TableOpenerProps } from "../../../typescript/types";
 import Color from "../Color/Color";
 
-function TableOpener( { table } : { table: TableClass } ):JSX.Element{
+function TableOpener( { table, handleTableDelete } : TableOpenerProps ):JSX.Element{
     const themeName = useSelector((state:any) => state.theme.themeName);
     console.log(themeName)
     return(
