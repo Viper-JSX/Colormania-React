@@ -103,14 +103,22 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
                         state.user.tables[i].edit(action.payload.tableName);
                     }
                 }
+                if(!state.user.authorized){
+                    addItemToLocaleStorage("guest_user", state.user);
+                }
             }
+
 
             return { ...state, forceUpdate: new Object() };
         }
 
         case DELETE_TABLE:{
             state.user.deleteTable(action.payload.tableName);
-    
+
+            if(!state.user.authorized){
+                addItemToLocaleStorage("guest_user", state.user);
+            }
+
             return { ...state, forceUpdate: new Object() };
         }
 
@@ -119,7 +127,7 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
             for(let i = 0; i < state.user.tables.length; i++){
                 if(state.user.tables[i].name.toLowerCase() === action.payload.tableName.toLowerCase()){
                     for(let j = 0; j < state.user.tables[i].colors.length; j++){
-                        if(state.user.tables[i].colors[j].name.toLocaleLowerCase() === action.payload.color.name.toLowerCase()){
+                        if(state.user.tables[i].colors[j].name.toLowerCase() === action.payload.color.name.toLowerCase()){
                             colorAlreadyExistsInsideCurrentTable = true;
                             console.log("Color already exists")
                             break;
@@ -130,8 +138,11 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
             }
 
             if(!colorAlreadyExistsInsideCurrentTable){
-                //console.log("adding")
                 state.user.addColorToTable(action.payload.tableName, action.payload.color);
+
+                if(!state.user.authorized){
+                    addItemToLocaleStorage("guest_user", state.user);
+                }
             }
 
             return { ...state, forceUpdate: new Object() };
@@ -154,6 +165,10 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
            
             if(!colorAlreayExistsInsideCurrentTable){
                 state.user.editColorInsideTable(action.payload.tableName, action.payload.oldColorName, action.payload.colorName, action.payload.rgbValue);
+                
+                if(!state.user.authorized){
+                    addItemToLocaleStorage("guest_user", state.user);
+                }
             }
 
             return { ...state, forceUpdate: new Object() };
@@ -161,7 +176,11 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
 
         case DELETE_COLOR_FROM_TABLE:{
             state.user.deleteColorFromTable(action.payload.tableName, action.payload.colorName);
-
+            
+            if(!state.user.authorized){
+                addItemToLocaleStorage("guest_user", state.user);
+            }
+            
             return { ...state, forceUpdate: new Object() };
         }
 
