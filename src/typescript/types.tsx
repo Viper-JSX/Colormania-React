@@ -21,17 +21,14 @@ export type HeaderProps = {
 } & ThemeSwitchProps & FilterToolsProps;
 
 export type FilterToolsProps = {
-    tablesSearchTerm?: string;
-    tablesSortCriteria?: string;
-
     handleTablesSortCriteriaChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     handleTablesSearch?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export type SortByProps = { tablesSortCriteria?: HeaderProps['tablesSortCriteria']; handleTablesSortCriteriaChnage: HeaderProps['handleTablesSortCriteriaChange'] };
+export type SortByProps = { handleTablesSortCriteriaChnage: HeaderProps['handleTablesSortCriteriaChange'] };
 
 
-export type TableSearchProps = { tablesSearchTerm?: HeaderProps['tablesSearchTerm']; handleTablesSearch: HeaderProps["handleTablesSearch"]; }
+export type TableSearchProps = { handleTablesSearch: HeaderProps["handleTablesSearch"]; }
 
 export type SearchProps = { value: string, placeholder: string;  handler: (event: React.ChangeEvent<HTMLInputElement>) => void; }
 

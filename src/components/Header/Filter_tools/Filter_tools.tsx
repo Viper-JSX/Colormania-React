@@ -6,7 +6,7 @@ import TableSearch from "./Table_search";
 import SortBy from "./Sort_by";
 
 
-function FilterTools({ tablesSearchTerm, tablesSortCriteria, handleTablesSortCriteriaChange, handleTablesSearch } : FilterToolsProps):JSX.Element{
+function FilterTools({ handleTablesSortCriteriaChange, handleTablesSearch } : FilterToolsProps):JSX.Element{
     const themeName = useSelector((state:any) => state.theme.themeName);
 
     return(
@@ -18,8 +18,8 @@ function FilterTools({ tablesSearchTerm, tablesSortCriteria, handleTablesSortCri
             </b>
             
             <div className={`tablesSearchAndFilter`}>
-                <TableSearch tablesSearchTerm={tablesSearchTerm} handleTablesSearch={handleTablesSearch} />
-                <SortBy tablesSortCriteria={tablesSortCriteria} handleTablesSortCriteriaChnage={handleTablesSortCriteriaChange} />
+                <TableSearch handleTablesSearch={handleTablesSearch} />
+                <SortBy  handleTablesSortCriteriaChnage={handleTablesSortCriteriaChange} />
             </div>
         </div>
     );

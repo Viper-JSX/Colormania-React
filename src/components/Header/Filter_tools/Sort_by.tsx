@@ -2,12 +2,11 @@ import { useSelector } from "react-redux";
 
 import { SortByProps } from "../../../typescript/types";
 
-function SortBy({ tablesSortCriteria, handleTablesSortCriteriaChnage } : SortByProps):JSX.Element{
-    const sortBy = useSelector((state : any) => state.tablesFilter.sortBy);
-    const themeName = useSelector((state:any) => state.theme.themeName);
+function SortBy({ handleTablesSortCriteriaChnage } : SortByProps):JSX.Element{
+    const [ themeName, sortBy ] = useSelector((state : any) => [ state.theme.themeName, state.tablesFilter.sortBy ]);
 
     return(
-        <select className={`sortBy ${themeName}`} value={tablesSortCriteria} onChange={handleTablesSortCriteriaChnage}>
+        <select className={`sortBy ${themeName}`} value={sortBy} onChange={handleTablesSortCriteriaChnage}>
             <optgroup>
                 <option value="name" disabled selected>Sort by</option>
                 <option value="name">Name</option>
