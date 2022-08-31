@@ -494,10 +494,18 @@ footer{
 
 }
 
+footer > div{
+    border: var(--standardDarkBorder);
+}
+
 footer > div > ul{
     margin: 0.3rem;
     padding: 0;
     list-style: none;
+}
+
+footer > div > b{
+    border-bottom: var(--standardDarkBorder);
 }
 
 
