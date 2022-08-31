@@ -18,19 +18,14 @@ export type LayoutProps = { tablesToRender: TableClass[] } &
 //-----------------Header-----------------
 export type HeaderProps = {
     appTitle?: string;
+} & ThemeSwitchProps & FilterToolsProps;
+
+export type FilterToolsProps = {
     tablesSearchTerm?: string;
     tablesSortCriteria?: string;
 
     handleTablesSortCriteriaChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     handleTablesSearch?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-} & ThemeSwitchProps;
-
-export type FilterToolsProps = {
-    tablesSearchTerm?: HeaderProps['tablesSearchTerm'];
-    tablesSortCriteria?: HeaderProps['tablesSortCriteria'];
-
-    handleTablesSortCriteriaChange: HeaderProps['handleTablesSortCriteriaChange'];
-    handleTablesSearch: HeaderProps['handleTablesSearch'];
 };
 
 export type SortByProps = { tablesSortCriteria?: HeaderProps['tablesSortCriteria']; handleTablesSortCriteriaChnage: HeaderProps['handleTablesSortCriteriaChange'] };

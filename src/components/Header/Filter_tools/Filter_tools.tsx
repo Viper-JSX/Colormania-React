@@ -17,8 +17,10 @@ function FilterTools({ tablesSearchTerm, tablesSortCriteria, handleTablesSortCri
                 <Link to="/">{"<-"}Home page</Link>
             </b>
             
-            <TableSearch tablesSearchTerm={tablesSearchTerm} handleTablesSearch={handleTablesSearch} />
-            <SortBy tablesSortCriteria={tablesSortCriteria} handleTablesSortCriteriaChnage={handleTablesSortCriteriaChange} />
+            <div className={`tablesSearchAndFilter`}>
+                <TableSearch tablesSearchTerm={tablesSearchTerm} handleTablesSearch={handleTablesSearch} />
+                <SortBy tablesSortCriteria={tablesSortCriteria} handleTablesSortCriteriaChnage={handleTablesSortCriteriaChange} />
+            </div>
         </div>
     );
 }

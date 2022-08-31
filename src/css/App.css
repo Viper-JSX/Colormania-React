@@ -94,12 +94,13 @@ header .appTitle:hover{
     
 }
 
-.filterTools .sortBy{
-    
+.filterTools .tablesSearchAndFilter{
+    display: flex;
+    justify-content: space-between;
 }
 
-.filterTools .filterTools{
-
+.filterTools .sortBy, .filterTools .tableSearch{
+    margin: 0.5rem 2rem 0.5rem 2rem;
 }
 
 
