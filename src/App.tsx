@@ -4,7 +4,7 @@ import "./css/App.css";
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from "react-redux";
-import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, editTable, addColorToTable, deleteColorFromTable, login as doLogin, register as doRegister, setMessage } from './redux/thunks';
+import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, editTable, addColorToTable, deleteColorFromTable, login as doLogin, register as doRegister, setMessage, deleteTable } from './redux/thunks';
 
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
@@ -12,7 +12,7 @@ import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_
 import Layout from './components/Layout/Layout';
 import filterTables from './api/filter_tables';
 import ColorClass from './classes/Color';
-import { AddColorToTableParams, EditColorParams, HandleTableEditParams, LoginData, RegisterData } from './typescript/types';
+import { AddColorToTableParams, DeleteTablePayload, EditColorParams, HandleTableEditParams, LoginData, RegisterData } from './typescript/types';
 import { useNavigate } from 'react-router';
 import { changeTheme, logout as doLogout } from './redux/action_functions';
 import { forEachChild } from "typescript";
@@ -82,6 +82,10 @@ function App() {
 
         dispatch(editTable({ oldTableName, tableName }));
         navigate("/tables");
+    }
+
+    function handleTableDelete({ tableName } : DeleteTablePayload):void{
+        dispatch(deleteTable({ tableName }));
     }
 
     function handleAddColorToTable({ tableName, colorName, rgbValue } : AddColorToTableParams):void{
@@ -167,20 +171,7 @@ function App() {
     }
 
     document.body.onclick = function(){
-        //dispatch(createTable({tableName: "Sobakens"}));
-        //dispatch(editTable({ oldTableName: "Welcome table", tableName: "Initial Overviewzzzz" }));
-        //dispatch(deleteTable({ tableName: "Welcome table" }))
-        //dispatch(addColorToTable({ tableName: "Welcome table", color: new Color("Bereza", { r: 40, g: 20, b: 30}) }))
-        //const newColor = new Color("Pin", {r: 50, g: 50, b: 50});
-        //dispatch(editColorInsideTable({ tableName: "Welcome table", oldColorName: "dark", color: newColor }));
-        //dispatch(deleteColorFromTable({ tableName: "Welcome table", colorName: "Dark" }));
-        //console.log("Click")
-        //dispatch(login({ login: "pivasik", password: "pivasik" }))
-        //dispatch(register({nickname: "Ivaniii", login: "pivasik", password: "ssssssssssssssssss"}));
-        //handleTablCreate({ tableName:"Siuuuuuur" });
-        //handleColorEdit({ tableName: "Welcome table", oldColorName: "dark", colorName: "Pinkyyyyyyyyyy", rgbValue: { r: 10, g: 10, b: 200 } });
-        //handleAddColorToTable({  tableName: "welcome table", colorName: "darker", rgbValue: { r: 140, g: 10, b: 200 }});
-        //dispatch(changeTheme({ themeName: "dark" }));
+        handleTableDelete({ tableName: "s" });
     }
 
 
