@@ -351,6 +351,16 @@ header .appTitle:hover{
     transition: var(--defaultTransitionTime);
 }   
 
+.tables .message{
+    text-align: center;
+    flex-basis: 100%;
+}
+
+.tableColors .message{
+    text-align: center;
+    flex-basis: 100%;
+}
+
 
 /*---Table Editor*/
 

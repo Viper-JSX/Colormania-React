@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { stringToUrl } from "../../api/string_to_url";
 import { TablesProps } from "../../typescript/types";
@@ -7,13 +8,23 @@ import OpenColorCreator from "./Open_color_creator";
 import TableOpener from "./Table_opener/Table_opener";
 
 function Tables({ tables, handleColorDelete, handleTablesSearch, handleTablesSortCriteriaChange } : TablesProps):JSX.Element{
+    const userTables = useSelector((state: any) => state.user.user.tables);
+
     return(
         <div className="tables">
             <FilterTools handleTablesSearch={handleTablesSearch} handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} />
 
             <div className="tableOpenersContainer">
                 {
+                    tables.length > 0 ?
                     tables.map((table) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} /></NavLink> )
+                    :
+                    (
+                        userTables.length === 0 ?
+                        <b className="message -noTables">No tables</b>
+                        :
+                        <b className="message -noResultsFound">No results found</b>
+                    )
                 }
                 <OpenTableCreator />
             </div>

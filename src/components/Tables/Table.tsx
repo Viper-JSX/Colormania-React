@@ -32,7 +32,15 @@ function Table({ table, handleColorDelete } : TableProps){
             
             <div className={`tableColors ${themeName}`}>
                 {
+                    colorsToRender.length > 0 ?
                     colorsToRender.map((color) => <Color color={color} tableName={table.name} handleColorDelete={handleColorDelete} key={`${table.name}_${color.name}`} />)
+                    :
+                    (
+                        table.colors.length === 0 ?
+                        <b className="message -tableIsEmpty">This table is empty</b>
+                        :
+                        <b className="message -noResultsFound">No results found</b>
+                    ) 
                 }
                 <OpenColorCreator tableName={table.name} />
             </div>
