@@ -4,7 +4,6 @@ import { validatePassword } from "../api/validate_password";
 import { messageShowTime } from "../app_config/app_config";
 import { AddColorToTablePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteColorFromTablePayload, DeleteTablePayload, EditColorInsideTablePayload, EditTablePayload, UserLoginPayload, UserRegisterPayload } from "../typescript/types";
 import { users } from "../various_things/users";
-//import { setMessage } from "./action_functions";
 import { RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, EDIT_TABLE, DELETE_TABLE, ADD_COLOR_TO_TABLE, EDIT_COLOR_INSIDE_TABLE, DELETE_COLOR_FROM_TABLE, LOGIN, REGISTER, SET_MESSAGE } from "./action_types";
 
 //-------------------------Tables filter---------------------------//
@@ -76,8 +75,6 @@ export function register(payload: UserRegisterPayload):any{
 
 export function createTable(payload: CreateTablePayload):any{
     return function (dispatch: any):void{
-        //for(let i = 0; i < tables)
-
         dispatch({ type: CREATE_TABLE, payload });
     }
 }

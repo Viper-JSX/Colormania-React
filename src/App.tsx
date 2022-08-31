@@ -44,6 +44,11 @@ function App() {
     function handleTableCreate({ tableName } : { tableName: string }):void{
         let tableAlreadyExists = false;
 
+        if(!tableName){
+            dispatch(setMessage({ messageText: "Table must have a name" }));
+            return;
+        }
+
         for(let i = 0; i < user.tables.length; i++){
             if(user.tables[i].name.toLowerCase() === tableName.toLowerCase()){
                 tableAlreadyExists = true;
@@ -65,6 +70,11 @@ function App() {
 
     function handleTableEdit({ oldTableName, tableName} : HandleTableEditParams):void{
         let tableAlreadyExists = false;
+
+        if(!tableName){
+            dispatch(setMessage({ messageText: "Table must have a name" }));
+            return;
+        }
 
         if(oldTableName.toLowerCase() !== tableName.toLowerCase()){ //Table name has been changed
             for(let i = 0; i < user.tables.length; i++){
@@ -93,6 +103,11 @@ function App() {
     function handleAddColorToTable({ tableName, colorName, rgbValue } : AddColorToTableParams):void{
         let colorAlreadyExists = false;
 
+        if(!colorName){
+            dispatch(setMessage({ messageText: "Color must have a name" }));
+            return;
+        }
+
         for(let i = 0; i < user.tables.length; i++){
             if(user.tables[i].name.toLowerCase() === tableName.toLowerCase()){
                 for(let j = 0; j < user.tables[i].colors.length; j++){
@@ -119,6 +134,11 @@ function App() {
 
     function handleColorEdit({ tableName, oldColorName, colorName, rgbValue } : EditColorParams):void{
         let colorAlreadyExists = false;
+
+        if(!colorName){
+            dispatch(setMessage({ messageText: "Color must have a name" }));
+            return;
+        }
 
         if(oldColorName.toLowerCase() !== colorName.toLowerCase()){ //Color name has been changed
             for(let i = 0; i < user.tables.length; i++){
