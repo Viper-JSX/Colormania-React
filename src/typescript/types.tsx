@@ -123,7 +123,12 @@ export type EditColorParams = AddColorToTableParams & { oldColorName: string };
 
 
 //--------------------------Table---------------------------//
-export type TablesProps = {tables: TableClass[], handleColorDelete: HandleColorDeleteFunc};
+export type TablesProps = {
+    tables: TableClass[], 
+    
+    handleColorDelete: HandleColorDeleteFunc, 
+} & FilterToolsProps;
+
 export type TableProps = { table: TableClass, handleColorDelete: HandleColorDeleteFunc };
 
 export type TableEditorProps = { 

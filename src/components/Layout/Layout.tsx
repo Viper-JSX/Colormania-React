@@ -28,7 +28,7 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
             />
                 <Routes>
                     <Route index element={<HomePage />} />
-                    <Route path="/tables" element={<Tables tables={tablesToRender} handleColorDelete={handleColorDelete} />} >
+                    <Route path="/tables" element={<Tables tables={tablesToRender} handleColorDelete={handleColorDelete} handleTablesSearch={handleTablesSearch} handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} />} >
                         <Route path="create" element></Route>
                     </Route>
                     {
