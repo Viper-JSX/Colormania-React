@@ -493,9 +493,29 @@ header .appTitle:hover{
 
 /*---Message---*/
 .messageWindow{
+    width: 20rem;
+    height: 10rem;
+    color: white;
+    background-color: var(--transparentDarkColor);
+    border: var(--standardDarkBorder);
     position: fixed;
     bottom: 0;
     right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messageWindow:before{
+    content: '<b>Message</b>';
+    width: 100%;
+    height: 20%;
+    background-color: var(--darkBackground);
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    display: block;
 }
 
 
