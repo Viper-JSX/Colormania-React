@@ -8,6 +8,7 @@ function TableOpener( { table, handleTableDelete } : TableOpenerProps ):JSX.Elem
     console.log(themeName)
     return(
         <div className={`tableOpener ${themeName}`}>
+            <button className="deleteButton deleteTableButton" onClick={() => handleTableDelete({ tableName: table.name })}>X</button>
             <div className={`tableOpenerTitleContainer ${themeName}`}>
                 <b className="tableOpenerTitle">{table.name}</b>
             </div>

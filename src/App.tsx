@@ -86,6 +86,8 @@ function App() {
 
     function handleTableDelete({ tableName } : DeleteTablePayload):void{
         dispatch(deleteTable({ tableName }));
+
+        setTimeout(() => navigate("/tables"), 10);
     }
 
     function handleAddColorToTable({ tableName, colorName, rgbValue } : AddColorToTableParams):void{
@@ -171,7 +173,7 @@ function App() {
     }
 
     document.body.onclick = function(){
-        handleTableDelete({ tableName: "s" });
+        
     }
 
 
