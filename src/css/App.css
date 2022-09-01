@@ -560,11 +560,17 @@ footer{
     background-color: var(--paperBackground);
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 
 }
 
 footer > div{
+    width: 20%;
+    min-width: 200px;
+    max-width: max-content;
+    margin: 1rem;
     border: var(--standardDarkBorder);
+    aspect-ratio: 1/1;
 }
 
 footer > div > ul{
