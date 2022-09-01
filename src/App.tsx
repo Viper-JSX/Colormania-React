@@ -36,6 +36,11 @@ function App() {
     }, []);
 
     function showMessage(messageText: string){
+        if(message.messageText){
+            console.log(message)
+            return;
+        }
+
         dispatch(setMessage({ messageText }));
     }
 
@@ -141,6 +146,7 @@ function App() {
         let colorAlreadyExists = false;
 
         if(!colorName){
+            console.log(" not edit", colorName);
             showMessage("Color must have a name");
             return;
         }

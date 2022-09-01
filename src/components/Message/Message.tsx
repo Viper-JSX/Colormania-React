@@ -6,7 +6,7 @@ function Message():JSX.Element | null{
     //if(!message.messageText){
     //    return null;
     //}
-
+    console.log(message)
     return(
         <div className={`messageWindow ${message.messageText ? "visible" : "hidden"} ${themeName} `}>
             <b className="messageText">{message.messageText}</b>
