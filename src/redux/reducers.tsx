@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import { ActionType, TableFilterState, UserState } from "../typescript/types";
+import { ActionType, MessageState, TableFilterState, ThemeState, UserState } from "../typescript/types";
 
 import UserClass from "../classes/User";
 import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CHANGE_THEME, CREATE_TABLE, DELETE_COLOR_FROM_TABLE, DELETE_TABLE, EDIT_COLOR_INSIDE_TABLE, EDIT_TABLE, LOGIN, LOGOUT, REGISTER, RUN_TABLES_SEARCH, SET_MESSAGE } from "./action_types";
@@ -190,7 +190,7 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
     }
 }
 
-function theme(state = { themeName: "light"}, action:ActionType ){
+function theme(state: ThemeState = { themeName: "light"}, action:ActionType ){
     switch(action.type){
         case CHANGE_THEME:{
             return { ...state, themeName: action.payload.themeName };
@@ -201,7 +201,7 @@ function theme(state = { themeName: "light"}, action:ActionType ){
     }
 }
 
-function message(state = { messageText: "" }, action:ActionType){
+function message(state: MessageState = { messageText: "" }, action:ActionType){
     switch(action.type){
         case SET_MESSAGE:{
             return { ...state, messageText: action.payload.messageText };

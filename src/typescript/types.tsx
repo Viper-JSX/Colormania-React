@@ -4,6 +4,13 @@ import TableClass from "../classes/Table";
 import UserClass from "../classes/User";
 
 
+export type AppState = UserState & ThemeState & MessageState;
+
+export type UserState = { user: UserClass, forceUpdate: any };
+export type ThemeState = { themeName: AvaliableThemes };
+export type MessageState = { messageText: string };
+
+
 export type LayoutProps = { tablesToRender: TableClass[] } & 
     HeaderProps & 
     ColorEditorProps & 
@@ -94,8 +101,6 @@ export type TableFilterState = {
 export type FilterTablesParams = { tables: TableClass[], filterOptions: TableFilterState, order?: "small-big" | "big-small" };
 
 //User//
-export type UserState = { user: UserClass, forceUpdate: any };
-
 export type UserLoginPayload = { login: string,  password: string, /*tablesToFilter: TableClass[]*/ };
 export type UserRegisterPayload =  { nickname: string } & UserLoginPayload;
 
@@ -176,5 +181,6 @@ export type RegisterProps = { handleRegister: ({ event, nickname, login, passwor
 
 
 //------------------------Theme-------------------------------//
-export type ChangeThemePayload = { themeName: "light" | "dark" };
+export type AvaliableThemes = "light" | "dark";
+export type ChangeThemePayload = { themeName: AvaliableThemes };
 export type ThemeSwitchProps = { handleThemeChange: ( event: React.ChangeEvent<HTMLSelectElement> ) => void };
