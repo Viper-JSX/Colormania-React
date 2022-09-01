@@ -10,9 +10,6 @@ import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColo
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
 
-import Layout from './components/Layout/Layout';
-import filterTables from './api/filter_tables';
-import ColorClass from './classes/Color';
 import { AddColorToTableParams, DeleteTablePayload, EditColorParams, HandleTableEditParams, LoginData, RegisterData } from './typescript/types';
 import { useNavigate } from 'react-router';
 import { changeTheme, logout as doLogout } from './redux/action_functions';
@@ -21,10 +18,16 @@ import { checkNicknameExistance } from "./api/check_nickname_existance";
 import { validateLogin } from "./api/validate_login";
 import { validatePassword } from "./api/validate_password";
 
+import { AppState } from "./typescript/types";
+
+import Layout from './components/Layout/Layout';
+import filterTables from './api/filter_tables';
+import ColorClass from './classes/Color';
+
 function App() {
     const dispatch = useDispatch();
-    const user = useSelector((state: any) => state.user.user);
-    const tablesToRender = useSelector((state: any) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));    
+    const user = useSelector((state: AppState) => state.user.user);
+    const tablesToRender = useSelector((state: AppState) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));    
     const message = useSelector((state:any) => state.message);
     const themeName = useSelector((state:any) => state.theme.themeName);
     const navigate = useNavigate();

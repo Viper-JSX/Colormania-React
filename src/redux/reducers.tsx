@@ -7,7 +7,6 @@ import { ADD_COLOR_TO_TABLE, CHANGE_COLOR_MODE, CHANGE_TABLES_SORT_CRITERIA, CHA
 import { users } from "../various_things/users";
 import { addItemToLocaleStorage } from "../api/add_item_to_locale_storage";
 import { getGuestUserFromLocaleStorage } from "../api/get_guest_user_from_locale_storage";
-import { editColorInsideTable } from "./thunks";
 
 function tablesFilter(state:TableFilterState = { sortBy: "name", searchTerm: ""}, action: ActionType):TableFilterState{
     switch(action.type){

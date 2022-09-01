@@ -3,12 +3,16 @@ import ColorClass from "../classes/Color";
 import TableClass from "../classes/Table";
 import UserClass from "../classes/User";
 
-
-export type AppState = UserState & ThemeState & MessageState;
+/*---App_state---*/
 
 export type UserState = { user: UserClass, forceUpdate: any };
+export type TableFilterState = {
+    sortBy: "name" | "date";
+    searchTerm: string;
+}
 export type ThemeState = { themeName: AvaliableThemes };
 export type MessageState = { messageText: string };
+export type AppState = {user: UserState, tablesFilter: TableFilterState, theme: ThemeState, message: MessageState };
 
 
 export type LayoutProps = { tablesToRender: TableClass[] } & 
@@ -92,11 +96,6 @@ export type ActionType = {
 
 export type ChangeTablesSortCriteriaPayload = { sortCriteria: "name" | "date" };
 export type ChangeTablesSearcTermhPayload = { searchTerm: string };
-
-export type TableFilterState = {
-    sortBy: "name" | "date";
-    searchTerm: string;
-}
 
 export type FilterTablesParams = { tables: TableClass[], filterOptions: TableFilterState, order?: "small-big" | "big-small" };
 
