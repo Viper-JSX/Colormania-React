@@ -177,7 +177,13 @@ header .appTitle:hover{
     margin: 0.3rem;
     background-color: var(--middleDarkBackgound);
     border: var(--standardDarkBorder);
+    opacity: 0;
     position: relative;
+
+    animation: fadeIn, sizeIncreaseAppear;
+    animation-duration: 0.8s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .tableOpener:hover .tableOpenerTitleContainer{
@@ -800,6 +806,15 @@ footer.dark{
 @keyframes sizeDecreaseAppear{
     0%{
         transform: scale(1.4);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes sizeIncreaseAppear{
+    0%{
+        transform: scale(0.6);
     }
     100%{
         transform: scale(1);

@@ -17,7 +17,7 @@ function Tables({ tables, handleColorDelete, handleTablesSearch, handleTableDele
             <div className="tableOpenersContainer">
                 {
                     tables.length > 0 ?
-                    tables.map((table) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} handleTableDelete={handleTableDelete} /></NavLink> )
+                    tables.map((table, index) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} index={index} handleTableDelete={handleTableDelete} /></NavLink> )
                     :
                     (
                         userTables.length === 0 ?

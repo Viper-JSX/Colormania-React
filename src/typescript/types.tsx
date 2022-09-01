@@ -124,7 +124,7 @@ export type TablesProps = {
 
 export type TableProps = { table: TableClass, handleColorDelete: HandleColorDeleteFunc };
 
-export type TableOpenerProps = {table: TableClass} & DeleteTableButtonProps;
+export type TableOpenerProps = {table: TableClass, index: number} & DeleteTableButtonProps;
 export type TableToolsProps = { colorSearchTerm: string, handleSearchTermChange: (event: React.ChangeEvent<HTMLInputElement>) => void }
 export type TableColorsProps = { tableName: string, table: TableClass, colorsToRender: ColorClass[], handleColorDelete: HandleColorDeleteFunc };
 
