@@ -135,6 +135,10 @@ header .appTitle:hover{
     min-width: 300px;
     margin: 0.3rem;
     aspect-ratio: 1/1;
+
+    animation-name: sizeDecreaseAppear;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
 }
 
 .homePageNavigation .goToLinkButton .fontAwesomeIcon{
@@ -777,5 +781,27 @@ footer.dark{
     .tableColors .color, .openColorCreator{
         min-width: 280px;
         margin: 0.1rem
+    }
+}
+
+
+
+/*---Key-frames---*/
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes sizeDecreaseAppear{
+    0%{
+        transform: scale(1.4);
+    }
+    100%{
+        transform: scale(1);
     }
 }
