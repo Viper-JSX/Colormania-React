@@ -20,13 +20,14 @@ function Table({ table, handleColorDelete } : TableProps){
 
     return(
         <div className={`table ${themeName}`}>
+            <b className="tableNameAndLink">
+                <span className="heading tableName">{table.name}</span>
+                <br/>
+                <Link to="/tables">{"<-"}Tables</Link>
+            </b>
+            
             <div className="tableTools">
                 <GoToLinkButton path="edit">Edit table</GoToLinkButton>
-                <b className="tableNameAndLink">
-                    <span className="tableName">{table.name}</span>
-                    <br/>
-                    <Link to="/tables">{"<-"}Tables</Link>
-                </b>
                 <Search value={colorSearchTerm} placeholder={"Type color name"}  handler={handleSearchTermChange} />
             </div>
             

@@ -61,6 +61,10 @@ button:hover{
     aspect-ratio: 1/1;
 }
 
+.heading{
+    font-size: 1.5rem;
+}
+
 .deleteButton{
     background-color: var(--highlightColorForLight);
 }
@@ -223,6 +227,10 @@ header .appTitle:hover{
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.table .tableNameAndLink{
+    text-align: center;
 }
 
 .tableTools{
@@ -639,10 +647,6 @@ header .appTitle.dark:hover{
     margin: 0.3rem 0 0.3rem 0;
     display: flex;
     justify-content: space-around;
-}
-
-.tableTools .tableNameAndLink{
-    text-align: center;
 }
 
 .tableTools .tableName{
