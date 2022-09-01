@@ -12,7 +12,7 @@ function TableColors({ tableName, table, colorsToRender, handleColorDelete} : Ta
         <div className={`tableColors ${themeName}`}>
         {
             colorsToRender.length > 0 ?
-            colorsToRender.map((color) => <Color color={color} tableName={tableName} handleColorDelete={handleColorDelete} key={`${tableName}_${color.name}`} />)
+            colorsToRender.map((color, index) => <Color color={color} tableName={tableName} index={index} handleColorDelete={handleColorDelete} key={`${tableName}_${color.name}`} />)
             :
             (
                 table.colors.length === 0 ?
@@ -21,7 +21,7 @@ function TableColors({ tableName, table, colorsToRender, handleColorDelete} : Ta
                 <b className="message -noResultsFound">No results found</b>
             ) 
         }
-        <OpenColorCreator tableName={table.name} />
+        <OpenColorCreator tableName={table.name} index={colorsToRender.length - 1} />
     </div>
     );
 }

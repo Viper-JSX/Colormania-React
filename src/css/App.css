@@ -268,8 +268,14 @@ header .appTitle:hover{
     min-width: 180px;
     aspect-ratio: 1/1;
     margin: 0.3rem;
+    opacity: 0;
     transition: calc(var(--defaultTransitionTime) / 3);
     transition-timing-function: linear;
+
+    animation: fadeIn, sizeDecreaseAppear;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .colorInfoLabel{

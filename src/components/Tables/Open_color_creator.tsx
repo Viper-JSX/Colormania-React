@@ -1,21 +1,13 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { animationDelayDifference } from "../../app_config/app_config";
 
-
-function OpenColorCreator({ tableName } : { tableName: string}):JSX.Element{
+function OpenColorCreator({ tableName, index } : { tableName: string, index: number}):JSX.Element{
     const themeName = useSelector((state: any) => state.theme.themeName);
     
     return(
-        <NavLink className={`openColorCreator ${themeName}`} to={"add-color"} state={{tableName: tableName}}>
+        <NavLink className={`openColorCreator ${themeName}`} to={"add-color"} state={{tableName: tableName}} style={{ animationDelay: `${index * animationDelayDifference}s` }}>
             <span className="plusSign">+</span>
-                
-                {/*
-                    <br />
-                    <span className="text" >Add color</span>
-                */
-                }
         </NavLink>
     );
 }

@@ -1,35 +1,33 @@
 import { useSelector } from "react-redux";
 
 import styled from "styled-components";
-import { ColorProps } from "../../../typescript/types";
+import { animationDelayDifference } from "../../../app_config/app_config";
+import { ColorProps, RGBValue } from "../../../typescript/types";
 import ColorInfoLabel from "./Color_info_label";
 
 interface StyledColorProps{
-    colorRgbValue: { r: number, g:number, b: number };
+    colorRgbValue: RGBValue;
+    index: number;
 };
 
 
 const StyledColor = styled.div<StyledColorProps>`
-    /*width: 100px;
-    min-width: max-content;*/
     aspect-ratio: 1/1;
     background-color: rgb(${(props) => props?.colorRgbValue.r }, ${(props) => props?.colorRgbValue.g}, ${(props) => props?.colorRgbValue.b} );
     border: 2px solid black;
-    
-    //&:hover{
-    //    border-width: 0px;
-    //}
+   //animation-delay: ${(props) => props.index * 11 + "s"};
+
 
     &:hover > .colorInfoLabel{
         opacity: 1;
     }
 `;
 
-function Color({ tableName, color, handleColorDelete } : ColorProps):JSX.Element{
+function Color({ tableName, color, index, handleColorDelete } : ColorProps):JSX.Element{
     const themeName = useSelector((state: any) => state.theme.themeName);
 
     return(
-        <StyledColor className={`color ${themeName}`} colorRgbValue={color.rgbValue}>
+        <StyledColor className={`color ${themeName}`} index={index} colorRgbValue={color.rgbValue} style={{ animationDelay: `${index * animationDelayDifference}s` }}>
             {
                 (handleColorDelete && tableName) ? 
                 <>

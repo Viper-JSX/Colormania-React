@@ -26,7 +26,7 @@ function Tables({ tables, handleColorDelete, handleTablesSearch, handleTableDele
                         <b className="message -noResultsFound">No results found</b>
                     )
                 }
-                <OpenTableCreator />
+                <OpenTableCreator index={tables.length - 1} />
             </div>
             
         </div>
