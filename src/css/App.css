@@ -170,6 +170,7 @@ header .appTitle:hover{
     height: 20vw;
     min-width: 280px;
     min-height: 280px;
+    margin: 0.3rem;
     background-color: var(--middleDarkBackgound);
     border: var(--standardDarkBorder);
     position: relative;
@@ -251,12 +252,12 @@ header .appTitle:hover{
     padding: 0 1rem 0 1rem;
     display: flex;
     flex-wrap: wrap;
-    background-color: red;
 }
 
-.tableColors .color{
+.tableColors .color, .openColorCreator{
     min-width: 180px;
     aspect-ratio: 1/1;
+    margin: 0.3rem;
     transition: calc(var(--defaultTransitionTime) / 3);
     transition-timing-function: linear;
 }
@@ -345,14 +346,11 @@ header .appTitle:hover{
 }
 
 .openColorCreator{
-    min-width: 180px;
-    border: 2px solid black;/*var(--standardDarkBorder);*/
-    aspect-ratio: 1/1;
+    border: var(--standardDarkBorder);
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-decoration: none;
-    transition: var(--defaultTransitionTime);
 }
 
 .openColorCreator:hover{
