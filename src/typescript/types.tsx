@@ -126,6 +126,8 @@ export type TableProps = { table: TableClass, handleColorDelete: HandleColorDele
 
 export type TableOpenerProps = {table: TableClass} & DeleteTableButtonProps;
 
+export type TableColorsProps = { tableName: string, table: TableClass, colorsToRender: ColorClass[], handleColorDelete: HandleColorDeleteFunc };
+
 export type TableEditorProps = { 
     mode: "create" | "edit"
 } & (TableCreatorSubtypeProps | TableEditorSubtypeProps);

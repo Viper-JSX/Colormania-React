@@ -7,7 +7,7 @@ import TableClass from "../../classes/Table";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import HomePage from "../Home_page/Home_page";
-import Table from "../Tables/Table";
+import Table from "../Tables/Table/Table";
 import Tables from "../Tables/Tables";
 import UserProfile from "../User/User_profile";
 import ColorEditor from "../Color_editor/Color_editor";
