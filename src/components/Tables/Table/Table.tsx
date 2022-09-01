@@ -8,6 +8,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import GoToLinkButton from "../../General_reusable_components/Go_to_link_button";
 import TableColors from "./Table_colors";
+import TableInfo from "./Table_info";
 
 function Table({ table, handleColorDelete } : TableProps){
     const themeName = useSelector((state: any) => state.theme.themeName);
@@ -21,11 +22,7 @@ function Table({ table, handleColorDelete } : TableProps){
 
     return(
         <div className={`table ${themeName}`}>
-            <b className="tableNameAndLink">
-                <span className="heading tableName">{table.name}</span>
-                <br/>
-                <Link to="/tables">{"<-"}Tables</Link>
-            </b>
+            <TableInfo tableName={table.name} />
             
             <div className="tableTools">
                 <GoToLinkButton path="edit">Edit table</GoToLinkButton>
