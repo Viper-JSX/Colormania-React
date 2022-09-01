@@ -499,7 +499,6 @@ header .appTitle:hover{
     background-color: var(--transparentDarkColor);
     border: var(--standardDarkBorder);
     position: fixed;
-    bottom: 0;
     right: 0;
     display: flex;
     justify-content: center;
@@ -508,10 +507,12 @@ header .appTitle:hover{
 }
 
 .messageWindow.visible{
+    opacity: 1;
     bottom: 0rem;
 }
 
 .messageWindow.hidden{
+    opacity: 0;
     bottom: -20rem;
 }
 

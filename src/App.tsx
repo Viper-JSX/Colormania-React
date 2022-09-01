@@ -17,6 +17,7 @@ import { useNavigate } from 'react-router';
 import { changeTheme, logout as doLogout } from './redux/action_functions';
 import { forEachChild } from "typescript";
 import { stringToUrl } from "./api/string_to_url";
+import { SET_MESSAGE } from "./redux/action_types";
 
 function App() {
     const dispatch = useDispatch();
@@ -33,6 +34,10 @@ function App() {
             addItemToLocaleStorage("guest_user", user);
         }
     }, []);
+
+    function showMessage(messageText: string){
+        dispatch(setMessage({ messageText }));
+    }
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
         if(event.target.value === "name" || event.target.value === "date"){
