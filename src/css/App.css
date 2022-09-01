@@ -381,6 +381,16 @@ header .appTitle:hover{
 
 
 /*---Table Editor*/
+.tableEditor{
+    border-top: var(--standardLightBorder);
+    border-bottom: var(--standardLightBorder);
+    padding: 2rem 0 2rem 0;
+    border-radius: 0.5rem;
+}
+
+.tableEditor > button{
+    margin: 0.3rem;
+}
 
 
 
