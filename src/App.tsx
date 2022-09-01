@@ -1,10 +1,11 @@
 import "./css/App.css";
-//import "./css/dark.css"
+
+import { users } from "./various_things/users";
 
 import React, { useEffect } from 'react';
 
 import { useDispatch, useSelector } from "react-redux";
-import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, editTable, addColorToTable, deleteColorFromTable, login as doLogin, register as doRegister, setMessage, deleteTable } from './redux/thunks';
+import { changeTablesSearchTerm, changeTablesSortCriteria, createTable, editColorInsideTable, editTable, addColorToTable, deleteColorFromTable, login as doLogin, register as doRegister, setMessage, deleteTable, register } from './redux/thunks';
 
 import { addItemToLocaleStorage } from './api/add_item_to_locale_storage';
 import { getGuestUserFromLocaleStorage } from './api/get_guest_user_from_locale_storage';
@@ -15,9 +16,10 @@ import ColorClass from './classes/Color';
 import { AddColorToTableParams, DeleteTablePayload, EditColorParams, HandleTableEditParams, LoginData, RegisterData } from './typescript/types';
 import { useNavigate } from 'react-router';
 import { changeTheme, logout as doLogout } from './redux/action_functions';
-import { forEachChild } from "typescript";
 import { stringToUrl } from "./api/string_to_url";
-import { SET_MESSAGE } from "./redux/action_types";
+import { checkNicknameExistance } from "./api/check_nickname_existance";
+import { validateLogin } from "./api/validate_login";
+import { validatePassword } from "./api/validate_password";
 
 function App() {
     const dispatch = useDispatch();
@@ -26,8 +28,6 @@ function App() {
     const message = useSelector((state:any) => state.message);
     const themeName = useSelector((state:any) => state.theme.themeName);
     const navigate = useNavigate();
-
-    useSelector((state:any) => console.log(state.theme));
 
     useEffect(() => {
         if(!getGuestUserFromLocaleStorage() && !user.authorized){
@@ -91,7 +91,7 @@ function App() {
         }
 
         if(tableAlreadyExists){
-            showMessage("Table with such name already exists");
+            showMessage(`Table '${tableName}' already exists`);
             return;
         }
 
@@ -128,7 +128,7 @@ function App() {
     
         if(colorAlreadyExists){
             console.log("not Exists");
-            showMessage("Color with such name already exists inside this table");
+            showMessage(`Color '${colorName}' already exists inside this table`);
             return;
         }
 
@@ -175,15 +175,45 @@ function App() {
 
     function handleLogin({ event, login, password } : LoginData):void{
         event.preventDefault();
-        dispatch(doLogin({ password, login }));
-        navigate("/user")
+
+        for(let i = 0; i < users.length; i++){
+            if(users[i].login === login.toLowerCase() && users[i].password === password.toLowerCase()){
+                dispatch(doLogin({ password, login }));
+                navigate("/user")
+                return;
+            }   
+        }
+
+        showMessage("Wrong login or password");
+
     }
 
     function handleRegister({ event, nickname, login, password } : RegisterData):void{
         event.preventDefault();
-        console.log(nickname, login, password )
-        dispatch(doRegister({ nickname, login, password }))
-        navigate("/user")
+
+        const userNicknameDoesNotExist = checkNicknameExistance(nickname);
+        const loginIsValidAndDoesNotExist = validateLogin(login);
+        const passwordIsValid = validatePassword(password);
+
+
+        if(userNicknameDoesNotExist && loginIsValidAndDoesNotExist && passwordIsValid){
+            dispatch(register( {nickname, login, password} ));
+            navigate("/user")
+        }
+        
+        else if(!userNicknameDoesNotExist){
+            dispatch(setMessage({ messageText: `Nickname '${nickname}' is already taken` }));
+        }
+        else if(!loginIsValidAndDoesNotExist){
+            dispatch(setMessage({ messageText: `Login '${login}' is invalid or already taken` }));
+        }
+        else if(!passwordIsValid){
+            dispatch(setMessage({ messageText: `Password '${login}' is invalalid, password must be at least 8 characters long and contain numbers` }));
+        }
+        else{
+            console.log("Unknown message");
+            dispatch(setMessage({ messageText: `Unknown message` }));
+        }
     }
 
     function handleLogout():void{

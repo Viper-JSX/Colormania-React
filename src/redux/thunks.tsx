@@ -42,33 +42,33 @@ export function login(payload: UserLoginPayload):any{
 
 export function register(payload: UserRegisterPayload):any{
     return function(dispatch: any){
-        const userNicknameDoesNotExist = checkNicknameExistance(payload.nickname);
-        const loginIsValidAndDoesNotExist = validateLogin(payload.login);
-        const passwordIsValid = validatePassword(payload.password);
+        //const userNicknameDoesNotExist = checkNicknameExistance(payload.nickname);
+        //const loginIsValidAndDoesNotExist = validateLogin(payload.login);
+        //const passwordIsValid = validatePassword(payload.password);
 
 
-        if(userNicknameDoesNotExist && loginIsValidAndDoesNotExist && passwordIsValid){
+        //if(userNicknameDoesNotExist && loginIsValidAndDoesNotExist && passwordIsValid){
             const lowerCasedPayload:UserRegisterPayload = { ...payload };
             lowerCasedPayload.login = payload.login.toLowerCase();
             lowerCasedPayload.password = payload.password.toLowerCase();
 
             console.log(lowerCasedPayload)
             dispatch({ type: REGISTER, payload: lowerCasedPayload });
-        }
+        //}
         
-        else if(!userNicknameDoesNotExist){
-            dispatch(setMessage({ messageText: `Nickname ${payload.nickname} is already taken` }));
-        }
-        else if(!loginIsValidAndDoesNotExist){
-            dispatch(setMessage({ messageText: `Login ${payload.login} is invalid or already taken` }));
-        }
-        else if(!passwordIsValid){
-            dispatch(setMessage({ messageText: `Password ${payload.login} is invalalid, password must be at least 8 characters long and contain numbers` }));
-        }
-        else{
-            console.log("Unknown message");
-            dispatch(setMessage({ messageText: `Unknown message` }));
-        }
+        //else if(!userNicknameDoesNotExist){
+        //    dispatch(setMessage({ messageText: `Nickname ${payload.nickname} is already taken` }));
+        //}
+        //else if(!loginIsValidAndDoesNotExist){
+        //    dispatch(setMessage({ messageText: `Login ${payload.login} is invalid or already taken` }));
+        //}
+        //else if(!passwordIsValid){
+        //    dispatch(setMessage({ messageText: `Password ${payload.login} is invalalid, password must be at least 8 characters long and contain numbers` }));
+        //}
+        //else{
+        //    console.log("Unknown message");
+        //    dispatch(setMessage({ messageText: `Unknown message` }));
+        //}
 
     }
 }
