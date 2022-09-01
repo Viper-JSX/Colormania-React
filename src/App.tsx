@@ -50,7 +50,7 @@ function App() {
         let tableAlreadyExists = false;
 
         if(!tableName){
-            dispatch(setMessage({ messageText: "Table must have a name" }));
+            showMessage("Table must have a name");
             return;
         }
 
@@ -62,7 +62,7 @@ function App() {
         }
 
         if(tableAlreadyExists){
-            dispatch(setMessage({ messageText: "Table with such name already exists" }));
+            showMessage("Table with such name already exists");
         }
 
         navigate("/tables");
@@ -77,7 +77,7 @@ function App() {
         let tableAlreadyExists = false;
 
         if(!tableName){
-            dispatch(setMessage({ messageText: "Table must have a name" }));
+            showMessage("Table must have a name");
             return;
         }
 
@@ -91,7 +91,7 @@ function App() {
         }
 
         if(tableAlreadyExists){
-            dispatch(setMessage({ messageText: "Table with such name already exists" }));
+            showMessage("Table with such name already exists");
             return;
         }
 
@@ -109,7 +109,7 @@ function App() {
         let colorAlreadyExists = false;
 
         if(!colorName){
-            dispatch(setMessage({ messageText: "Color must have a name" }));
+            showMessage("Color must have a name");
             return;
         }
 
@@ -128,7 +128,7 @@ function App() {
     
         if(colorAlreadyExists){
             console.log("not Exists");
-            dispatch(setMessage({ messageText: "Color with such name already exists inside this table" }));
+            showMessage("Color with such name already exists inside this table");
             return;
         }
 
@@ -141,7 +141,7 @@ function App() {
         let colorAlreadyExists = false;
 
         if(!colorName){
-            dispatch(setMessage({ messageText: "Color must have a name" }));
+            showMessage("Color must have a name");
             return;
         }
 
@@ -161,7 +161,7 @@ function App() {
         }
     
         if(colorAlreadyExists){
-            dispatch(setMessage({ messageText: "Color with such name already exists inside this table" }));
+            showMessage("Color with such name already exists inside this table");
             return;
         }
 
