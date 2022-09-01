@@ -70,8 +70,8 @@ function App() {
             showMessage("Table with such name already exists");
         }
 
-        navigate("/tables");
         dispatch(createTable({ tableName }));
+        navigate(`/tables/${stringToUrl(tableName)}`);
     }
 
     function handleTablesSearch(event: React.ChangeEvent<HTMLInputElement>){
@@ -101,7 +101,7 @@ function App() {
         }
 
         dispatch(editTable({ oldTableName, tableName }));
-        navigate("/tables");
+        navigate(`/tables/${stringToUrl(tableName)}`);
     }
 
     function handleTableDelete({ tableName } : DeleteTablePayload):void{

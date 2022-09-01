@@ -1,8 +1,9 @@
 import { useState } from "react";
-import ColorClass from "../../../classes/Color";
 import { TableProps } from "../../../typescript/types";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+import ColorClass from "../../../classes/Color";
 import TableColors from "./Table_colors";
 import TableInfo from "./Table_info";
 import TableTools from "./Table_tools";
