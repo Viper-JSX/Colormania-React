@@ -208,7 +208,7 @@ function App() {
             dispatch(setMessage({ messageText: `Login '${login}' is invalid or already taken` }));
         }
         else if(!passwordIsValid){
-            dispatch(setMessage({ messageText: `Password '${login}' is invalalid, password must be at least 8 characters long and contain numbers` }));
+            dispatch(setMessage({ messageText: `Password '${password}' is invalalid, password must be at least 8 characters long and contain numbers` }));
         }
         else{
             console.log("Unknown message");
