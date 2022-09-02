@@ -1,7 +1,7 @@
 function ColorMania():JSX.Element{
     return(
         <div className="support">
-            <b>Support</b>
+            <b>ColorMania</b>
             <ul>
                 <li>About ColorMania</li>
                 <li>ColorMania design</li>

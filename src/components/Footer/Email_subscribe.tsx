@@ -3,7 +3,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function EmailSubscribe():JSX.Element{
     return(
-        <div>
+        <div className="emailSubscribe">
             <b className="title -emailSubscribeTitle">
                 <FontAwesomeIcon icon={faEnvelope} />
                 <span>   </span>
@@ -11,7 +11,7 @@ function EmailSubscribe():JSX.Element{
             </b>
 
             <form className="emailForm">
-                <input type="email" placeholder="Type your email" />
+                <input className="emailSubscribeInput" type="email" placeholder="Type your email" />
                 <br />
                 <button className="emailSubscribeButton" type="submit">Sign up</button>
             </form>
