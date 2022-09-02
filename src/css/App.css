@@ -88,14 +88,17 @@ button:hover{
 
 header{
     height: 5rem;
-    background-color: var(--paperBackground);
+    color: var(--lightColor);
+    background-color: var(--darkBackground);
+    background-image: url("../files/images/dark_walley.jpg");
+    background-size: cover;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 header .appTitle{
-    color: var(--darkColor);
+    color: var(--lightColor);
     text-shadow: 0 0 0rem var(--highlightColorForLight);
     text-decoration: none;
 }
