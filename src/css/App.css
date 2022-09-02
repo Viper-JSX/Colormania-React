@@ -43,15 +43,17 @@ body *{
 
 /*---General---*/
 button{
+    color: var(--lightBackground);
+    background-color: var(--darkBackground);
     padding: 0.1rem;
     border-radius: 0.3rem;
     font-size: 1rem;
 }
 
 button:hover{
-    color: var(--lightColor);
-    background-color: var(--darkBackground);
-    border-color: var(--lightColor);
+    color: var(--darkColor);
+    background-color: var(--lightBackground);
+    border-color: var(--darkColor);
 }
 
 .navigationLink{
@@ -744,14 +746,14 @@ footer ul > li:hover{
 
 /*---___Dark___---*/
 body *.dark button{
-    color: var(--lightColor);
-    background-color: var(--darkBackground);
-    border-color: var(--lightColor);
+    color: var(--darkColor);
+    background-color: var(--lightBackground);
+    border-color: var(--darkColor);
 }
 
 body *.dark button:hover{
-    color: var(--darkColor);
-    background-color: var(--lightBackground);
+    color: var(--lightColor);
+    background-color: var(--darkBackground);
 }
 
 .App.dark{
