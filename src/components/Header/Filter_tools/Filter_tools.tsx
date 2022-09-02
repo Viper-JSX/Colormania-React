@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { AppState, FilterToolsProps } from "../../../typescript/types";
 import TableSearch from "./Table_search";
 import SortBy from "./Sort_by";
+import GoToLinkButton from "../../General_reusable_components/Go_to_link_button";
 
 
 function FilterTools({ handleTablesSortCriteriaChange, handleTablesSearch } : FilterToolsProps):JSX.Element{
@@ -14,7 +15,7 @@ function FilterTools({ handleTablesSortCriteriaChange, handleTablesSearch } : Fi
             <b className="text">
                 <span>Tables</span>
                 <br />
-                <Link to="/">{"<-"}Home page</Link>
+                <GoToLinkButton path="/">{"<-"}Home page</GoToLinkButton>
             </b>
             
             <div className={`tablesSearchAndFilter`}>

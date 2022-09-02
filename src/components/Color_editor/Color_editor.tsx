@@ -7,6 +7,7 @@ import { hexToRgb } from "../../api/hex_to_rgb";
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { rgbToHex } from "../../api/rgb_to_hex";
 import { stringToUrl } from "../../api/string_to_url";
+import GoToLinkButton from "../General_reusable_components/Go_to_link_button";
 
 function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEditorProps):JSX.Element{
     const themeName = useSelector((state: AppState) => state.theme.themeName);
@@ -47,14 +48,15 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
 
     return(
         <div className={`colorEditor ${themeName}`}>
-            <b className="text">
+            <b className="text title">
                 <span>{mode === "create" ? "Create" : "Edit"} </span>
                 <br />
-                <NavLink to={`/tables/${stringToUrl(tableName)}`} >Cancel</NavLink>
             </b>
             <br />
             <input className="colorNameInput" type="text" value={colorName} placeholder="Color name" onChange={handleColorNameInput}/>
             <input className="colorInput" type="color" value={currentColorValue.hex}  onChange={handleColorInput}  />
+
+            <GoToLinkButton path={`/tables/${stringToUrl(tableName)}`}>Cancel</GoToLinkButton>
 
             {
                 mode === "create" ? 

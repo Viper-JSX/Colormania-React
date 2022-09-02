@@ -17,8 +17,9 @@
     --transparentDarkColor: rgba(0, 0, 0, 0.5);
 
     --defaultTransitionTime: 0.3s;
-
     --defaultFont: monospace, arial, sans-serif, serif;
+
+    --plusSignColor: linear-gradient(90deg, red, blue);
 }
 
 *{
@@ -53,6 +54,10 @@ button:hover{
     border-color: var(--lightColor);
 }
 
+.navigationLink{
+    color: var(--darkColor);
+}
+
 .deleteButton{
     width: 1.5rem;
     height: 1.5rem;
@@ -67,6 +72,12 @@ button:hover{
 
 .deleteButton{
     background-color: var(--highlightColorForLight);
+}
+
+.plusSign{
+    color: transparent;
+    background: var(--plusSignColor);
+    background-clip: text;
 }
 
 /*---App---*/
@@ -376,6 +387,12 @@ header .appTitle:hover{
     align-items: center;
 }
 
+.openColorCreator .plusSign{
+    font-size: 500%;
+    transform: scale(1);
+    transition: var(--defaultTransitionTime);
+}   
+
 .openColorCreator:hover{
     border-color: transparent;
 }
@@ -384,11 +401,7 @@ header .appTitle:hover{
     transform: scale(1.2);
 }
 
-.openColorCreator .plusSign{
-    font-size: 500%;
-    transform: scale(1);
-    transition: var(--defaultTransitionTime);
-}   
+
 
 .tables .message{
     text-align: center;

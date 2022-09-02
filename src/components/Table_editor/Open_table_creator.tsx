@@ -7,7 +7,9 @@ function OpenTableCreator({ index } : { index: number }):JSX.Element{
     const themeName = useSelector((state: AppState) => state.theme.themeName);
     
     return(
-        <Link className={`openTableCreator ${themeName}`} to={`create-table`} style={{ animationDelay: `${index * animationDelayDifference}s` }}>+</Link>
+        <Link className={`openTableCreator ${themeName}`} to={`create-table`} style={{ animationDelay: `${index * animationDelayDifference}s` }}>
+            <span className="plusSign">+</span>
+        </Link>
     );
 }
 
