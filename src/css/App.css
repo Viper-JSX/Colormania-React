@@ -711,9 +711,13 @@ footer ul > li:hover{
     background-color: rgb(204, 51, 51) !important; /*'!important' To override theme styling for buttons*/
     border: none;
     border-radius: 0;
+    transition: 0.2s;
 }
 
-
+.emailSubscribeButton:hover{
+    border: 2px solid black;
+    opacity: 0.7;
+}
 
 
 
