@@ -72,7 +72,7 @@ button:hover{
 /*---App---*/
 
 .App{
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     color: var(--darkColor);
     background-color: var(--lightBackground);
@@ -169,12 +169,16 @@ header .appTitle:hover{
     flex-wrap: wrap;
 }
 
+.tableOpenersContainer > *:visited, .tableOpenersContainer > *:link{
+    color: var(--lightColor);
+}
+
 
 
 /*---TableOpener---*/
 .tableOpener, .openTableCreator{
-    width: 20vw;
-    height: 20vw;
+    width: 15%;
+    height: 15%;
     min-width: 280px;
     min-height: 280px;
     margin: 0.3rem;
@@ -443,7 +447,7 @@ header .appTitle:hover{
 
 /*---Authorization---*/
 .authorizationFormWrapper, .tableEditorWrapper{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: var(--transparentDarkColor);
     position: fixed;
@@ -772,6 +776,10 @@ header .appTitle.dark:hover{
 
 
 /*---TableOpener---*/
+.tableOpenersContainer.dark *:visited, .tableOpenersContainer.dark *:link{
+    color: var(--darkColor);
+}
+
 .tableOpener.dark{
     background-color: var(--paperBackground);
     border: var(--standardDarkBorder);
