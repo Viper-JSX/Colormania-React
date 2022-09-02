@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-import { ColorInfoLabelProps } from "../../../typescript/types";
+import { AppState, ColorInfoLabelProps } from "../../../typescript/types";
 import ColorValueViewer from "./Color_value_viewer/Color_value_viewer";
 import DeleteColorButton from "./Delete_color_button";
 import OpenColorEditor from "./Open_color_editor";
@@ -16,7 +16,7 @@ const StyledColorInfoLabel = styled.div`
 
 
 function ColorInfoLabel({ tableName, color, handleColorDelete } : ColorInfoLabelProps):JSX.Element{
-    const themeName = useSelector((state: any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
 
     return(
         <StyledColorInfoLabel className={`colorInfoLabel ${themeName}`}>

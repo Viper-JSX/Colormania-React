@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import UserClass from "../../classes/User";
+import { AppState } from "../../typescript/types";
 
 function UserData():JSX.Element{
-    const user: UserClass = useSelector((state:any) => state.user.user);
+    const user: UserClass = useSelector((state: AppState) => state.user.user);
 
     return(
         <div className="userData">

@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-import { ThemeSwitchProps } from "../../typescript/types";
+import { AppState, ThemeSwitchProps } from "../../typescript/types";
 import { themeConfig } from "../../various_things/app_config";
 
 function ThemeSwitch({ handleThemeChange } : ThemeSwitchProps):JSX.Element{
-    const themeName = useSelector((state: any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
 
     return(
         <select value={themeName} onChange={handleThemeChange}>

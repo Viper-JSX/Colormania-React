@@ -2,10 +2,11 @@ import { useSelector } from "react-redux";
 import GoToLinkButton from "../General_reusable_components/Go_to_link_button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faTable } from "@fortawesome/free-solid-svg-icons";
+import { AppState } from "../../typescript/types";
 
 
 function HomePage():JSX.Element{
-    const themeName = useSelector((state: any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
 
     return(
         <div className={`homePage ${themeName}`}>

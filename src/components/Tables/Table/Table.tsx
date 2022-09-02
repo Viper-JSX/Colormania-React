@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TableProps } from "../../../typescript/types";
+import { AppState, TableProps } from "../../../typescript/types";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -9,7 +9,7 @@ import TableInfo from "./Table_info";
 import TableTools from "./Table_tools";
 
 function Table({ table, handleColorDelete } : TableProps){
-    const themeName = useSelector((state: any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
     const [ colorSearchTerm, setColorSearchTerm ] = useState<string>("");
 
     function handleSearchTermChange(event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>):void{

@@ -1,12 +1,10 @@
 import { useSelector } from "react-redux";
+import { AppState } from "../../typescript/types";
 
 function Message():JSX.Element | null{
-    const [message, themeName] = useSelector((state:any) => [state.message, state.theme.name]);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
+    const message = useSelector((state: AppState) => state.message);
 
-    //if(!message.messageText){
-    //    return null;
-    //}
-    console.log(message)
     return(
         <div className={`messageWindow ${message.messageText ? "visible" : "hidden"} ${themeName} `}>
             <b className="messageText">{message.messageText}</b>

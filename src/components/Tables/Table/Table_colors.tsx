@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import { TableColorsProps } from "../../../typescript/types";
+import { AppState, TableColorsProps } from "../../../typescript/types";
 
 import Color from "../Color/Color";
 import OpenColorCreator from "../Open_color_creator";
 
 
 function TableColors({ tableName, table, colorsToRender, handleColorDelete} : TableColorsProps):JSX.Element{
-    const themeName = useSelector((state: any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
 
     return(
         <div className={`tableColors ${themeName}`}>

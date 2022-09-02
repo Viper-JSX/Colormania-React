@@ -1,3 +1,5 @@
+import { AnyAction } from "redux";
+import { ThunkDispatch } from "redux-thunk";
 import { checkNicknameExistance } from "../api/check_nickname_existance";
 import { validateLogin } from "../api/validate_login";
 import { validatePassword } from "../api/validate_password";
@@ -10,14 +12,14 @@ import { RUN_TABLES_SEARCH, CHANGE_TABLES_SORT_CRITERIA, CREATE_TABLE, EDIT_TABL
 
 
 export function changeTablesSortCriteria (payload: ChangeTablesSortCriteriaPayload):any{
-    return function(dispatch : any): void{
+    return function(dispatch: ThunkDispatch<{}, {}, AnyAction>): void{
         dispatch({ type: CHANGE_TABLES_SORT_CRITERIA, payload });
     }
 }
 
 
 export function changeTablesSearchTerm (payload: ChangeTablesSearcTermhPayload):any{
-    return function(dispatch : any): void{
+    return function(dispatch : ThunkDispatch<{}, {}, AnyAction>): void{
         dispatch({ type: RUN_TABLES_SEARCH, payload });
     }
 }
@@ -27,7 +29,7 @@ export function changeTablesSearchTerm (payload: ChangeTablesSearcTermhPayload):
 //-------------------------User-----------------------------//
 
 export function login(payload: UserLoginPayload):any{
-    return function(dispatch:any):void{
+    return function(dispatch: ThunkDispatch<{}, {}, AnyAction>):void{
         for(let i = 0; i < users.length; i++){
             if(users[i].login === payload.login.toLowerCase() && users[i].password === payload.password.toLowerCase()){
                 dispatch({ type: LOGIN, payload: { login: payload.login, password: payload.password } });
@@ -41,77 +43,55 @@ export function login(payload: UserLoginPayload):any{
 }
 
 export function register(payload: UserRegisterPayload):any{
-    return function(dispatch: any){
-        //const userNicknameDoesNotExist = checkNicknameExistance(payload.nickname);
-        //const loginIsValidAndDoesNotExist = validateLogin(payload.login);
-        //const passwordIsValid = validatePassword(payload.password);
+    return function(dispatch: ThunkDispatch<{}, {}, AnyAction>){
+                const lowerCasedPayload:UserRegisterPayload = { ...payload };
+                lowerCasedPayload.login = payload.login.toLowerCase();
+                lowerCasedPayload.password = payload.password.toLowerCase();
 
-
-        //if(userNicknameDoesNotExist && loginIsValidAndDoesNotExist && passwordIsValid){
-            const lowerCasedPayload:UserRegisterPayload = { ...payload };
-            lowerCasedPayload.login = payload.login.toLowerCase();
-            lowerCasedPayload.password = payload.password.toLowerCase();
-
-            console.log(lowerCasedPayload)
-            dispatch({ type: REGISTER, payload: lowerCasedPayload });
-        //}
-        
-        //else if(!userNicknameDoesNotExist){
-        //    dispatch(setMessage({ messageText: `Nickname ${payload.nickname} is already taken` }));
-        //}
-        //else if(!loginIsValidAndDoesNotExist){
-        //    dispatch(setMessage({ messageText: `Login ${payload.login} is invalid or already taken` }));
-        //}
-        //else if(!passwordIsValid){
-        //    dispatch(setMessage({ messageText: `Password ${payload.login} is invalalid, password must be at least 8 characters long and contain numbers` }));
-        //}
-        //else{
-        //    console.log("Unknown message");
-        //    dispatch(setMessage({ messageText: `Unknown message` }));
-        //}
-
-    }
+                console.log(lowerCasedPayload)
+                dispatch({ type: REGISTER, payload: lowerCasedPayload });
+            }
 }
 
 export function createTable(payload: CreateTablePayload):any{
-    return function (dispatch: any):void{
+    return function (dispatch: ThunkDispatch<{}, {}, AnyAction>):void{
         dispatch({ type: CREATE_TABLE, payload });
     }
 }
 
 export function editTable(payload: EditTablePayload):any{
-    return function (dispatch: any):void{
+    return function (dispatch: ThunkDispatch<{}, {}, AnyAction>):void{
         dispatch({ type: EDIT_TABLE, payload });
     }
 }
 
 export function deleteTable(payload: DeleteTablePayload):any{
-    return function (dispatch: any):void{
+    return function (dispatch: ThunkDispatch<{}, {}, AnyAction>):void{
         dispatch({ type: DELETE_TABLE, payload });
     }
 }
 
 
 export function addColorToTable(payload: AddColorToTablePayload):any{
-    return function(dispatch: any){
+    return function(dispatch: ThunkDispatch<{}, {}, AnyAction>){
         dispatch({ type: ADD_COLOR_TO_TABLE, payload });
     }
 }
 
 export function editColorInsideTable(payload: EditColorInsideTablePayload):any{
-    return function(dispatch: any){
+    return function(dispatch: ThunkDispatch<{}, {}, AnyAction>){
         dispatch({ type: EDIT_COLOR_INSIDE_TABLE, payload });
     }
 }
 
 export function deleteColorFromTable(payload: DeleteColorFromTablePayload):any{
-    return function(dispatch: any){
+    return function(dispatch: ThunkDispatch<{}, {}, AnyAction>){
         dispatch({ type: DELETE_COLOR_FROM_TABLE, payload });
     }
 }
 
 export function setMessage(payload: { messageText: string }):any{
-    return function(dispatch: any):void{
+    return function(dispatch: ThunkDispatch<{}, {}, AnyAction>):void{
         dispatch({ type: SET_MESSAGE, payload });
 
         setTimeout(() => dispatch({ type: SET_MESSAGE, payload: {...payload, messageText: ""} }), messageShowTime);

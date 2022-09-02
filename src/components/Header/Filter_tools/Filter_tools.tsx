@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { FilterToolsProps } from "../../../typescript/types";
+import { AppState, FilterToolsProps } from "../../../typescript/types";
 import TableSearch from "./Table_search";
 import SortBy from "./Sort_by";
 
 
 function FilterTools({ handleTablesSortCriteriaChange, handleTablesSearch } : FilterToolsProps):JSX.Element{
-    const themeName = useSelector((state:any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
 
     return(
         <div className={`filterTools ${themeName}`}>

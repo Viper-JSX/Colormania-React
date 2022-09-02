@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
 import { animationDelayDifference } from "../../../app_config/app_config";
 import TableClass from "../../../classes/Table";
-import { TableOpenerProps } from "../../../typescript/types";
+import { AppState, TableOpenerProps } from "../../../typescript/types";
 import Color from "../Color/Color";
 
 function TableOpener( { table, index, handleTableDelete } : TableOpenerProps ):JSX.Element{
-    const themeName = useSelector((state:any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
     console.log(themeName)
     return(
         <div className={`tableOpener ${themeName}`} style={{ animationDelay: `${index * animationDelayDifference}s` }}>

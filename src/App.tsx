@@ -28,8 +28,8 @@ function App() {
     const dispatch = useDispatch();
     const user = useSelector((state: AppState) => state.user.user);
     const tablesToRender = useSelector((state: AppState) => filterTables({ tables: state.user.user.tables, filterOptions: state.tablesFilter }));    
-    const message = useSelector((state:any) => state.message);
-    const themeName = useSelector((state:any) => state.theme.themeName);
+    const message = useSelector((state: AppState) => state.message);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
     const navigate = useNavigate();
 
     useEffect(() => {

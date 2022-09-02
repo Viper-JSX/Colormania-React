@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { stringToUrl } from "../../api/string_to_url";
-import { TableEditorProps } from "../../typescript/types";
+import { AppState, TableEditorProps } from "../../typescript/types";
 import GoToLinkButton from "../General_reusable_components/Go_to_link_button";
 
 function TableEditor(props: TableEditorProps):JSX.Element{
-    const themeName = useSelector((state: any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
 
     const [ tableName, setTableName ] = useState<string>(():string => {
         if("handleTableCreate" in props){

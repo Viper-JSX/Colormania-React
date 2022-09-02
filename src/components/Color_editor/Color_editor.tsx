@@ -2,14 +2,14 @@ import iro from "@jaames/iro";
 import { useSelector } from "react-redux";
 
 import React, { ChangeEvent, useState } from "react";
-import { ColorEditorProps, OpenColorEditorProps, RGBValue } from "../../typescript/types";
+import { AppState, ColorEditorProps, OpenColorEditorProps, RGBValue } from "../../typescript/types";
 import { hexToRgb } from "../../api/hex_to_rgb";
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { rgbToHex } from "../../api/rgb_to_hex";
 import { stringToUrl } from "../../api/string_to_url";
 
 function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEditorProps):JSX.Element{
-    const themeName = useSelector((state: any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
 
     const location  = useLocation();
     const navigate = useNavigate();

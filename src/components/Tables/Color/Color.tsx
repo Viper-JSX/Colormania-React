@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import styled from "styled-components";
 import { animationDelayDifference } from "../../../app_config/app_config";
-import { ColorProps, RGBValue } from "../../../typescript/types";
+import { AppState, ColorProps, RGBValue } from "../../../typescript/types";
 import ColorInfoLabel from "./Color_info_label";
 
 interface StyledColorProps{
@@ -24,7 +24,7 @@ const StyledColor = styled.div<StyledColorProps>`
 `;
 
 function Color({ tableName, color, index, handleColorDelete } : ColorProps):JSX.Element{
-    const themeName = useSelector((state: any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
 
     return(
         <StyledColor className={`color ${themeName}`} index={index} colorRgbValue={color.rgbValue} style={{ animationDelay: `${index * animationDelayDifference}s` }}>

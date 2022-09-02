@@ -3,7 +3,7 @@ import iro from "@jaames/iro";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { rgbToHex } from "../../../../api/rgb_to_hex";
-import { ColorModels, ColorValueViewerProps, ConvertedColorValue } from "../../../../typescript/types";
+import { AppState, ColorModels, ColorValueViewerProps, ConvertedColorValue } from "../../../../typescript/types";
 
 import ColorValueInfo from "./Color_value_info";
 import ColorValueModelSwitch from "./Color_value_model_switch";
@@ -12,7 +12,7 @@ function ColorValueViewer( { colorRgbValue } : ColorValueViewerProps ){
 
     const [ currentColorModel, setCurrentColorModel ] = useState<ColorModels>("rgb");
     const [ currentColorValue, setCurrentColorValue ] = useState<ConvertedColorValue>(colorRgbValue);
-    const themeName = useSelector((state:any) => state.theme.themeName);
+    const themeName = useSelector((state: AppState) => state.theme.themeName);
 
 
     function handleColorModelChange(colorModel : ColorModels):void{
