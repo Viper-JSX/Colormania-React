@@ -204,6 +204,7 @@ header .appTitle:hover{
     border-radius: 0.5rem;
     opacity: 0;
     position: relative;
+    overflow: hidden;
 
     animation: fadeIn, sizeIncreaseAppear;
     animation-duration: 0.8s;
@@ -211,7 +212,7 @@ header .appTitle:hover{
     animation-fill-mode: forwards;
 }
 
-.openTableCreator:hover .plusSign{
+.openTableCreator:hover .plusSign, .openColorCreator:hover .plusSign{
     color: aqua;
 }
 
@@ -297,9 +298,11 @@ header .appTitle:hover{
     min-width: 180px;
     aspect-ratio: 1/1;
     margin: 0.3rem;
+    border-radius: 0.5rem;
     opacity: 0;
     transition: calc(var(--defaultTransitionTime) / 3);
     transition-timing-function: linear;
+    overflow: hidden;
 
     animation: fadeIn, sizeDecreaseAppear;
     animation-duration: 0.5s;
