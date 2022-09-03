@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import UserClass from "../../classes/User";
 import { AppState } from "../../typescript/types";
 
-require("../../files/images/user.png");
 
 function UserData():JSX.Element{
     const user: UserClass = useSelector((state: AppState) => state.user.user);
