@@ -143,8 +143,14 @@ header .appTitle:hover{
     text-shadow: 0 0 1rem var(--highlightColorForLight);
 }
 
-.filterTools input{
-    
+.filterTools, .tableTools{
+    padding: 1rem;
+}
+
+.filterTools .text, .tableInfo{
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-bottom: var(--standardDarkBorder);
 }
 
 .filterTools .tablesSearchAndFilter{
@@ -293,7 +299,7 @@ header .appTitle:hover{
     flex-direction: column;
 }
 
-.table .tableNameAndLink{
+.table .tableInfo{
     text-align: center;
 }
 
@@ -935,7 +941,7 @@ footer.dark{
     }
 
     .tableOpener{
-        margin: 0.1rem;
+        margin: 0.15rem;
     }
 
     .tableColors{
@@ -944,7 +950,7 @@ footer.dark{
 
     .tableColors .color, .openColorCreator{
         min-width: 280px;
-        margin: 0.1rem
+        margin: 0.15rem
     }
 }
 

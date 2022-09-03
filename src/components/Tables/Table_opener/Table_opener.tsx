@@ -10,9 +10,11 @@ function TableOpener( { table, index, handleTableDelete } : TableOpenerProps ):J
     return(
         <div className={`tableOpener ${themeName}`} style={{ animationDelay: `${index * animationDelayDifference}s` }}>
             <button className="deleteButton deleteTableButton" onClick={() => handleTableDelete({ tableName: table.name })}>X</button>
+            
             <div className={`tableOpenerTitleContainer ${themeName}`}>
                 <b className="tableOpenerTitle">{table.name}</b>
             </div>
+            
             <div className={`tableOpenerColors ${themeName}`}>
                 {
                     table.colors.map((color, index) => <Color color={color} index={index} />)
