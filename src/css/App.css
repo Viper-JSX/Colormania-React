@@ -3,7 +3,7 @@
     --standardLightBorder: 2px solid var(--lightBackground);
     --lightColor: #FFFFFF;
     --darkColor: #000000;
-    --highlightColorForLight: orange;
+    --highlightColorForLight: #cc3333;
     --highlightColorForDark: pink; /*Electric blue*/
 
     --lightBackground: #EEEEEE;
@@ -69,7 +69,7 @@ input{
 
 input:focus{
     outline: none;
-    border-bottom-color: rgb(204, 51, 51);
+    border-bottom-color: var(--highlightColorForLight);
 }
 
 select{
@@ -744,7 +744,7 @@ footer ul > li:hover{
     width: 8rem;
     height: 3rem;
     color: var(--lightColor);
-    background-color: rgb(204, 51, 51) !important; /*'!important' To override theme styling for buttons*/
+    background-color: var(--highlightColorForLight) !important; /*'!important' To override theme styling for buttons*/
     border: none;
     border-radius: 0;
     transition: 0.2s;
@@ -775,7 +775,9 @@ footer ul > li:hover{
     border-color: var(--lightColor);
 }
 
-
+.dark input:focus{
+    border-color: var(--highlightColorForLight);
+}
 
 
 /*---Header---*/
