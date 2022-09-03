@@ -69,7 +69,7 @@ input{
 
 input:focus{
     outline: none;
-    border-bottom-color: var(--hig);
+    border-bottom-color: var(--highlightColorForLight);
 }
 
 select{
