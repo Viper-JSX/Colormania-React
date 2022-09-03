@@ -19,7 +19,7 @@
     --defaultTransitionTime: 0.3s;
     --defaultFont: monospace, arial, sans-serif, serif;
 
-    --plusSignColor: linear-gradient(90deg, red, blue);
+    --plusSignColor: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);    
 }
 
 *{
@@ -79,8 +79,10 @@ button:hover{
 .plusSign{
     color: transparent;
     background: var(--plusSignColor);
+    background-color: var(--darkBackground);
     background-clip: text;
 }
+
 
 /*---App---*/
 
@@ -204,6 +206,10 @@ header .appTitle:hover{
     animation-duration: 0.8s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+}
+
+.openTableCreator:hover .plusSign{
+    color: aqua;
 }
 
 .tableOpener:hover .tableOpenerTitleContainer{
