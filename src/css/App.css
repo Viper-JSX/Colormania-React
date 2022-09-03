@@ -143,21 +143,22 @@ header .appTitle:hover{
     text-shadow: 0 0 1rem var(--highlightColorForLight);
 }
 
-.filterTools, .tableTools{
+.tablesSearchAndFilter, .tableTools{
     display: flex;
+    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
     padding: 1rem;
+}
+
+.tablesSearchAndFilter > *, .tableTools > *{
+    margin: 0.5rem;
 }
 
 .filterTools .text, .tableInfo{
     margin-bottom: 1rem;
     padding: 0.5rem;
     border-bottom: var(--standardDarkBorder);
-}
-
-.filterTools .tablesSearchAndFilter{
-    display: flex;
-    justify-content: space-between;
 }
 
 .filterTools .sortBy, .filterTools .tableSearch{
