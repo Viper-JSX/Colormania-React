@@ -56,7 +56,7 @@ button:hover{
     border-color: var(--darkColor);
 }
 
-input{
+input[type='text']{
     margin: 0.3rem 0 0.3rem 0;
     color: var(--darkColor);
     background-color: transparent;
@@ -67,7 +67,7 @@ input{
     transition: 0.2s;
 }
 
-input:focus{
+input:not[type='text']:focus{
     outline: none;
     border-bottom-color: var(--highlightColorForLight);
 }
@@ -782,12 +782,12 @@ footer ul > li:hover{
 }
 
 /*---General---*/
-.dark input{
+.dark input[type='text']{
     color: var(--lightColor);
     border-color: var(--lightColor);
 }
 
-.dark input:focus{
+.dark input[type='text']:focus{
     border-color: var(--highlightColorForLight);
 }
 
