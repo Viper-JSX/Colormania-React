@@ -69,7 +69,7 @@ input{
 
 input:focus{
     outline: none;
-    border-bottom-color: var(--highlightColorForLight);
+    border-bottom-color: var(--hig);
 }
 
 select{
@@ -215,7 +215,7 @@ header .appTitle:hover{
     min-width: 280px;
     min-height: 280px;
     margin: 0.3rem;
-    background-color: var(--middleDarkBackgound);
+    background-color: var(--paperBackground);
     border: var(--standardDarkBorder);
     border-radius: 0.5rem;
     opacity: 0;
@@ -805,8 +805,9 @@ header .appTitle.dark:hover{
 }
 
 .tableOpener.dark{
-    background-color: var(--paperBackground);
-    border: var(--standardDarkBorder);
+    color: var(--darkColor);
+    background-color: var(--middleDarkBackground);
+    border: var(--standardLightBorder);
 }
 
 
