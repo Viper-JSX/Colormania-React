@@ -8,7 +8,7 @@ function SortBy({ handleTablesSortCriteriaChnage } : SortByProps):JSX.Element{
     return(
         <select className={`sortBy ${themeName}`} value={sortBy} onChange={handleTablesSortCriteriaChnage}>
             <optgroup>
-                <option value="name" disabled selected>Sort by</option>
+                <option disabled>Sort by</option>
                 <option value="name">Name</option>
                 <option value="date">Date</option>
             </optgroup>
