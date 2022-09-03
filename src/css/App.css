@@ -215,6 +215,7 @@ header .appTitle:hover{
     min-width: 280px;
     min-height: 280px;
     margin: 0.3rem;
+    color: var(--darkColor);
     background-color: var(--paperBackground);
     border: var(--standardDarkBorder);
     border-radius: 0.5rem;
@@ -805,7 +806,7 @@ header .appTitle.dark:hover{
 }
 
 .tableOpener.dark{
-    color: var(--darkColor);
+    color: var(--lightColor);
     background-color: var(--middleDarkBackground);
     border: var(--standardLightBorder);
 }
