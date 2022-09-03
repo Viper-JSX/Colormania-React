@@ -99,6 +99,7 @@ select{
     background: var(--plusSignColor);
     background-color: var(--darkBackground);
     background-clip: text;
+    transition: var(--defaultTransitionTime);
 }
 
 
@@ -229,10 +230,6 @@ header .appTitle:hover{
     animation-fill-mode: forwards;
 }
 
-.openTableCreator:hover .plusSign, .openColorCreator .plusSign:hover{
-    color: aqua;
-}
-
 .tableOpener:hover .tableOpenerTitleContainer{
     opacity: 0;
 }
@@ -265,7 +262,6 @@ header .appTitle:hover{
 }
 
 .openTableCreator{
-    background-color: var(--lightBackground);
     font-size: 10rem;
     display: flex;
     justify-content: center;
@@ -274,10 +270,20 @@ header .appTitle:hover{
     transition: calc(var(--defaultTransitionTime) / 3);
 }
 
-.openTableCreator:hover{
-    font-size: 12rem;
+.openTableCreator:hover, .openTableCreator.dark:hover{
     border-width: 0rem;
 }
+
+.openTableCreator, .openColorCreator{
+    background-color: transparent;
+}
+
+.openTableCreator:hover .plusSign, .openColorCreator:hover .plusSign{
+    transform: scale(1.2);
+    color: aqua;
+}
+
+
 
 
 /*---Table---*/
@@ -811,9 +817,8 @@ header .appTitle.dark:hover{
     border: var(--standardLightBorder);
 }
 
-
-.tableOpener:hover .tableOpenerTitleContainer{
-    opacity: 0;
+.openTableCreator.dark{
+    border: var(--standardLightBorder); 
 }
 
 
