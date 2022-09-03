@@ -78,10 +78,6 @@ select{
     font-size: 1.5rem;
 }
 
-.deleteButton{
-    background-color: var(--highlightColorForLight);
-}
-
 .plusSign{
     color: transparent;
     background: var(--plusSignColor);
@@ -761,16 +757,7 @@ footer ul > li:hover{
 
 
 /*---___Dark___---*/
-body *.dark button{
-    color: var(--darkColor);
-    background-color: var(--lightBackground);
-    border-color: var(--darkColor);
-}
 
-body *.dark button:hover{
-    color: var(--lightColor);
-    background-color: var(--darkBackground);
-}
 
 .App.dark{
     color: var(--lightColor);

@@ -253,10 +253,10 @@ function App() {
                 handleTableEdit={handleTableEdit}
                 handleTableDelete={handleTableDelete}
 
-               mode="create"
-               handleAddColorToTable={handleAddColorToTable}
-               handleColorEdit={handleColorEdit}
-               handleColorDelete={handleColorDelete}
+                mode="create"
+                handleAddColorToTable={handleAddColorToTable}
+                handleColorEdit={handleColorEdit}
+                handleColorDelete={handleColorDelete}
 
                 handleLogin={handleLogin}
                 handleRegister={handleRegister}

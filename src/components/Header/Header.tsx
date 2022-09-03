@@ -12,7 +12,7 @@ function Header({ appTitle, handleTablesSortCriteriaChange, handleTablesSearch, 
     
     return(
         <header id="header" className={`${themeName}`}>
-            <AppTitle titleText={appTitle || "ColorMania by Yura Shtefanko"} />
+            <AppTitle titleText={appTitle || "ColorMania"} />
             <ThemeSwitch handleThemeChange={handleThemeChange} />
         </header>
     );
