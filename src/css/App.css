@@ -634,7 +634,35 @@ header .appTitle:hover{
 
 /*---User---*/
 .userProfile{
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.userProfile .userData{
+    margin: 1rem;
+    text-align: center;
+}
+
+.userProfile > .userData > .userImage{
+    width: 5rem;
+    height: 5rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-image: url('../files/images/user.png');
+    background-size: cover;
+    border: var(--standardDarkBorder);
+}
+
+.userProfile .userData > b{
+    padding: 0.5rem;
+    display: inline-block;
+}
+
+.userProfile .userNickname{
+    font-size: 1.4rem;
 }
 
 footer{
@@ -922,8 +950,8 @@ header .appTitle.dark:hover{
 
 
 /*---User---*/
-.userProfile.dark{
-
+.userProfile.dark .userImage{
+    border: var(--standardLightBorder);
 }
 
 
