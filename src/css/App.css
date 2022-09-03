@@ -56,7 +56,7 @@ button:hover{
     border-color: var(--darkColor);
 }
 
-input[type='text']{
+input:not([type='color']){
     margin: 0.3rem 0 0.3rem 0;
     color: var(--darkColor);
     background-color: transparent;
@@ -67,9 +67,13 @@ input[type='text']{
     transition: 0.2s;
 }
 
-input:not[type='text']:focus{
+input:not([type='color']):focus{
     outline: none;
     border-bottom-color: var(--highlightColorForLight);
+}
+
+input:not([type='color']):hover{
+    transition: 1s;
 }
 
 select{
@@ -782,12 +786,12 @@ footer ul > li:hover{
 }
 
 /*---General---*/
-.dark input[type='text']{
+.dark input:not([type='color']){
     color: var(--lightColor);
     border-color: var(--lightColor);
 }
 
-.dark input[type='text']:focus{
+.dark input:not([type='color']):focus{
     border-color: var(--highlightColorForLight);
 }
 
