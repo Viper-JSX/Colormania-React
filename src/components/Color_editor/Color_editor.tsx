@@ -60,7 +60,7 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
 
             {
                 mode === "create" ? 
-                <button className="addColorToTable" onClick={() => handleAddColorToTable({ tableName, colorName, rgbValue: currentColorValue.rgb })} >Add</button>
+                <button className="addColorToTable" onClick={() => handleAddColorToTable({ tableName, colorName, rgbValue: currentColorValue.rgb })} >Create</button>
                 :
                 <button className="addColorToTable" onClick={() => handleColorEdit({ tableName, oldColorName, colorName, rgbValue: currentColorValue.rgb })} >Save</button>
             }
