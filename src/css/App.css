@@ -212,7 +212,7 @@ header .appTitle:hover{
     animation-fill-mode: forwards;
 }
 
-.openTableCreator:hover .plusSign, .openColorCreator:hover .plusSign{
+.openTableCreator:hover .plusSign, .openColorCreator .plusSign:hover{
     color: aqua;
 }
 
