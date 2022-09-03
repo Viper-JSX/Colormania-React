@@ -144,6 +144,8 @@ header .appTitle:hover{
 }
 
 .filterTools, .tableTools{
+    display: flex;
+    align-items: center;
     padding: 1rem;
 }
 
@@ -311,10 +313,6 @@ header .appTitle:hover{
 
 .tableTools .tableName{
     font-size: 1.5rem;
-}
-
-.tableTools input{
-    height: max-content;
 }
 
 .tableColors{
