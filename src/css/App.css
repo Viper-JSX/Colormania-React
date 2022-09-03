@@ -56,6 +56,22 @@ button:hover{
     border-color: var(--darkColor);
 }
 
+input{
+    margin: 0.3rem 0 0.3rem 0;
+    color: var(--darkColor);
+    background-color: transparent;
+    border: none;
+    border-bottom: var(--standardLightBorder);
+    border-color: var(--darkColor);
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+input:focus{
+    outline: none;
+    border-bottom-color: rgb(204, 51, 51);
+}
+
 select{
     color: var(--lightColor);
     background-color: var(--darkBackground);
@@ -126,7 +142,7 @@ header .appTitle:hover{
     text-shadow: 0 0 1rem var(--highlightColorForLight);
 }
 
-.filterTools{
+.filterTools input{
     
 }
 
@@ -168,8 +184,8 @@ header .appTitle:hover{
 
 
 /*---Tables---*/
-.tables{
-    
+.tables input{
+
 }
 
 .tables b.text{
@@ -633,10 +649,6 @@ footer > div > ul{
     list-style: none;
 }
 
-footer > div > b{
-    /*border-bottom: var(--standardDarkBorder);*/
-}
-
 footer .textWithTitle{
     margin-top: 0;
 }
@@ -724,18 +736,8 @@ footer ul > li:hover{
 }
 
 .emailSubscribeInput{
-    margin: 0.3rem 0 0.3rem 0;
-    color: var(--lightBackground);
-    background-color: transparent;
-    border: none;
-    border-bottom: var(--standardLightBorder);
-    font-size: 1rem;
-    transition: 0.2s;
-}
-
-.emailSubscribeInput:focus{
-    outline: none;
-    border-bottom-color: rgb(204, 51, 51);
+    color: var(--lightColor);
+    border-color: var(--lightColor);
 }
 
 .emailSubscribeButton{
@@ -767,6 +769,12 @@ footer ul > li:hover{
     background-color: var(--middleDarkBackgound);
 }
 
+/*---General---*/
+.dark input{
+    color: var(--lightColor);
+    border-color: var(--lightColor);
+}
+
 
 
 
@@ -787,14 +795,6 @@ header .appTitle.dark:hover{
     text-shadow: 0px 0px 1rem var(--highlightColorForDark);
 }
 
-.filterTools.dark .sortBy{
-    
-}
-
-.filterTools.dark .filterTools{
-    
-}
-
 
 
 /*---TableOpener---*/
@@ -810,14 +810,6 @@ header .appTitle.dark:hover{
 
 .tableOpener:hover .tableOpenerTitleContainer{
     opacity: 0;
-}
-
-.tableOpenerTitleContainer.dark{
-    /*background-color: var(--transparentDarkColor);*/
-}
-
-.openTableCreator.dark{
-
 }
 
 
