@@ -20,6 +20,7 @@
     --defaultFont: monospace, arial, sans-serif, serif;
 
     --plusSignColor: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);    
+    --viewportHeightExcludingHeader: calc(100vh - 5rem);
 }
 
 *{
@@ -121,10 +122,8 @@ select:hover{
     background-color: var(--lightBackground);
 }
 
-.layout{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+main{
+    min-height: var(--viewportHeightExcludingHeader);
 }
 
 /*---Header---*/
@@ -178,6 +177,10 @@ header .appTitle:hover{
 /*---HomePage---*/
 .homePage{
     width: 100%;
+    min-height: var(--viewportHeightExcludingHeader);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .homePageNavigation{
@@ -674,14 +677,12 @@ header .appTitle:hover{
 footer{
     width: 100%;
     min-height: 7rem;
-    margin-top: auto;
     padding: 1rem;
     color: var(--lightColor);
     background-color: var(--darkBackground);
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-
 }
 
 footer > div{

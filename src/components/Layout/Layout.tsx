@@ -24,6 +24,7 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
                 appTitle={appTitle}
                 handleThemeChange={handleThemeChange}
             />
+            <main>
                 <Routes>
                     <Route index element={<HomePage />} />
                     <Route path="/tables" element={<Tables tablesToRender={tablesToRender} handleTableDelete={handleTableDelete} handleColorDelete={handleColorDelete} handleTablesSearch={handleTablesSearch} handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} />} >
@@ -47,6 +48,7 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
                     </Route>
                     <Route path="*" element={<b>Page not found</b>} />
                 </Routes>
+            </main>
             <Message />
             <Footer />
         </div>
