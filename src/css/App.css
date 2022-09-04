@@ -973,7 +973,7 @@ footer.dark{
 
 /*---Media_queries---*/
 
-@media screen and (max-width: 570px){
+@media screen and (max-width: 900px){
     .tableOpenersContainer{
         justify-content: center;
     }
