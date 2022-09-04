@@ -4,7 +4,7 @@ import AppTitle from "./App_title";
 import ThemeSwitch from "./Theme_switch";
 
 
-function Header({ appTitle, handleTablesSortCriteriaChange, handleTablesSearch, handleThemeChange } : HeaderProps):JSX.Element{
+function Header({ appTitle, handleThemeChange } : HeaderProps):JSX.Element{
     const themeName = useSelector((state: AppState) => state.theme.themeName);
     
     return(

@@ -6,7 +6,7 @@ import FilterTools from "../Header/Filter_tools/Filter_tools";
 import OpenTableCreator from "../Table_editor/Open_table_creator";
 import TableOpener from "./Table_opener/Table_opener";
 
-function Tables({ tables, handleColorDelete, handleTablesSearch, handleTableDelete, handleTablesSortCriteriaChange, } : TablesProps):JSX.Element{
+function Tables({ tablesToRender, handleColorDelete, handleTablesSearch, handleTableDelete, handleTablesSortCriteriaChange, } : TablesProps):JSX.Element{
     const userTables = useSelector((state: AppState) => state.user.user.tables);
     const themeName = useSelector((state: AppState) => state.theme.themeName);
 
@@ -16,8 +16,8 @@ function Tables({ tables, handleColorDelete, handleTablesSearch, handleTableDele
 
             <div className={`tableOpenersContainer ${themeName}`}>
                 {
-                    tables.length > 0 ?
-                    tables.map((table, index) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} index={index} handleTableDelete={handleTableDelete} /></NavLink> )
+                    tablesToRender.length > 0 ?
+                    tablesToRender.map((table, index) => <NavLink to={stringToUrl(table.name)}><TableOpener table={table} index={index} handleTableDelete={handleTableDelete} /></NavLink> )
                     :
                     (
                         userTables.length === 0 ?
@@ -26,7 +26,7 @@ function Tables({ tables, handleColorDelete, handleTablesSearch, handleTableDele
                         <b className="message -noResultsFound">No results found</b>
                     )
                 }
-                <OpenTableCreator index={tables.length - 1} />
+                <OpenTableCreator index={tablesToRender.length - 1} />
             </div>
             
         </div>

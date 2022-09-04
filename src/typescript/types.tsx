@@ -20,6 +20,7 @@ export type AppState = {user: UserState, tablesFilter: TableFilterState, theme: 
 
 
 export type LayoutProps = { tablesToRender: TableClass[] } & 
+    TablesProps &
     HeaderProps & 
     ColorEditorProps & 
     {handleColorDelete:  HandleColorDeleteFunc} & 
@@ -39,15 +40,15 @@ export type LayoutProps = { tablesToRender: TableClass[] } &
 
 export type HeaderProps = {
     appTitle?: string;
-} & ThemeSwitchProps & FilterToolsProps;
+} & ThemeSwitchProps;
 
 export type FilterToolsProps = {
     handleTablesSortCriteriaChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     handleTablesSearch?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export type SortByProps = { handleTablesSortCriteriaChnage: HeaderProps['handleTablesSortCriteriaChange'] };
-export type TableSearchProps = { handleTablesSearch: HeaderProps["handleTablesSearch"]; }
+export type SortByProps = { handleTablesSortCriteriaChnage: FilterToolsProps['handleTablesSortCriteriaChange'] };
+export type TableSearchProps = { handleTablesSearch: FilterToolsProps["handleTablesSearch"]; }
 export type SearchProps = { value: string, placeholder: string;  handler: (event: React.ChangeEvent<HTMLInputElement>) => void; }
 
 
@@ -147,7 +148,7 @@ type HandleColorDeleteFunc = ({ tableName, colorName } : TableNameColorName) => 
 
 //--------------------------Table---------------------------//
 export type TablesProps = {
-    tables: TableClass[], 
+    tablesToRender: TableClass[], 
     
     handleColorDelete: HandleColorDeleteFunc, 
 } & FilterToolsProps & DeleteTableButtonProps;

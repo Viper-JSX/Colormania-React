@@ -22,13 +22,11 @@ function Layout({ appTitle, tablesToRender, handleTablesSortCriteriaChange, hand
         <div className="layout">
             <Header 
                 appTitle={appTitle}
-                handleTablesSortCriteriaChange={handleTablesSortCriteriaChange}
-                handleTablesSearch={handleTablesSearch}
                 handleThemeChange={handleThemeChange}
             />
                 <Routes>
                     <Route index element={<HomePage />} />
-                    <Route path="/tables" element={<Tables tables={tablesToRender} handleTableDelete={handleTableDelete} handleColorDelete={handleColorDelete} handleTablesSearch={handleTablesSearch} handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} />} >
+                    <Route path="/tables" element={<Tables tablesToRender={tablesToRender} handleTableDelete={handleTableDelete} handleColorDelete={handleColorDelete} handleTablesSearch={handleTablesSearch} handleTablesSortCriteriaChange={handleTablesSortCriteriaChange} />} >
                         <Route path="create" element></Route>
                     </Route>
                     {
