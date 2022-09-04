@@ -700,7 +700,6 @@ header .appTitle:hover{
 footer{
     width: 100%;
     min-height: 7rem;
-    padding: 1rem;
     color: var(--lightColor);
     background-color: var(--darkBackground);
     display: flex;
@@ -708,13 +707,11 @@ footer{
     flex-wrap: wrap;
 }
 
-footer > div{
+footer > div:not(.copyright){
     width: 20%;
     min-width: 200px;
     max-width: max-content;
-    margin: 1rem;
-    /*border: var(--standardDarkBorder);*/
-    aspect-ratio: 1/1;
+    margin: 1.5rem;
 }
 
 footer > div > ul{
@@ -829,7 +826,22 @@ footer ul > li:hover{
     opacity: 0.7;
 }
 
+.copyright{
+    margin: 0;
+    padding: 1rem;
+    flex-basis: 100%;
+    text-align: center;
+    background-color: black;
+}
 
+.copyrightText{
+    transition: calc(var(--defaultTransitionTime) / 2);
+}
+
+.copyright:hover > .copyrightText{
+    color: var(--highlightColorForLight);
+    text-shadow: 0 0 0.5rem var(--highlightColorForLight);
+}
 
 
 
