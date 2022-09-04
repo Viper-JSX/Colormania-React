@@ -26,26 +26,19 @@ function tablesFilter(state:TableFilterState = { sortBy: "name", searchTerm: ""}
 function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGuestUserFromLocaleStorage()! : new UserClass("stranger", "", "")  , forceUpdate: {} }, action: ActionType ):UserState{
     switch(action.type){
         case LOGIN:{
-            console.log("Login")
             let userFound = false;
 
             for(let i = 0; i < users.length; i++){
                 if(users[i].login === action.payload.login && users[i].password === action.payload.password){
                     userFound = true;
-                    console.log("Found");
                     return { user: users[i], forceUpdate: {} };
                 }
-            }
-            if(!userFound){
-                console.log("Not Found");
             }
 
             return state;
         } 
 
         case REGISTER:{
-            //console.log("registering");
-            console.log(action)
             const newUser = new UserClass(action.payload.nickname, action.payload.login, action.payload.password);
             newUser.tables = state.user.tables;
             users.push(newUser);
@@ -91,7 +84,6 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
             for(let i = 0; i < state.user.tables.length; i++){
                 if(state.user.tables[i].name.toLowerCase() === action.payload.tableName.toLowerCase() && state.user.tables[i].name !== action.payload.oldTableName ){
                     tableAlreadyExists = true;
-                    console.log("already exists");
                     break;
                 }
             }
@@ -128,7 +120,6 @@ function user(state: UserState = { user: getGuestUserFromLocaleStorage() ? getGu
                     for(let j = 0; j < state.user.tables[i].colors.length; j++){
                         if(state.user.tables[i].colors[j].name.toLowerCase() === action.payload.color.name.toLowerCase()){
                             colorAlreadyExistsInsideCurrentTable = true;
-                            console.log("Color already exists")
                             break;
                         }
                     }

@@ -6,7 +6,6 @@ import Color from "../Color/Color";
 
 function TableOpener( { table, index, handleTableDelete } : TableOpenerProps ):JSX.Element{
     const themeName = useSelector((state: AppState) => state.theme.themeName);
-    console.log(themeName)
     return(
         <div className={`tableOpener ${themeName}`} style={{ animationDelay: `${index * animationDelayDifference}s` }}>
             <button className="deleteButton deleteTableButton" onClick={() => handleTableDelete({ tableName: table.name })}>X</button>

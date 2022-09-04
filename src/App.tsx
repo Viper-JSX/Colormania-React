@@ -40,7 +40,6 @@ function App() {
 
     function showMessage(messageText: string){
         if(message.messageText){
-            console.log(message)
             return;
         }
 
@@ -49,7 +48,6 @@ function App() {
 
     function handleTablesSortCriteriaChnage(event: React.ChangeEvent<HTMLSelectElement>){
         if(event.target.value === "name" || event.target.value === "date"){
-            console.log("in handlerdd", event.target)
             dispatch(changeTablesSortCriteria({ sortCriteria: event.target.value }));
         }
     }
@@ -126,7 +124,6 @@ function App() {
                 for(let j = 0; j < user.tables[i].colors.length; j++){
                     if(user.tables[i].colors[j].name.toLowerCase() === colorName){
                     colorAlreadyExists = true;  
-                    console.log("Exists");
                     break;  
                     }
                 }
@@ -135,7 +132,6 @@ function App() {
         }
     
         if(colorAlreadyExists){
-            console.log("not Exists");
             showMessage(`Color '${colorName}' already exists inside this table`);
             return;
         }
@@ -149,14 +145,12 @@ function App() {
         let colorAlreadyExists = false;
 
         if(!colorName){
-            console.log(" not edit", colorName);
             showMessage("Color must have a name");
             return;
         }
 
         if(oldColorName.toLowerCase() !== colorName.toLowerCase()){ //Color name has been changed
             for(let i = 0; i < user.tables.length; i++){
-                console.log("Exists");
                 if(user.tables[i].name.toLowerCase() === tableName.toLowerCase()){
                     for(let j = 0; j < user.tables[i].colors.length; j++){
                         if(user.tables[i].colors[j].name.toLowerCase() === colorName.toLowerCase()){
@@ -220,7 +214,6 @@ function App() {
             dispatch(setMessage({ messageText: `Password '${password}' is invalalid, password must be at least 8 characters long and contain numbers` }));
         }
         else{
-            console.log("Unknown message");
             dispatch(setMessage({ messageText: `Unknown message` }));
         }
     }

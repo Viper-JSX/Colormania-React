@@ -626,7 +626,7 @@ header .appTitle:hover{
 }
 
 .messageWindow:before{
-    content: '<b>Message</b>';
+    content: "Message";
     width: 100%;
     height: 20%;
     background-color: var(--darkBackground);

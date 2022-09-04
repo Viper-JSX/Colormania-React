@@ -33,7 +33,6 @@ export function login(payload: UserLoginPayload):any{
         for(let i = 0; i < users.length; i++){
             if(users[i].login === payload.login.toLowerCase() && users[i].password === payload.password.toLowerCase()){
                 dispatch({ type: LOGIN, payload: { login: payload.login, password: payload.password } });
-                console.log("Logging in...");
                 return;
             }   
         }
@@ -48,7 +47,6 @@ export function register(payload: UserRegisterPayload):any{
                 lowerCasedPayload.login = payload.login.toLowerCase();
                 lowerCasedPayload.password = payload.password.toLowerCase();
 
-                console.log(lowerCasedPayload)
                 dispatch({ type: REGISTER, payload: lowerCasedPayload });
             }
 }
