@@ -524,6 +524,7 @@ header .appTitle:hover{
 
 .colorEditor .colorPreview:before{
     content: "Preview";
+    color: var(--lightColor);
     padding: 0.2rem;
     background-color: var(--transparentDarkColor);
     border-radius: 0.5rem;
