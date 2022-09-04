@@ -7,6 +7,7 @@ function ThemeSwitch({ handleThemeChange } : ThemeSwitchProps):JSX.Element{
 
     return(
         <select value={themeName} onChange={handleThemeChange}>
+            <option disabled>Theme</option>
             {
                 themeConfig.avaliableThemes.map((theme) => <option value={theme.toLowerCase()}>{theme.toUpperCase()}</option>)
             }

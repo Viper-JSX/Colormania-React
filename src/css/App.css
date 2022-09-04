@@ -80,6 +80,11 @@ select{
     color: var(--lightColor);
     background-color: var(--darkBackground);
     border-radius: 0.3rem;
+    transition: calc(var(--defaultTransitionTime) / 3);
+}
+
+select:hover{
+    color: var(--highlightColorForLight);
 }
 
 .navigationLink{
