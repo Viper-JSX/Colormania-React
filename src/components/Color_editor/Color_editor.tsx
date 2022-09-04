@@ -1,10 +1,9 @@
-import iro from "@jaames/iro";
 import { useSelector } from "react-redux";
 
 import React, { ChangeEvent, useState } from "react";
 import { AppState, ColorEditorProps, OpenColorEditorProps, RGBValue } from "../../typescript/types";
 import { hexToRgb } from "../../api/hex_to_rgb";
-import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { rgbToHex } from "../../api/rgb_to_hex";
 import { stringToUrl } from "../../api/string_to_url";
 import GoToLinkButton from "../General_reusable_components/Go_to_link_button";
@@ -13,7 +12,6 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
     const themeName = useSelector((state: AppState) => state.theme.themeName);
 
     const location  = useLocation();
-    const navigate = useNavigate();
     const state = location.state as any;
 
     const tableName:string = state.tableName;
@@ -60,9 +58,9 @@ function ColorEditor({ mode, handleAddColorToTable, handleColorEdit} : ColorEdit
 
             {
                 mode === "create" ? 
-                <button className="addColorToTable" onClick={() => handleAddColorToTable({ tableName, colorName, rgbValue: currentColorValue.rgb })} >Create</button>
+                <button className="addColorToTableButton" onClick={() => handleAddColorToTable({ tableName, colorName, rgbValue: currentColorValue.rgb })} >Create</button>
                 :
-                <button className="addColorToTable" onClick={() => handleColorEdit({ tableName, oldColorName, colorName, rgbValue: currentColorValue.rgb })} >Save</button>
+                <button className="saveColorChangesButton" onClick={() => handleColorEdit({ tableName, oldColorName, colorName, rgbValue: currentColorValue.rgb })} >Save</button>
             }
         </div>
     );

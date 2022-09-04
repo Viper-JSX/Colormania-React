@@ -499,7 +499,8 @@ header .appTitle:hover{
     font-family: monospace;
 }
 
-.addColorToTable{
+.addColorToTableButton, .saveColorChangesButton{
+    margin-right: 2rem;
     align-self: end;
 }
 
