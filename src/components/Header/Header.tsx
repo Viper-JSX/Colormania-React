@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-//import { AppState, HeaderProps } from "../../typescript/types";
 import { AppState, HeaderProps } from "../../typescript/types";
 import AppTitle from "./App_title";
 import ThemeSwitch from "./Theme_switch";
