@@ -3,7 +3,11 @@ import ColorClass from "../classes/Color";
 import TableClass from "../classes/Table";
 import UserClass from "../classes/User";
 
-/*---App_state---*/
+
+
+
+
+/*----------------App_state--------------------*/
 
 export type UserState = { user: UserClass, forceUpdate: any };
 export type TableFilterState = {
@@ -27,7 +31,12 @@ export type LayoutProps = { tablesToRender: TableClass[] } &
     ThemeSwitchProps;
 
 
-//-----------------Header-----------------
+
+
+
+
+//-----------------Header-----------------//
+
 export type HeaderProps = {
     appTitle?: string;
 } & ThemeSwitchProps & FilterToolsProps;
@@ -38,13 +47,16 @@ export type FilterToolsProps = {
 };
 
 export type SortByProps = { handleTablesSortCriteriaChnage: HeaderProps['handleTablesSortCriteriaChange'] };
-
-
 export type TableSearchProps = { handleTablesSearch: HeaderProps["handleTablesSearch"]; }
-
 export type SearchProps = { value: string, placeholder: string;  handler: (event: React.ChangeEvent<HTMLInputElement>) => void; }
 
+
+
+
+
+
 //-----------------------Color_editor-------------------------------//
+
 export type ColorEditorProps = { 
     mode: "create" | "edit";
     handleAddColorToTable: (params: AddColorToTableParams) => void;
@@ -54,7 +66,13 @@ export type ColorEditorProps = {
 export type OpenColorEditorProps = { tableName: string, colorToEdit: { oldColorName: string, rgbValue: RGBValue } };
 
 
+
+
+
+
 //-------------------------User_class-------------------------------//
+
+
 
 
 
@@ -63,8 +81,11 @@ export type OpenColorEditorProps = { tableName: string, colorToEdit: { oldColorN
 
 
 
+
+
 //-------------Color_class----------------------------//
 
+export type ConvertedColorValue = RGBValue | HSLValue | HEXValue;
 export type HEXValue = { hex: string };//"#" + string
 
 export type RGBValue = {
@@ -79,16 +100,13 @@ export type HSLValue = {
     l: number;
 }
 
-export type ConvertedColorValue = RGBValue | HSLValue | HEXValue;
-
-//export type ColorEditParams = { oldColorName: string, name: string, rgbValue: RGBValue};
-
 
 
 
 
 //--------------------Redux--------------------------//
-//Tables filter//
+//---Tables filter---//
+
 export type ActionType = {
     type: string;
     payload?: any;
@@ -99,8 +117,10 @@ export type ChangeTablesSearcTermhPayload = { searchTerm: string };
 
 export type FilterTablesParams = { tables: TableClass[], filterOptions: TableFilterState, order?: "small-big" | "big-small" };
 
-//User//
-export type UserLoginPayload = { login: string,  password: string, /*tablesToFilter: TableClass[]*/ };
+
+//---User---//
+
+export type UserLoginPayload = { login: string,  password: string };
 export type UserRegisterPayload =  { nickname: string } & UserLoginPayload;
 
 export type CreateTablePayload = { tableName: string }; //tablesToEdit must be passed each time to run filter on new list of tables so that filtered tables are up to date
@@ -113,9 +133,15 @@ export type DeleteColorFromTablePayload = { tableName: string, colorName: string
 
 
 
+
+
 //---------------------Handlers--------------------------//
 export type AddColorToTableParams = { tableName: string, colorName: string, rgbValue: RGBValue };
 export type EditColorParams = AddColorToTableParams & { oldColorName: string };
+export type HandleTableEditParams = { oldTableName: string, tableName: string};
+type HandleColorDeleteFunc = ({ tableName, colorName } : TableNameColorName) => void;
+
+
 
 
 
@@ -127,7 +153,6 @@ export type TablesProps = {
 } & FilterToolsProps & DeleteTableButtonProps;
 
 export type TableProps = { table: TableClass, handleColorDelete: HandleColorDeleteFunc };
-
 export type TableOpenerProps = {table: TableClass, index: number} & DeleteTableButtonProps;
 export type TableToolsProps = { colorSearchTerm: string, handleSearchTermChange: (event: React.ChangeEvent<HTMLInputElement>) => void }
 export type TableColorsProps = { tableName: string, table: TableClass, colorsToRender: ColorClass[], handleColorDelete: HandleColorDeleteFunc };
@@ -145,41 +170,46 @@ export type TableEditorSubtypeProps = {
     handleTableEdit: ({ oldTableName, tableName} : HandleTableEditParams) => void,
 }
 
-export type HandleTableEditParams = { oldTableName: string, tableName: string};
-
 export type DeleteTableButtonProps = {handleTableDelete: ({ tableName } : { tableName: string }) => void}
 
+
+
+
+
 //----------------------------Color--------------------------//
-//export type ColorEditorLocationState = { tableName: string, oldColorName?: string, colorToEdit?: OpenColorEditorProps["colorToEdit"] };
+
 type TableNameColorName = { tableName: string, colorName: string };
-type HandleColorDeleteFunc = ({ tableName, colorName } : TableNameColorName) => void;
 
 export type ColorModels = "rgb" | "hsl" | "hex";
-//export type ColorProps = { tableName: string, color: ColorClass, handleColorDelete: HandleColorDeleteFunc } 
 export type ColorProps = { tableName?: string, color: ColorClass, index: number, handleColorDelete?: HandleColorDeleteFunc };
 export type ColorValueViewerProps = { colorRgbValue: RGBValue };
 export type ColorValueModelSwitchProps = { currentColorModel: ColorModels, handleColorModelChange : (colorModel : ColorModels) => void  }
 export type ColorValueInfoProps = { currentColorModel: ColorModels, currentColorValue: ConvertedColorValue };
 
 export type ColorInfoLabelProps = { tableName: string, color: ColorClass, handleColorDelete: HandleColorDeleteFunc };
-
 export type DeleteColorButtonProps = { tableName: string, colorName: string, handleColorDelete: HandleColorDeleteFunc }
 
 
 
 
+
 //-----------------------------User------------------------------------//
+
 export type UserProfileProps = { handleLogout: () => void };
 
+export type AuthorizationFormProps = LoginProps & RegisterProps;
 export type LoginData = { event: React.MouseEvent, login: string, password: string};
 export type RegisterData = { nickname: string } & LoginData;
-
-export type AuthorizationFormProps = LoginProps & RegisterProps;
 export type LoginProps = { handleLogin: ({ event, login, password } : LoginData) => void };
 export type RegisterProps = { handleRegister: ({ event, nickname, login, password } : RegisterData) => void };
 
 
+
+
+
+
 //------------------------Theme-------------------------------//
+
 export type AvaliableThemes = "light" | "dark";
 export type ChangeThemePayload = { themeName: AvaliableThemes };
 export type ThemeSwitchProps = { handleThemeChange: ( event: React.ChangeEvent<HTMLSelectElement> ) => void };
