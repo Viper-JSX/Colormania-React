@@ -9,7 +9,7 @@ function ThemeSwitch({ handleThemeChange } : ThemeSwitchProps):JSX.Element{
         <select value={themeName} onChange={handleThemeChange}>
             <option disabled>Theme</option>
             {
-                themeConfig.avaliableThemes.map((theme) => <option value={theme.toLowerCase()}>{theme.toUpperCase()}</option>)
+                themeConfig.avaliableThemes.map((theme) => <option value={theme.toLowerCase()} key={`${theme}_theme`}>{theme.toUpperCase()}</option>)
             }
         </select>
     );

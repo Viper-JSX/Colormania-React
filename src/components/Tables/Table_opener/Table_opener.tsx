@@ -16,7 +16,7 @@ function TableOpener( { table, index, handleTableDelete } : TableOpenerProps ):J
             
             <div className={`tableOpenerColors ${themeName}`}>
                 {
-                    table.colors.map((color, index) => <Color color={color} index={index} />)
+                    table.colors.map((color, index) => <Color color={color} index={index} key={`${color.name.toLowerCase()}_${table.name.toLowerCase()}_table_opener_color`} />)
                 }
             </div>
         </div>

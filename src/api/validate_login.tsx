@@ -8,7 +8,7 @@ export function validateLogin(login: string):boolean{
     }
 
     for(let i = 0; i < users.length; i++){
-        if(users[i].login === login.toLocaleLowerCase()){
+        if(users[i].login === login.toLowerCase()){
             isValid = false;
             break;
         }
