@@ -699,7 +699,7 @@ header .appTitle:hover{
 
 footer{
     width: 100%;
-    min-height: 7rem;
+    min-height: 50vh;
     color: var(--lightColor);
     background-color: var(--darkBackground);
     display: flex;
@@ -711,6 +711,7 @@ footer > div:not(.copyright){
     width: 20%;
     min-width: 200px;
     max-width: max-content;
+    min-height: 150px;
     margin: 1.5rem;
 }
 
@@ -827,11 +828,12 @@ footer ul > li:hover{
 }
 
 .copyright{
+    width: 100%;
     margin: 0;
     padding: 1rem;
-    flex-basis: 100%;
     text-align: center;
     background-color: black;
+    margin-top: auto
 }
 
 .copyrightText{
@@ -1038,6 +1040,11 @@ footer.dark{
     }
 }
 
+@media screen and (max-width: 620px){
+    footer{
+        min-height: 100vh;
+    }
+}
 
 
 /*---Key-frames---*/
