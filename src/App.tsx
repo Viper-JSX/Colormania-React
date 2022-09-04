@@ -69,6 +69,7 @@ function App() {
 
         if(tableAlreadyExists){
             showMessage("Table with such name already exists");
+            return;
         }
 
         dispatch(createTable({ tableName }));

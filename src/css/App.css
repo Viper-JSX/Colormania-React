@@ -507,11 +507,22 @@ header .appTitle:hover{
     font-family: monospace;
 }
 
+.colorEditor .colorPreview{
+    width: 20%;
+    min-width: 200px;
+    aspect-ratio: 1/1;
+    border: var(--standardDarkBorder);
+    transition: border calc(var(--defaultTransitionTime) / 5);
+}
+
+.colorEditor .colorPreview:hover{
+    border-width: 0rem;
+}
+
 .addColorToTableButton, .saveColorChangesButton{
     margin-right: 2rem;
     align-self: end;
 }
-
 
 /*---Authorization---*/
 .authorizationFormWrapper, .tableEditorWrapper{
@@ -947,6 +958,17 @@ header .appTitle.dark:hover{
 }
 
 
+
+
+
+/*---Color editor---*/
+.colorEditor.dark .colorPreview{
+    border: var(--standardLightBorder);
+}
+
+.colorEditor.dark .colorPreview:hover{
+    border-width: 0rem;
+}
 
 
 /*---Message---*/
