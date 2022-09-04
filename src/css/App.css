@@ -780,8 +780,8 @@ footer ul > li:hover{
 }
 
 .emailSubscribeInput{
-    color: var(--lightColor);
-    border-color: var(--lightColor);
+    color: var(--lightColor) !important; /*To overwrite theme class*/
+    border-color: var(--lightColor) !important; /*To overwrite theme class*/
 }
 
 .emailSubscribeButton{
