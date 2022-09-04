@@ -17,7 +17,7 @@ function Footer():JSX.Element{
             <Support />
             <ColorMania />
             <EmailSubscribe />
-            <Copyright copyrightText="Copyright by Viper_JSX 2022" />
+            <Copyright copyrightText=" &copy; Copyright by Viper_JSX 2022" />
         </footer>
     );
 }
