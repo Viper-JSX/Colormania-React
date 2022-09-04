@@ -730,7 +730,7 @@ footer .textWithTitle .title{
     color: transparent;
     background: linear-gradient(90deg, #D4145A, #FBB03B);
     background-clip: text;
-    font-size: 1.3rem
+    font-size: 1.5rem;
 }
 
 footer .textWithTitle .text{
