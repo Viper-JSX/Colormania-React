@@ -1,8 +1,5 @@
 import { AnyAction } from "redux";
 import { ThunkDispatch } from "redux-thunk";
-import { checkNicknameExistance } from "../api/check_nickname_existance";
-import { validateLogin } from "../api/validate_login";
-import { validatePassword } from "../api/validate_password";
 import { messageShowTime } from "../app_config/app_config";
 import { AddColorToTablePayload, ChangeTablesSearcTermhPayload, ChangeTablesSortCriteriaPayload, CreateTablePayload, DeleteColorFromTablePayload, DeleteTablePayload, EditColorInsideTablePayload, EditTablePayload, UserLoginPayload, UserRegisterPayload } from "../typescript/types";
 import { users } from "../various_things/users";
