@@ -20,4 +20,5 @@ This app represents a color picker where you can create and edit colors. There a
 * TypeScript
 
 # How to run
-Open the app in your code editor and enter 'npn-start' and app will open in your default browser
+* Open the link: https://colormania-by-viper-jsx.netlify.app
+* Or open the app in your code editor and enter 'npn-start' and app will open in your default browser
